@@ -34,7 +34,7 @@ class NoiseScheduler:
         if timestep > 0:
             overlayed_array = noise_sample[0].clone()
         else:
-            overlayed_array = 0
+            overlayed_array = torch.tensor(0)
 
         for _ in range(timestep - 1):
             overlayed_array += noise_sample[np.random.randint(0, n_events, size=1)[0]]
