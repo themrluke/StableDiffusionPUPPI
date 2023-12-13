@@ -3,17 +3,19 @@ import torch
 import numpy as np
 from diffusers import DDPMScheduler
 from dataclasses import dataclass
+import time
 
 @dataclass
 class NoiseScheduler:
     noise_type: str  # 'gaussian' or 'pile-up'
 
     def add_noise(self, clean_frame: torch.Tensor, timestep: int, noise_sample: torch.Tensor, 
-                  random_seed: int, n_events: int) -> Tuple[torch.Tensor, torch.Tensor]:
+                  n_events: int, **kwargs) -> Tuple[torch.Tensor, torch.Tensor]:
+        seed_value = kwargs.get('random_seed', int(time.time()))
         if self.noise_type == 'gaussian':
             return self.add_gaussian_noise(clean_frame, timestep)
         elif self.noise_type == 'pile-up':
-            return self.add_pile_up_noise(clean_frame, noise_sample, timestep, random_seed, n_events)
+            return self.add_pile_up_noise(clean_frame, noise_sample, timestep, n_events, random_seed = seed_value)
         else:
             raise ValueError(f"Unsupported noise type: {self.noise_type}")
 
@@ -27,8 +29,8 @@ class NoiseScheduler:
 
     @staticmethod
     def add_pile_up_noise(clean_frame: torch.Tensor, noise_sample: torch.Tensor, 
-                          timestep: int, random_seed: int, n_events: int) -> Tuple[torch.Tensor, torch.Tensor]:
-        seed_value = random_seed
+                          timestep: int, n_events: int, **kwargs) -> Tuple[torch.Tensor, torch.Tensor]:
+        seed_value = kwargs.get('random_seed', int(time.time()))
         np.random.seed(seed_value)
 
         if timestep > 0:
