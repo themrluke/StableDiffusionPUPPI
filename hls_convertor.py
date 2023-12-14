@@ -1,24 +1,16 @@
-from tensorflow import keras
 import hls4ml
-from argparse import ArgumentParser, ArgumentDefaultsHelpFormatter
 import os
-import yaml
-from qkeras.utils import _add_supported_quantized_objects
-from tensorflow.keras.models import load_model
 import textwrap
 import subprocess
 import sys
 import torch
 from models import UNetLite
-import numpy as np
-import pickle
-import tensorflow as tf  
 
-def load_qkeras_model(path):
-  qkeras_layers = {}
-  _add_supported_quantized_objects(qkeras_layers)
-  keras_model = load_model(path, custom_objects=qkeras_layers)
-  return keras_model
+# def load_qkeras_model(path):
+#   qkeras_layers = {}
+#   _add_supported_quantized_objects(qkeras_layers)
+#   keras_model = load_model(path, custom_objects=qkeras_layers)
+#   return keras_model
 
 def load_pytorch_model(path):
   model = UNetLite()
@@ -116,15 +108,19 @@ def hls4ml_converter(params, outdir, bw):
 
 def main():
 
-    params = {'model_path': 'trained_models/model', 
-              'clock_freq': 360, 
+    params = {'model_path': 'trained_models_lite/model_epoch_5.pt', 
+              'clock_freq':  360, 
               'part':       'xcvu9p-flga2577-2-e'}
 
     outdir = f"{os.getcwd()}/hls_converted"
     os.makedirs(outdir, exist_ok=True)
+    print('Outdir created')
     vivado_setup(outdir)
+    print('Vivado setup done')
     hls_model = hls4ml_converter(params, outdir)
-    hls_model.build(csim=False, synth=True, cosim=False, export=False)
+    print('HLS converted')
+    #hls_model.build(csim=False, synth=True, cosim=False, export=False)
+    print('Build done')
 
     if params['read_vivado']:
         hls4ml.report.read_vivado_report(outdir)
