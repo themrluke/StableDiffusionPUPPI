@@ -19,6 +19,12 @@ def load_qkeras_model(path):
   keras_model = load_model(path, custom_objects=qkeras_layers)
   return keras_model
 
+def load_pytorch_model(path):
+  qkeras_layers = {}
+  _add_supported_quantized_objects(qkeras_layers)
+  keras_model = load_model(path, custom_objects=qkeras_layers)
+  return keras_model
+
 
 def make_executable(path):
     """Make a local file executable."""
@@ -67,30 +73,33 @@ def vivado_setup(outdir):
       csim = synth = cosim = validation = export = vsynth = reset =1
     #   os.system(f"cd {outdir} && vivado_hls -f build_prj.tcl reset={reset} validation={validation} export={export} csim={csim} synth={synth} cosim={cosim}  export=True vsynth={vsynth}")
 
-def hls4ml_converter(params, outdir):
-    model = load_qkeras_model('{modelPath}/{modelType}'.format(modelPath=params['model_path'].strip('.h5'), modelType=params['model'] ) )
+def hls4ml_converter(params, outdir, bw):
+    model = load_pytorch_model(params['model_path'])       
 
     hls4ml.model.optimizer.OutputRoundingSaturationMode.layers = ['Activation']
     hls4ml.model.optimizer.OutputRoundingSaturationMode.rounding_mode = 'AP_RND'
     hls4ml.model.optimizer.OutputRoundingSaturationMode.saturation_mode = 'AP_SAT'
 
-    config = hls4ml.utils.config_from_keras_model(model, granularity='name')
+    config = hls4ml.utils.config_from_pytorch_model(model, granularity='name')
 
-    for l in config['LayerName']:
-        config['LayerName'][l]['Strategy'] = 'Latency'
-
-    # Examples of how to set number of bits for the model and specific layers
-    # config['Model']['Precision'] = f'ap_fixed<16,6>'
-    # config['LayerName']['sigmoid']['Precision'] = 'ap_fixed<16,1>'
-    # config['LayerName']['sigmoid']['table_t'] = 'ap_fixed<64,1>'
-
+    config['LayerName']['sigmoid']['Precision'] = 'ap_fixed<16,1>'
+    config['LayerName']['sigmoid']['table_t'] = 'ap_fixed<64,1>'
     print("-----------------------------------")
     print("Configuration")
     print(config)
     print("-----------------------------------")
     print(config['Model'])
 
-    hls_model = hls4ml.converters.convert_from_keras_model(model,
+    for l in config['LayerName']:
+        config['LayerName'][l]['Strategy'] = 'Latency'
+        config['LayerName'][l]['Trace'] = True
+    #config['LayerName']['input_1']['Precision'] = f'ap_fixed<{bw}>'
+    #config['LayerName']['max_pooling2d']['Precision'] = f'ap_fixed<{bw}>'
+    #config['LayerName']['max_pooling2d_1']['Precision'] = f'ap_fixed<{bw}>'
+    
+    
+    
+    hls_model = hls4ml.converters.convert_from_pytorch_model(model,
                                                            hls_config=config,   
                                                            output_dir=outdir,    
                                                            clock_period=1000./params['clock_freq'], 
@@ -98,11 +107,16 @@ def hls4ml_converter(params, outdir):
                                                            io_type='io_stream')     
     
     hls_model.compile()
-    return hls_model
+    return model, hls_model
+
 
 def main():
-    params = yaml.safe_load(open('params.yaml'))['hls_convertor']
-    outdir = f"{os.getcwd()}/{params['directory']}"
+
+    params = {'model_path': 'trained_models/model', 
+              'clock_freq': 360, 
+              'part':       'xcvu9p-flga2577-2-e'}
+
+    outdir = f"{os.getcwd()}/hls_converted"
     os.makedirs(outdir, exist_ok=True)
     vivado_setup(outdir)
     hls_model = hls4ml_converter(params, outdir)
