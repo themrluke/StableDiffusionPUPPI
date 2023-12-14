@@ -8,7 +8,8 @@ from tensorflow.keras.models import load_model
 import textwrap
 import subprocess
 import sys
-
+import torch
+from models import UNetLite
 import numpy as np
 import pickle
 import tensorflow as tf  
@@ -20,10 +21,13 @@ def load_qkeras_model(path):
   return keras_model
 
 def load_pytorch_model(path):
-  qkeras_layers = {}
-  _add_supported_quantized_objects(qkeras_layers)
-  keras_model = load_model(path, custom_objects=qkeras_layers)
-  return keras_model
+  model = UNetLite()
+#   pytorch_layers = {}
+#   _add_supported_quantized_objects(pytorch_layers)
+  checkpoint = torch.load(path)
+  model.load_state_dict(checkpoint)
+
+  return model
 
 
 def make_executable(path):
@@ -76,26 +80,26 @@ def vivado_setup(outdir):
 def hls4ml_converter(params, outdir, bw):
     model = load_pytorch_model(params['model_path'])       
 
-    hls4ml.model.optimizer.OutputRoundingSaturationMode.layers = ['Activation']
-    hls4ml.model.optimizer.OutputRoundingSaturationMode.rounding_mode = 'AP_RND'
-    hls4ml.model.optimizer.OutputRoundingSaturationMode.saturation_mode = 'AP_SAT'
+    # hls4ml.model.optimizer.OutputRoundingSaturationMode.layers = ['Activation']
+    # hls4ml.model.optimizer.OutputRoundingSaturationMode.rounding_mode = 'AP_RND'
+    # hls4ml.model.optimizer.OutputRoundingSaturationMode.saturation_mode = 'AP_SAT'
 
-    config = hls4ml.utils.config_from_pytorch_model(model, granularity='name')
+    config = hls4ml.utils.config_from_pytorch_model(model)
 
-    config['LayerName']['sigmoid']['Precision'] = 'ap_fixed<16,1>'
-    config['LayerName']['sigmoid']['table_t'] = 'ap_fixed<64,1>'
-    print("-----------------------------------")
-    print("Configuration")
-    print(config)
-    print("-----------------------------------")
-    print(config['Model'])
+    # config['LayerName']['sigmoid']['Precision'] = 'ap_fixed<16,1>'
+    # config['LayerName']['sigmoid']['table_t'] = 'ap_fixed<64,1>'
+    # print("-----------------------------------")
+    # print("Configuration")
+    # print(config)
+    # print("-----------------------------------")
+    # print(config['Model'])
 
-    for l in config['LayerName']:
-        config['LayerName'][l]['Strategy'] = 'Latency'
-        config['LayerName'][l]['Trace'] = True
-    #config['LayerName']['input_1']['Precision'] = f'ap_fixed<{bw}>'
-    #config['LayerName']['max_pooling2d']['Precision'] = f'ap_fixed<{bw}>'
-    #config['LayerName']['max_pooling2d_1']['Precision'] = f'ap_fixed<{bw}>'
+    # for l in config['LayerName']:
+    #     config['LayerName'][l]['Strategy'] = 'Latency'
+    #     config['LayerName'][l]['Trace'] = True
+    # config['LayerName']['input_1']['Precision'] = f'ap_fixed<{bw}>'
+    # config['LayerName']['max_pooling2d']['Precision'] = f'ap_fixed<{bw}>'
+    # config['LayerName']['max_pooling2d_1']['Precision'] = f'ap_fixed<{bw}>'
     
     
     
