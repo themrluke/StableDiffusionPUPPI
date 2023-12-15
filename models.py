@@ -43,10 +43,30 @@ class Model:
     
     def get_unet_lite(self):
         
-        model = UNetLite()
+        model = UNetLite_hls()
         return model
         #return NotImplementedError('UNet lite not yet implemented')
     
+
+@dataclass
+class TrainingConfig:
+    output_dir: str 
+    image_size = 16  # the generated image resolution
+    train_batch_size = 16
+    num_train_timesteps = 40
+    eval_batch_size = 1  # how many images to sample during evaluation
+    num_epochs = 10
+    gradient_accumulation_steps = 1
+    learning_rate = 1e-4
+    lr_warmup_steps = 500
+    save_image_epochs = 10
+    save_model_epochs = 30
+    mixed_precision = "fp16"  # `no` for float32, `fp16` for automatic mixed precision
+    overwrite_output_dir = True  # overwrite the old model when re-running the notebook
+
+    def __post_init__(self):
+        os.makedirs(self.output_dir, exist_ok=True)
+
 
 @dataclass
 class TrainingConfig:
@@ -185,4 +205,168 @@ class UNetLite(nn.Module):
         output = self.outc(x)
         return output
 
+
+class UNetLite_hls(nn.Module):
+    def __init__(self, c_in=1, c_out=1, time_dim=4, device="cpu"):
+        super().__init__()
+        self.device = device
+        self.time_dim = time_dim
+
+        self.relu = nn.ReLU()
+        self.pool = nn.MaxPool2d(2)
+        self.up = nn.Upsample(scale_factor=2, mode="nearest")
+
+        self.emb1 = nn.Linear(4, c_in)
+        self.convd1_1 = nn.Conv2d(c_in, 2, kernel_size=3, padding=1, bias=False)
+        self.normd1_1 = nn.GroupNorm(1, 2)
+        #relu
+        self.convd1_2 = nn.Conv2d(2, 4, kernel_size=3, padding=1, bias=False)
+        self.normd1_2 = nn.GroupNorm(1, 4)
+        #relu
+        #pool
+
+        self.emb2 = nn.Linear(4, 4)
+        self.convd2_1 = nn.Conv2d(4, 6, kernel_size=3, padding=1, bias=False)
+        self.normd2_1 = nn.GroupNorm(1, 6)
+        #relu
+        self.convd2_2 = nn.Conv2d(6, 8, kernel_size=3, padding=1, bias=False)
+        self.normd2_2 = nn.GroupNorm(1, 8)
+        #relu
+        #pool
+
+        self.emb3 = nn.Linear(4, 8)
+        self.convd3_1 = nn.Conv2d(8, 12, kernel_size=3, padding=1, bias=False)
+        self.normd3_1 = nn.GroupNorm(1, 12)
+        #relu
+        self.convd3_2 = nn.Conv2d(12, 16, kernel_size=3, padding=1, bias=False)
+        self.normd3_2 = nn.GroupNorm(1, 16)
+        #relu
+        #pool
+
+        self.emb4 = nn.Linear(4, 16)
+        self.convb1_1 = nn.Conv2d(16, 24, kernel_size=3, padding=1, bias=False)
+        self.normb1_1 = nn.GroupNorm(1, 24)
+        #relu
+        self.convb1_2 = nn.Conv2d(24, 16, kernel_size=3, padding=1, bias=False)
+        self.normb1_2 = nn.GroupNorm(1, 16)
+        #relu
+
+        #up
+        self.emb5 = nn.Linear(4, 32)
+        self.convu1_1 = nn.Conv2d(32, 16, kernel_size=3, padding=1, bias=False)
+        self.normu1_1 = nn.GroupNorm(1, 16)
+        #relu
+        self.convu1_2 = nn.Conv2d(16, 8, kernel_size=3, padding=1, bias=False)
+        self.normu1_2 = nn.GroupNorm(1, 8)
+        #relu
+
+        #up
+        self.emb6 = nn.Linear(4, 16)
+        self.convu2_1 = nn.Conv2d(16, 8, kernel_size=3, padding=1, bias=False)
+        self.normu2_1 = nn.GroupNorm(1, 8)
+        #relu
+        self.convu2_2 = nn.Conv2d(8, 4, kernel_size=3, padding=1, bias=False)
+        self.normu2_2 = nn.GroupNorm(1, 4)
+        #relu
+
+        #up
+        self.emb7 = nn.Linear(4, 8)
+        self.convu3_1 = nn.Conv2d(8, 4, kernel_size=3, padding=1, bias=False)
+        self.normu3_1 = nn.GroupNorm(1, 4)
+        #relu
+        self.convu3_2 = nn.Conv2d(4, 2, kernel_size=3, padding=1, bias=False)
+        self.normu3_2 = nn.GroupNorm(1, 2)
+        #relu
+
+        self.out = nn.Conv2d(2, 1, kernel_size=1, padding=0, bias=True)
+        #relu
+
+
+    def pos_encoding(self, t, channels):
+        inv_freq = 1.0 / (
+            10000 ** (torch.arange(0, channels, 2, device=self.device).float() / channels)
+        )
+        pos_enc_a = torch.sin(t.repeat(1, channels // 2) * inv_freq)
+        pos_enc_b = torch.cos(t.repeat(1, channels // 2) * inv_freq)
+        pos_enc = torch.cat([pos_enc_a, pos_enc_b], dim=-1)
+        return pos_enc
+
+
+    def forward(self, x, t):
+        t = t.unsqueeze(-1).type(torch.float)
+        t = self.pos_encoding(t, self.time_dim)
+
+        # Down 1
+        emb1 = self.emb1(t)[:, :, None, None].repeat(1, 1, x.shape[-2], x.shape[-1])
+        xd1 = self.convd1_1(emb1+x)
+        xd1 = self.normd1_1(xd1)
+        xd1 = self.relu(xd1)
+        xd1 = self.convd1_2(xd1)
+        xd1 = self.normd1_2(xd1)
+        xd1 = self.relu(xd1)
+        xd1 = self.pool(xd1)
+
+        # Down 2
+        emb2 = self.emb2(t)[:, :, None, None].repeat(1, 1, xd1.shape[-2], xd1.shape[-1])
+        xd2 = self.convd2_1(emb2+xd1)
+        xd2 = self.normd2_1(xd2)
+        xd2 = self.relu(xd2)
+        xd2 = self.convd2_2(xd2)
+        xd2 = self.normd2_2(xd2)
+        xd2 = self.relu(xd2)
+        xd2 = self.pool(xd2)
+
+        # Down 3
+        emb3 = self.emb3(t)[:, :, None, None].repeat(1, 1, xd2.shape[-2], xd2.shape[-1])
+        xd3 = self.convd3_1(emb3+xd2)
+        xd3 = self.normd3_1(xd3)
+        xd3 = self.relu(xd3)
+        xd3 = self.convd3_2(xd3)
+        xd3 = self.normd3_2(xd3)
+        xd3 = self.relu(xd3)
+        xd3 = self.pool(xd3)
+
+        # Bottleneck 1
+        emb4 = self.emb4(t)[:, :, None, None].repeat(1, 1, xd3.shape[-2], xd3.shape[-1])
+        xb1 = self.convb1_1(emb4+xd3)
+        xb1 = self.normb1_1(xb1)
+        xb1 = self.relu(xb1)
+        xb1 = self.convb1_2(xb1)
+        xb1 = self.normb1_2(xb1)
+        xb1 = self.relu(xb1)
+
+        # Up 1
+        emb5 = self.emb5(t)[:, :, None, None].repeat(1, 1, xb1.shape[-2], xb1.shape[-1])
+        xu1 = self.up(emb5 + torch.cat([xb1, xd3], dim=1))
+        xu1 = self.convu1_1(xu1)
+        xu1 = self.normu1_1(xu1)
+        xu1 = self.relu(xu1)
+        xu1 = self.convu1_2(xu1)
+        xu1 = self.normu1_2(xu1)
+        xu1 = self.relu(xu1)
+
+        # Up 2
+        emb6 = self.emb6(t)[:, :, None, None].repeat(1, 1, xu1.shape[-2], xu1.shape[-1])
+        xu2 = self.up(emb6 + torch.cat([xu1, xd2], dim=1))
+        xu2 = self.convu2_1(xu2)
+        xu2 = self.normu2_1(xu2)
+        xu2 = self.relu(xu2)
+        xu2 = self.convu2_2(xu2)
+        xu2 = self.normu2_2(xu2)
+        xu2 = self.relu(xu2)
+
+        # Up 3
+        emb7 = self.emb7(t)[:, :, None, None].repeat(1, 1, xu2.shape[-2], xu2.shape[-1])
+        xu3 = self.up(emb7 + torch.cat([xu2, xd1], dim=1))
+        xu3 = self.convu3_1(xu3)
+        xu3 = self.normu3_1(xu3)
+        xu3 = self.relu(xu3)
+        xu3 = self.convu3_2(xu3)
+        xu3 = self.normu3_2(xu3)
+        xu3 = self.relu(xu3)
+
+        output = self.out(xu3)
+        output = self.relu(output)
+        return output
+    
 
