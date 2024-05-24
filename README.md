@@ -11,22 +11,28 @@ Firstly, the ML stack used is [PyTorch](https://pytorch.org/) and 🤗 [Hugging 
 The algorithm is a Stable Diffusion chain which uses the U-Net architecure as the Deep Learning Model at its core. See 🤗 Hugging Face [diffusors](https://huggingface.co/docs/diffusers/index) library for further info.
 
 An in-house implementation of U-Net is also avaliable in [models.py](models.py) where model architecture can be changed.
-
+- **UNetLite** can be used for playing around with the model architecture, hyperparameters etc.
+- **UNetLite_hls** must be used for HLS synthesis because HLS4ML does not support custom layers
 
 Note: [Keras 3.0](https://keras.io/keras_3/) can now serve as API to TensorFlow, PyTorch & JAX if this you prefer to use it. 
 
 ## Setting up the env
 
-1. Training Diffusion models is expensive; follow this set up on a node with access to GPU, on Bristol **GPU01** is suitable (the code will automaticlly port training tasks to GPU if available).
-2. Clone this repository
-3. Create the conda env with `conda env create -f env.yaml`
-4. The prefered method of interaction with this reposiotry is via [VSCode](https://code.visualstudio.com/download). Also download any extensions required for displaying jupyter notebooks as propted.
+Training Diffusion models is expensive; follow this set up on a node with access to GPU, on Bristol **GPU01** is suitable (the code will automaticlly port training tasks to GPU if available).
+
+1. Clone this repository 
+2. Create the conda env with `conda env create -f env.yaml`
+3. The prefered method of interaction with this repository is via [VSCode](https://code.visualstudio.com/download). Also download any extensions required for displaying jupyter notebooks as prompted. (Note: Use VSCode version<=1.85)
 
 ## Data & models
 
-Input data can be found in: `/storage/ys20884/StableDiffusion/stablediffusionpuppi/data`
+Root datasets can be found in: 
+`/storage/ys20884/StableDiffusion/stablediffusionpuppi/data`
 
-A sample trained model is here:
+Already-processed numpy data can be found here: 
+`/storage/ek19824/stablediffusionpuppi/data`
+
+A sample trained huggingface model is here:
 `/storage/ys20884/StableDiffusion/stablediffusionpuppi/trained_models/trained_diffusor.pt`
 
 ## Structure 
