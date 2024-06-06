@@ -27,7 +27,7 @@ Training Diffusion models is expensive; follow this set up on a node with access
 ## Data & models
 
 Root datasets can be found in: 
-`/storage/ys20884/StableDiffusion/stablediffusionpuppi/data`
+`/cephfs/dice/users/ek19824/l1trigger/diffusion/datasets`
 
 Already-processed numpy data can be found here: 
 `/storage/ek19824/stablediffusionpuppi/data`
