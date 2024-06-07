@@ -43,6 +43,14 @@ The code is designed to be maximally modularised for "plug and playing" various 
 
 Additions should pushed to a new branch followed by a Merge Request to master.
 
+## Training Models
+
+Use the training.ipynb notebook to train new models. Remember to set `data_dir` in cell 2 to the directory containing the root files. You can also adjust the saturation energy, the image dimensions and the number of training epochs.
+
+## Inference
+
+Use the inference.ipynb notebook to test the models ability to denoise an image after the training process is complete.
+
 ## Large files
 
 - It's a good idea to version trained models and their evaluation, this can be doen with git Large File System (git LFS).
