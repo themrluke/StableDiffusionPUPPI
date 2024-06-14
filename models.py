@@ -69,7 +69,17 @@ class TrainingConfig:
 
 
 class DoubleConv(nn.Module):
-    def __init__(self, in_channels, out_channels, mid_channels=None, residual=False):
+    """
+    Represents a neural network module composed of two convolutional layers
+    """
+    
+    def __init__(self, in_channels, out_channels, mid_channels=None, residual=True): # Used in UNet-lite (not hls one) originally set residual=False
+        """
+        in_channels: Number of input channels.
+        out_channels: Number of output channels.
+        mid_channels: Number of channels for the intermediate convolution layer. If None, it defaults to out_channels.
+        residual: A boolean indicating whether to use residual connections.
+        """
         super().__init__()
         self.residual = residual
         if not mid_channels:
@@ -137,7 +147,7 @@ class Up(nn.Module):
 
 
 class UNetLite(nn.Module):
-    def __init__(self, c_in=1, c_out=1, time_dim=4, device="cpu"):
+    def __init__(self, c_in=1, c_out=1, time_dim=4, device="cuda"): # Changed from cpu to cuda
         super().__init__()
         self.device = device
         self.time_dim = time_dim
@@ -187,7 +197,7 @@ class UNetLite(nn.Module):
 
 
 class UNetLite_hls(nn.Module):
-    def __init__(self, c_in=1, c_out=1, time_dim=4, device="cpu"):
+    def __init__(self, c_in=1, c_out=1, time_dim=4, device="cuda"): # Changed from cpu to cuda
         super().__init__()
         self.device = device
         self.time_dim = time_dim
@@ -207,7 +217,7 @@ class UNetLite_hls(nn.Module):
 
         self.emb2 = nn.Linear(4, 4)
         self.convd2_1 = nn.Conv2d(4, 6, kernel_size=3, padding=1, bias=False)
-        self.normd2_1 = nn.GroupNorm(1, 6)
+        self.normd2_1 = nn.GroupNorm(1, 6) # Make sure this 6 is the same as the  in the prev line. ie 6*N if the 6 above gets changed to 6*N
         #relu
         self.convd2_2 = nn.Conv2d(6, 8, kernel_size=3, padding=1, bias=False)
         self.normd2_2 = nn.GroupNorm(1, 8)
