@@ -26,15 +26,15 @@ class Model:
         in_channels=1,  # The number of input channels, 3 for RGB images
         out_channels=1,  # The number of output channels
         layers_per_block=1,  # How many ResNet layers to use per UNet block
-        block_out_channels=(64, 64, 64),  # Adjusted number of output channels for each UNet block
+        block_out_channels=(64, 64),#, 64),  # Adjusted number of output channels for each UNet block
         down_block_types=(
             "DownBlock2D",  # A regular ResNet downsampling block
-            "AttnDownBlock2D",  # A ResNet downsampling block with spatial self-attention
+            #"AttnDownBlock2D",  # A ResNet downsampling block with spatial self-attention
             "DownBlock2D",
         ),
         up_block_types=(
             "UpBlock2D",  # A regular ResNet upsampling block
-            "AttnUpBlock2D",  # A ResNet upsampling block with spatial self-attention
+            #"AttnUpBlock2D",  # A ResNet upsampling block with spatial self-attention
             "UpBlock2D",
         ),
         )
@@ -195,80 +195,122 @@ class UNetLite(nn.Module):
         output = self.outc(x)
         return output
 
+# Used for attention block mechanism in UNet_lite_hls
+class Attention(nn.Module):
+    def __init__(self, dim):
+        super().__init__()
+        self.group_norm = nn.GroupNorm(32, dim, eps=1e-05, affine=True)
+        self.to_q = nn.Linear(dim, dim, bias=True)
+        self.to_k = nn.Linear(dim, dim, bias=True)
+        self.to_v = nn.Linear(dim, dim, bias=True)
+        self.to_out = nn.Sequential(
+            nn.Linear(dim, dim, bias=True),
+            nn.Dropout(p=0.0)
+        )
+
+    def forward(self, x):
+        b, c, h, w = x.shape
+        x = x.view(b, c, h * w).permute(0, 2, 1)
+        norm_x = self.group_norm(x)
+
+        q = self.to_q(norm_x)
+        k = self.to_k(norm_x)
+        v = self.to_v(norm_x)
+
+        attn_weights = torch.einsum('bqd,bkd->bqk', q, k) * (c ** (-0.5))
+        attn_weights = attn_weights.softmax(dim=-1)
+
+        attn_output = torch.einsum('bqk,bvd->bqd', attn_weights, v)
+        attn_output = self.to_out(attn_output)
+
+        attn_output = attn_output.permute(0, 2, 1).view(b, c, h, w)
+        return attn_output
 
 class UNetLite_hls(nn.Module):
+    # Initialise the class with 1 input and output channel
     def __init__(self, c_in=1, c_out=1, time_dim=4, device="cuda"): # Changed from cpu to cuda
         super().__init__()
         self.device = device
         self.time_dim = time_dim
 
+        '''Define upsampling, ReLU activation function and pooling method'''
         self.relu = nn.ReLU()
-        self.pool = nn.MaxPool2d(2)
+        #self.pool = nn.MaxPool2d(2)
+        self.pool = nn.Conv2d(64, 64, kernel_size=3, stride=2, padding=0, bias=False) # Convolution method of downsampling
         self.up = nn.Upsample(scale_factor=2, mode="nearest")
 
-        self.emb1 = nn.Linear(4, c_in)
-        self.convd1_1 = nn.Conv2d(c_in, 2, kernel_size=3, padding=1, bias=False)
-        self.normd1_1 = nn.GroupNorm(1, 2)
+
+        '''Down Block 1'''
+        # 1st number in self.convd1_1 brackets is number of input channels
+        # 2nd number in self.emb1 brackets line below is number of input channels
+        self.emb1 = nn.Linear(4, c_in) # 2nd number in () here must match 1st number in () next line
+        self.convd1_1 = nn.Conv2d(c_in, 64, kernel_size=3, padding=0, bias=False) # 2nd number in () here must match 2nd number in () next line
+        self.normd1_1 = nn.GroupNorm(32, 64, eps=1e-05, affine=True) # 2nd number in () here must match 1st number in () next line
         #relu
-        self.convd1_2 = nn.Conv2d(2, 4, kernel_size=3, padding=1, bias=False)
-        self.normd1_2 = nn.GroupNorm(1, 4)
+        self.convd1_2 = nn.Conv2d(64, 64, kernel_size=3, padding=0, bias=False) # 2nd number in () here must match 2nd number in () next line
+        self.normd1_2 = nn.GroupNorm(32, 64, eps=1e-05, affine=True)
+        #relu
+        #pool
+        
+        '''Down Block 2'''
+        self.emb2 = nn.Linear(4, 64)
+        self.convd2_1 = nn.Conv2d(64, 64, kernel_size=3, padding=0, bias=False)
+        self.normd2_1 = nn.GroupNorm(32, 64, eps=1e-05, affine=True) # Make sure this 6 is the same as the  in the prev line. ie 6*N if the 6 above gets changed to 6*N
+        #relu
+        self.convd2_2 = nn.Conv2d(64,64, kernel_size=3, padding=0, bias=False)
+        self.normd2_2 = nn.GroupNorm(32, 64, eps=1e-05, affine=True)
         #relu
         #pool
 
-        self.emb2 = nn.Linear(4, 4)
-        self.convd2_1 = nn.Conv2d(4, 6, kernel_size=3, padding=1, bias=False)
-        self.normd2_1 = nn.GroupNorm(1, 6) # Make sure this 6 is the same as the  in the prev line. ie 6*N if the 6 above gets changed to 6*N
+        '''Down Block 3'''
+        self.emb3 = nn.Linear(4, 64)
+        self.convd3_1 = nn.Conv2d(64, 64, kernel_size=3, padding=0, bias=False)
+        self.normd3_1 = nn.GroupNorm(32, 64, eps=1e-05, affine=True)
         #relu
-        self.convd2_2 = nn.Conv2d(6, 8, kernel_size=3, padding=1, bias=False)
-        self.normd2_2 = nn.GroupNorm(1, 8)
-        #relu
-        #pool
-
-        self.emb3 = nn.Linear(4, 8)
-        self.convd3_1 = nn.Conv2d(8, 12, kernel_size=3, padding=1, bias=False)
-        self.normd3_1 = nn.GroupNorm(1, 12)
-        #relu
-        self.convd3_2 = nn.Conv2d(12, 16, kernel_size=3, padding=1, bias=False)
-        self.normd3_2 = nn.GroupNorm(1, 16)
+        self.convd3_2 = nn.Conv2d(64, 64, kernel_size=3, padding=0, bias=False)
+        self.normd3_2 = nn.GroupNorm(32, 64, eps=1e-05, affine=True)
         #relu
         #pool
 
-        self.emb4 = nn.Linear(4, 16)
-        self.convb1_1 = nn.Conv2d(16, 24, kernel_size=3, padding=1, bias=False)
-        self.normb1_1 = nn.GroupNorm(1, 24)
+        '''Bottleneck'''
+        self.emb4 = nn.Linear(4, 64)
+        self.convb1_1 = nn.Conv2d(64, 64, kernel_size=3, padding=0, bias=False)
+        self.normb1_1 = nn.GroupNorm(32, 64, eps=1e-05, affine=True)
         #relu
-        self.convb1_2 = nn.Conv2d(24, 16, kernel_size=3, padding=1, bias=False)
-        self.normb1_2 = nn.GroupNorm(1, 16)
-        #relu
-
-        #up
-        self.emb5 = nn.Linear(4, 32)
-        self.convu1_1 = nn.Conv2d(32, 16, kernel_size=3, padding=1, bias=False)
-        self.normu1_1 = nn.GroupNorm(1, 16)
-        #relu
-        self.convu1_2 = nn.Conv2d(16, 8, kernel_size=3, padding=1, bias=False)
-        self.normu1_2 = nn.GroupNorm(1, 8)
+        self.attention = Attention(64) # Attention mechanism
+        self.convb1_2 = nn.Conv2d(64, 64, kernel_size=3, padding=0, bias=False)
+        self.normb1_2 = nn.GroupNorm(32, 64, eps=1e-05, affine=True)
         #relu
 
-        #up
-        self.emb6 = nn.Linear(4, 16)
-        self.convu2_1 = nn.Conv2d(16, 8, kernel_size=3, padding=1, bias=False)
-        self.normu2_1 = nn.GroupNorm(1, 8)
+        '''Up Block 1'''
+        self.emb5 = nn.Linear(4, 128)
+        self.convu1_1 = nn.Conv2d(128, 64, kernel_size=3, padding=0, bias=False)
+        self.normu1_1 = nn.GroupNorm(32, 64, eps=1e-05, affine=True)
         #relu
-        self.convu2_2 = nn.Conv2d(8, 4, kernel_size=3, padding=1, bias=False)
-        self.normu2_2 = nn.GroupNorm(1, 4)
-        #relu
-
-        #up
-        self.emb7 = nn.Linear(4, 8)
-        self.convu3_1 = nn.Conv2d(8, 4, kernel_size=3, padding=1, bias=False)
-        self.normu3_1 = nn.GroupNorm(1, 4)
-        #relu
-        self.convu3_2 = nn.Conv2d(4, 2, kernel_size=3, padding=1, bias=False)
-        self.normu3_2 = nn.GroupNorm(1, 2)
+        self.convu1_2 = nn.Conv2d(64, 64, kernel_size=3, padding=0, bias=False)
+        self.normu1_2 = nn.GroupNorm(32, 64, eps=1e-05, affine=True)
         #relu
 
-        self.out = nn.Conv2d(2, 1, kernel_size=1, padding=0, bias=True)
+        '''Up Block 2'''
+        self.emb6 = nn.Linear(4, 128)
+        self.convu2_1 = nn.Conv2d(128,64, kernel_size=3, padding=0, bias=False)
+        self.normu2_1 = nn.GroupNorm(32, 64, eps=1e-05, affine=True)
+        #relu
+        self.convu2_2 = nn.Conv2d(64, 64, kernel_size=3, padding=0, bias=False)
+        self.normu2_2 = nn.GroupNorm(32, 64, eps=1e-05, affine=True)
+        #relu
+
+        '''Up Block 3'''
+        self.emb7 = nn.Linear(4, 128)
+        self.convu3_1 = nn.Conv2d(128, 64, kernel_size=3, padding=0, bias=False)
+        self.normu3_1 = nn.GroupNorm(32, 64, eps=1e-05, affine=True)
+        #relu
+        self.convu3_2 = nn.Conv2d(64, 64, kernel_size=3, padding=0, bias=False)
+        self.normu3_2 = nn.GroupNorm(32, 64, eps=1e-05, affine=True)
+        #relu
+
+        '''Output'''
+        self.out = nn.Conv2d(64, 1, kernel_size=1, padding=0, bias=True) # Final convolutional layer produce single output channel
         #relu
 
 
@@ -280,81 +322,116 @@ class UNetLite_hls(nn.Module):
         pos_enc_b = torch.cos(t.repeat(1, channels // 2) * inv_freq)
         pos_enc = torch.cat([pos_enc_a, pos_enc_b], dim=-1)
         return pos_enc
-
+    
+    def custom_pad(self, input, pad_left_right, pad_top_bottom):
+        '''Custom padding so LHS and RHS of image are touching (circular padding). Top & bottom padded values = 0'''
+        # Circular padding on the left and right
+        input = F.pad(input, pad=(pad_left_right, pad_left_right, 0, 0), mode='circular')
+        # Zero padding on the top and bottom
+        input = F.pad(input, pad=(0, 0, pad_top_bottom, pad_top_bottom), mode='constant', value=0)
+        return input
 
     def forward(self, x, t):
         t = t.unsqueeze(-1).type(torch.float)
-        t = self.pos_encoding(t, self.time_dim)
+        t = self.pos_encoding(t, self.time_dim) # Apply positional encoding to t
 
         # Down 1
         emb1 = self.emb1(t)[:, :, None, None].repeat(1, 1, x.shape[-2], x.shape[-1])
-        xd1 = self.convd1_1(emb1+x)
+        xd1 = self.custom_pad(emb1 + x, pad_left_right=1, pad_top_bottom=1)  # Apply custom padding
+        xd1 = self.convd1_1(xd1)
         xd1 = self.normd1_1(xd1)
         xd1 = self.relu(xd1)
+        xd1 = self.custom_pad(xd1, pad_left_right=1, pad_top_bottom=1)  # Apply custom padding
         xd1 = self.convd1_2(xd1)
         xd1 = self.normd1_2(xd1)
         xd1 = self.relu(xd1)
-        xd1 = self.pool(xd1)
 
         # Down 2
-        emb2 = self.emb2(t)[:, :, None, None].repeat(1, 1, xd1.shape[-2], xd1.shape[-1])
-        xd2 = self.convd2_1(emb2+xd1)
+        xd2 = self.custom_pad(xd1, pad_left_right=1, pad_top_bottom=1) # Pad before convolutional pooling method
+        xd2 = self.pool(xd2)
+        xd2 = self.normd1_1(xd2) # Normalisation after pooling
+        xd2 = self.relu(xd2) # Activation function after pooling
+        emb2 = self.emb2(t)[:, :, None, None].repeat(1, 1, xd2.shape[-2], xd2.shape[-1])
+        xd2 = self.custom_pad(emb2 + xd2, pad_left_right=1, pad_top_bottom=1)
+        xd2 = self.convd2_1(xd2)
         xd2 = self.normd2_1(xd2)
         xd2 = self.relu(xd2)
+        xd2 = self.custom_pad(xd2, pad_left_right=1, pad_top_bottom=1)
         xd2 = self.convd2_2(xd2)
         xd2 = self.normd2_2(xd2)
         xd2 = self.relu(xd2)
-        xd2 = self.pool(xd2)
 
         # Down 3
-        emb3 = self.emb3(t)[:, :, None, None].repeat(1, 1, xd2.shape[-2], xd2.shape[-1])
-        xd3 = self.convd3_1(emb3+xd2)
+        xd3 = self.custom_pad(xd2, pad_left_right=1, pad_top_bottom=1)
+        xd3 = self.pool(xd3)
+        xd3 = self.normd1_1(xd3)
+        xd3 = self.relu(xd3)
+        emb3 = self.emb3(t)[:, :, None, None].repeat(1, 1, xd3.shape[-2], xd3.shape[-1])
+        xd3 = self.custom_pad(emb3 + xd3, pad_left_right=1, pad_top_bottom=1)
+        xd3 = self.convd3_1(xd3)
         xd3 = self.normd3_1(xd3)
         xd3 = self.relu(xd3)
+        xd3 = self.custom_pad(xd3, pad_left_right=1, pad_top_bottom=1)
         xd3 = self.convd3_2(xd3)
         xd3 = self.normd3_2(xd3)
         xd3 = self.relu(xd3)
-        xd3 = self.pool(xd3)
-
+        
         # Bottleneck 1
-        emb4 = self.emb4(t)[:, :, None, None].repeat(1, 1, xd3.shape[-2], xd3.shape[-1])
-        xb1 = self.convb1_1(emb4+xd3)
+        xb1 = self.custom_pad(xd3, pad_left_right=1, pad_top_bottom=1)
+        xb1 = self.pool(xb1)
+        xb1 = self.normd1_1(xb1)
+        xb1 = self.relu(xb1)
+        emb4 = self.emb4(t)[:, :, None, None].repeat(1, 1, xb1.shape[-2], xb1.shape[-1])
+        xb1 = self.custom_pad(emb4 + xb1, pad_left_right=1, pad_top_bottom=1)
+        xb1 = self.convb1_1(xb1)
         xb1 = self.normb1_1(xb1)
         xb1 = self.relu(xb1)
+        xb1 = self.attention(xb1) # Attention block
+        xb1 = self.custom_pad(xb1, pad_left_right=1, pad_top_bottom=1)
         xb1 = self.convb1_2(xb1)
         xb1 = self.normb1_2(xb1)
         xb1 = self.relu(xb1)
 
         # Up 1
-        emb5 = self.emb5(t)[:, :, None, None].repeat(1, 1, xb1.shape[-2], xb1.shape[-1])
-        xu1 = self.up(emb5 + torch.cat([xb1, xd3], dim=1))
+        xu1 = self.up(xb1)
+        emb5 = self.emb5(t)[:, :, None, None].repeat(1, 1, xu1.shape[-2], xu1.shape[-1])
+        xu1 = emb5 + torch.cat([xu1, xd3], dim=1)
+        xu1 = self.custom_pad(xu1, pad_left_right=1, pad_top_bottom=1)
         xu1 = self.convu1_1(xu1)
         xu1 = self.normu1_1(xu1)
         xu1 = self.relu(xu1)
-        xu1 = self.convu1_2(xu1)
+        xu1 = self.custom_pad(xu1, pad_left_right=1, pad_top_bottom=1)
+        xu1 = self.convu1_2(xu1) 
         xu1 = self.normu1_2(xu1)
         xu1 = self.relu(xu1)
 
         # Up 2
-        emb6 = self.emb6(t)[:, :, None, None].repeat(1, 1, xu1.shape[-2], xu1.shape[-1])
-        xu2 = self.up(emb6 + torch.cat([xu1, xd2], dim=1))
+        xu2 = self.up(xu1)
+        emb6 = self.emb6(t)[:, :, None, None].repeat(1, 1, xu2.shape[-2], xu2.shape[-1])
+        xu2 = emb6 + torch.cat([xu2, xd2], dim=1)
+        xu2 = self.custom_pad(xu2, pad_left_right=1, pad_top_bottom=1)
         xu2 = self.convu2_1(xu2)
         xu2 = self.normu2_1(xu2)
         xu2 = self.relu(xu2)
+        xu2 = self.custom_pad(xu2, pad_left_right=1, pad_top_bottom=1)
         xu2 = self.convu2_2(xu2)
         xu2 = self.normu2_2(xu2)
         xu2 = self.relu(xu2)
 
         # Up 3
-        emb7 = self.emb7(t)[:, :, None, None].repeat(1, 1, xu2.shape[-2], xu2.shape[-1])
-        xu3 = self.up(emb7 + torch.cat([xu2, xd1], dim=1))
+        xu3 = self.up(xu2)
+        emb7 = self.emb7(t)[:, :, None, None].repeat(1, 1, xu3.shape[-2], xu3.shape[-1])
+        xu3 = emb7 + torch.cat([xu3, xd1], dim=1)
+        xu3 = self.custom_pad(xu3, pad_left_right=1, pad_top_bottom=1)
         xu3 = self.convu3_1(xu3)
         xu3 = self.normu3_1(xu3)
         xu3 = self.relu(xu3)
+        xu3 = self.custom_pad(xu3, pad_left_right=1, pad_top_bottom=1)
         xu3 = self.convu3_2(xu3)
         xu3 = self.normu3_2(xu3)
         xu3 = self.relu(xu3)
 
+        # Output
         output = self.out(xu3)
         output = self.relu(output)
         return output
