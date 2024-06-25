@@ -26,15 +26,15 @@ class Model:
         in_channels=1,  # The number of input channels, 3 for RGB images
         out_channels=1,  # The number of output channels
         layers_per_block=1,  # How many ResNet layers to use per UNet block
-        block_out_channels=(64, 64),#, 64),  # Adjusted number of output channels for each UNet block
+        block_out_channels=(64, 64, 64),  # Adjusted number of output channels for each UNet block
         down_block_types=(
             "DownBlock2D",  # A regular ResNet downsampling block
-            #"AttnDownBlock2D",  # A ResNet downsampling block with spatial self-attention
+            "AttnDownBlock2D",  # A ResNet downsampling block with spatial self-attention
             "DownBlock2D",
         ),
         up_block_types=(
             "UpBlock2D",  # A regular ResNet upsampling block
-            #"AttnUpBlock2D",  # A ResNet upsampling block with spatial self-attention
+            "AttnUpBlock2D",  # A ResNet upsampling block with spatial self-attention
             "UpBlock2D",
         ),
         )
@@ -210,8 +210,8 @@ class Attention(nn.Module):
 
     def forward(self, x):
         b, c, h, w = x.shape
-        x = x.view(b, c, h * w).permute(0, 2, 1)
         norm_x = self.group_norm(x)
+        norm_x = norm_x.view(b, c, h * w).permute(0, 2, 1).contiguous()
 
         q = self.to_q(norm_x)
         k = self.to_k(norm_x)
@@ -235,9 +235,10 @@ class UNetLite_hls(nn.Module):
 
         '''Define upsampling, ReLU activation function and pooling method'''
         self.relu = nn.ReLU()
-        #self.pool = nn.MaxPool2d(2)
+        #self.pool = nn.MaxPool2d(2) # Use for Pooling method of downsampling
         self.pool = nn.Conv2d(64, 64, kernel_size=3, stride=2, padding=0, bias=False) # Convolution method of downsampling
-        self.up = nn.Upsample(scale_factor=2, mode="nearest")
+        #self.up = nn.Upsample(scale_factor=2, mode="nearest") # Use for nearest method of upsampling
+        self.up = nn.ConvTranspose2d(64, 64, kernel_size=2, stride=2)  # Deconvolution method for upsampling# Use for deconvolution method of upsampling
 
 
         '''Down Block 1'''
@@ -360,7 +361,7 @@ class UNetLite_hls(nn.Module):
         xd2 = self.convd2_2(xd2)
         xd2 = self.normd2_2(xd2)
         xd2 = self.relu(xd2)
-
+        
         # Down 3
         xd3 = self.custom_pad(xd2, pad_left_right=1, pad_top_bottom=1)
         xd3 = self.pool(xd3)
@@ -377,7 +378,7 @@ class UNetLite_hls(nn.Module):
         xd3 = self.relu(xd3)
         
         # Bottleneck 1
-        xb1 = self.custom_pad(xd3, pad_left_right=1, pad_top_bottom=1)
+        xb1 = self.custom_pad(xd3, pad_left_right=1, pad_top_bottom=1) # Changed from xd3 to xd2 for 2 block model
         xb1 = self.pool(xb1)
         xb1 = self.normd1_1(xb1)
         xb1 = self.relu(xb1)
@@ -394,8 +395,10 @@ class UNetLite_hls(nn.Module):
 
         # Up 1
         xu1 = self.up(xb1)
+        xu1 = self.normd1_1(xu1) # Normalisation after convolutional upsampling
+        xu1 = self.relu(xu1) # Activation function after convolutional upsampling
         emb5 = self.emb5(t)[:, :, None, None].repeat(1, 1, xu1.shape[-2], xu1.shape[-1])
-        xu1 = emb5 + torch.cat([xu1, xd3], dim=1)
+        xu1 = emb5 + torch.cat([xu1, xd3], dim=1) # Changed from xd3 to xd2 for 2 block model
         xu1 = self.custom_pad(xu1, pad_left_right=1, pad_top_bottom=1)
         xu1 = self.convu1_1(xu1)
         xu1 = self.normu1_1(xu1)
@@ -407,8 +410,10 @@ class UNetLite_hls(nn.Module):
 
         # Up 2
         xu2 = self.up(xu1)
+        xu2 = self.normd1_1(xu2) # Normalisation after convolutional upsampling
+        xu2 = self.relu(xu2) # Activation function after convolutional upsampling
         emb6 = self.emb6(t)[:, :, None, None].repeat(1, 1, xu2.shape[-2], xu2.shape[-1])
-        xu2 = emb6 + torch.cat([xu2, xd2], dim=1)
+        xu2 = emb6 + torch.cat([xu2, xd2], dim=1) # Changed from xd2 to xd1 for 2 block model
         xu2 = self.custom_pad(xu2, pad_left_right=1, pad_top_bottom=1)
         xu2 = self.convu2_1(xu2)
         xu2 = self.normu2_1(xu2)
@@ -417,9 +422,11 @@ class UNetLite_hls(nn.Module):
         xu2 = self.convu2_2(xu2)
         xu2 = self.normu2_2(xu2)
         xu2 = self.relu(xu2)
-
+        
         # Up 3
         xu3 = self.up(xu2)
+        xu3 = self.normd1_1(xu3) # Normalisation after convolutional upsampling
+        xu3 = self.relu(xu3) # Activation function after convolutional upsampling
         emb7 = self.emb7(t)[:, :, None, None].repeat(1, 1, xu3.shape[-2], xu3.shape[-1])
         xu3 = emb7 + torch.cat([xu3, xd1], dim=1)
         xu3 = self.custom_pad(xu3, pad_left_right=1, pad_top_bottom=1)
@@ -430,9 +437,9 @@ class UNetLite_hls(nn.Module):
         xu3 = self.convu3_2(xu3)
         xu3 = self.normu3_2(xu3)
         xu3 = self.relu(xu3)
-
+        
         # Output
-        output = self.out(xu3)
+        output = self.out(xu3) # Changed from xu3 to xu2 for 2 block model
         output = self.relu(output)
         return output
     
