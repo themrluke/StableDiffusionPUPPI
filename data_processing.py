@@ -3,7 +3,7 @@ import uproot
 import logging
 from tqdm import tqdm
 from dataclasses import dataclass
-from typing import Tuple
+from typing import Tuple, Optional
 import fire
 import os
 
@@ -19,6 +19,8 @@ class Dataset:
     signal_file: str
     pile_up_file: str
     save: bool
+    start_idx: Optional[int] = None
+    end_idx: Optional[int] = None
 
     def __call__(self):
         try:
@@ -46,10 +48,18 @@ class Dataset:
 
     def root_to_numpy(self):
         logging.info(f'loading file {self.signal_file}')
-        self.signal_tensor = np.stack([self.signal_uproot[f'{i};1'].values for i in tqdm(range(self.n_events))])
+        signal_keys = self.signal_uproot.keys()
+        pile_up_keys = self.pile_up_uproot.keys()
 
-        logging.info(f'loading file {self.pile_up_file}')
-        self.pileup_tensor = np.stack([self.pile_up_uproot[f'{i};1'].values for i in tqdm(range(self.n_events))])
+        if self.start_idx is None and self.end_idx is None:
+            self.start_idx = 0
+            self.end_idx = self.n_events
+        
+        selected_signal_keys = signal_keys[self.start_idx:self.end_idx]
+        selected_pile_up_keys = pile_up_keys[self.start_idx:self.end_idx]
+
+        self.signal_tensor = np.stack([self.signal_uproot[key].values for key in tqdm(selected_signal_keys)])
+        self.pileup_tensor = np.stack([self.pile_up_uproot[key].values for key in tqdm(selected_pile_up_keys)])
 
         return True
 
