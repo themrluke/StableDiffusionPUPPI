@@ -1,0 +1,2447 @@
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+WARNING:matplotlib.legend:No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+WARNING:matplotlib.legend:No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+WARNING:matplotlib.legend:No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+WARNING:matplotlib.legend:No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+WARNING:matplotlib.legend:No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+WARNING:matplotlib.legend:No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+WARNING:matplotlib.legend:No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+WARNING:matplotlib.legend:No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+WARNING:matplotlib.legend:No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+WARNING:matplotlib.legend:No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+WARNING:matplotlib.legend:No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+WARNING:matplotlib.legend:No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+WARNING:matplotlib.legend:No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+WARNING:matplotlib.legend:No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+WARNING:matplotlib.legend:No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+WARNING:matplotlib.legend:No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+WARNING:matplotlib.legend:No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+WARNING:matplotlib.legend:No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+WARNING:matplotlib.legend:No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+WARNING:matplotlib.legend:No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+WARNING:matplotlib.legend:No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+WARNING:matplotlib.legend:No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+WARNING:matplotlib.legend:No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+WARNING:matplotlib.legend:No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+WARNING:matplotlib.legend:No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+WARNING:matplotlib.legend:No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+WARNING:matplotlib.legend:No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+WARNING:matplotlib.legend:No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+WARNING:matplotlib.legend:No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+WARNING:matplotlib.legend:No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+WARNING:matplotlib.legend:No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+WARNING:matplotlib.legend:No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+WARNING:matplotlib.legend:No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+WARNING:matplotlib.legend:No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+WARNING:matplotlib.legend:No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+WARNING:matplotlib.legend:No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+WARNING:matplotlib.legend:No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+WARNING:matplotlib.legend:No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+WARNING:matplotlib.legend:No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+WARNING:matplotlib.legend:No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+WARNING:matplotlib.legend:No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+WARNING:matplotlib.legend:No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+WARNING:matplotlib.legend:No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+WARNING:matplotlib.legend:No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+WARNING:matplotlib.legend:No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+WARNING:matplotlib.legend:No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+WARNING:matplotlib.legend:No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+WARNING:matplotlib.legend:No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+WARNING:matplotlib.legend:No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+WARNING:matplotlib.legend:No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+WARNING:matplotlib.legend:No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+WARNING:matplotlib.legend:No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+WARNING:matplotlib.legend:No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+WARNING:matplotlib.legend:No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+WARNING:matplotlib.legend:No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+WARNING:matplotlib.legend:No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+WARNING:matplotlib.legend:No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+WARNING:matplotlib.legend:No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+WARNING:matplotlib.legend:No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+WARNING:matplotlib.legend:No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+WARNING:matplotlib.legend:No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+WARNING:matplotlib.legend:No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+WARNING:matplotlib.legend:No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+WARNING:matplotlib.legend:No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+WARNING:matplotlib.legend:No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+WARNING:matplotlib.legend:No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+WARNING:matplotlib.legend:No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+WARNING:matplotlib.legend:No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+WARNING:matplotlib.legend:No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+WARNING:matplotlib.legend:No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+WARNING:matplotlib.legend:No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+WARNING:matplotlib.legend:No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+WARNING:matplotlib.legend:No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+WARNING:matplotlib.legend:No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+WARNING:matplotlib.legend:No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+WARNING:matplotlib.legend:No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+WARNING:matplotlib.legend:No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+WARNING:matplotlib.legend:No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+WARNING:matplotlib.legend:No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+WARNING:matplotlib.legend:No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+WARNING:matplotlib.legend:No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+WARNING:matplotlib.legend:No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+WARNING:matplotlib.legend:No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+WARNING:matplotlib.legend:No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+WARNING:matplotlib.legend:No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+WARNING:matplotlib.legend:No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+WARNING:matplotlib.legend:No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+WARNING:matplotlib.legend:No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+WARNING:matplotlib.legend:No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+WARNING:matplotlib.legend:No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+WARNING:matplotlib.legend:No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+WARNING:matplotlib.legend:No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+ERROR:root:Load failed: need at least one array to stack
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_bkg.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+ERROR:root:Load failed: 'TH2D' object has no attribute 'array'
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+ERROR:root:Load failed: 'TH2D' object has no attribute 'to_numpy'
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+ERROR:root:Load failed: 'numpy.ndarray' object is not callable
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file /cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+ERROR:root:Load failed: [Errno 2] No such file or directory: '/cephfs/dice/projects/L1T/diffusion/datasets//CaloImages_signal.root'
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+ERROR:root:Load failed: need at least one array to stack
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing
+INFO:root:loading file Datasets/CaloImages_signal.root
+INFO:root:scaling
+INFO:root:re-sizing

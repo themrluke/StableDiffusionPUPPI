@@ -4,7 +4,7 @@ import textwrap
 import subprocess
 import sys
 import torch
-from models import UNetLite
+from models_stripped_kernels import UNetLite
 
 # def load_qkeras_model(path):
 #   qkeras_layers = {}
