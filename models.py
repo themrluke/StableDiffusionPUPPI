@@ -197,14 +197,14 @@ class UNetLite(nn.Module):
 
 # Used for attention block mechanism in UNet_lite_hls
 class Attention(nn.Module):
-    def __init__(self, dim):
+    def __init__(self, N):
         super().__init__()
-        self.group_norm = nn.GroupNorm(32, dim, eps=1e-05, affine=True)
-        self.to_q = nn.Linear(dim, dim, bias=True)
-        self.to_k = nn.Linear(dim, dim, bias=True)
-        self.to_v = nn.Linear(dim, dim, bias=True)
+        self.group_norm = nn.GroupNorm(int(N/2), N, eps=1e-05, affine=True)
+        self.to_q = nn.Linear(N, N, bias=True)
+        self.to_k = nn.Linear(N, N, bias=True)
+        self.to_v = nn.Linear(N, N, bias=True)
         self.to_out = nn.Sequential(
-            nn.Linear(dim, dim, bias=True),
+            nn.Linear(N, N, bias=True),
             nn.Dropout(p=0.0)
         )
 
@@ -233,85 +233,87 @@ class UNetLite_hls(nn.Module):
         self.device = device
         self.time_dim = time_dim
 
+        N = int(16) # Can alter number of kernels in each convolutional layer here
+
         '''Define upsampling, ReLU activation function and pooling method'''
         self.relu = nn.ReLU()
         #self.pool = nn.MaxPool2d(2) # Use for Pooling method of downsampling
-        self.pool = nn.Conv2d(64, 64, kernel_size=3, stride=2, padding=0, bias=False) # Convolution method of downsampling
+        self.pool = nn.Conv2d(N, N, kernel_size=3, stride=2, padding=0, bias=False) # Convolution method of downsampling
         #self.up = nn.Upsample(scale_factor=2, mode="nearest") # Use for nearest method of upsampling
-        self.up = nn.ConvTranspose2d(64, 64, kernel_size=2, stride=2)  # Deconvolution method for upsampling# Use for deconvolution method of upsampling
+        self.up = nn.ConvTranspose2d(N, N, kernel_size=2, stride=2)  # Deconvolution method for upsampling# Use for deconvolution method of upsampling
 
 
         '''Down Block 1'''
         # 1st number in self.convd1_1 brackets is number of input channels
         # 2nd number in self.emb1 brackets line below is number of input channels
         self.emb1 = nn.Linear(4, c_in) # 2nd number in () here must match 1st number in () next line
-        self.convd1_1 = nn.Conv2d(c_in, 64, kernel_size=3, padding=0, bias=False) # 2nd number in () here must match 2nd number in () next line
-        self.normd1_1 = nn.GroupNorm(32, 64, eps=1e-05, affine=True) # 2nd number in () here must match 1st number in () next line
+        self.convd1_1 = nn.Conv2d(c_in, N, kernel_size=3, padding=0, bias=False) # 2nd number in () here must match 2nd number in () next line
+        self.normd1_1 = nn.GroupNorm(int(N/2), N, eps=1e-05, affine=True) # 2nd number in () here must match 1st number in () next line
         #relu
-        self.convd1_2 = nn.Conv2d(64, 64, kernel_size=3, padding=0, bias=False) # 2nd number in () here must match 2nd number in () next line
-        self.normd1_2 = nn.GroupNorm(32, 64, eps=1e-05, affine=True)
+        self.convd1_2 = nn.Conv2d(N, N, kernel_size=3, padding=0, bias=False) # 2nd number in () here must match 2nd number in () next line
+        self.normd1_2 = nn.GroupNorm(int(N/2), N, eps=1e-05, affine=True)
         #relu
         #pool
         
         '''Down Block 2'''
-        self.emb2 = nn.Linear(4, 64)
-        self.convd2_1 = nn.Conv2d(64, 64, kernel_size=3, padding=0, bias=False)
-        self.normd2_1 = nn.GroupNorm(32, 64, eps=1e-05, affine=True) # Make sure this 6 is the same as the  in the prev line. ie 6*N if the 6 above gets changed to 6*N
+        self.emb2 = nn.Linear(4, N)
+        self.convd2_1 = nn.Conv2d(N, N, kernel_size=3, padding=0, bias=False)
+        self.normd2_1 = nn.GroupNorm(int(N/2), N, eps=1e-05, affine=True) # Make sure this 6 is the same as the  in the prev line. ie 6*N if the 6 above gets changed to 6*N
         #relu
-        self.convd2_2 = nn.Conv2d(64,64, kernel_size=3, padding=0, bias=False)
-        self.normd2_2 = nn.GroupNorm(32, 64, eps=1e-05, affine=True)
+        self.convd2_2 = nn.Conv2d(N, N, kernel_size=3, padding=0, bias=False)
+        self.normd2_2 = nn.GroupNorm(int(N/2), N, eps=1e-05, affine=True)
         #relu
         #pool
 
         '''Down Block 3'''
-        self.emb3 = nn.Linear(4, 64)
-        self.convd3_1 = nn.Conv2d(64, 64, kernel_size=3, padding=0, bias=False)
-        self.normd3_1 = nn.GroupNorm(32, 64, eps=1e-05, affine=True)
+        self.emb3 = nn.Linear(4, N)
+        self.convd3_1 = nn.Conv2d(N, N, kernel_size=3, padding=0, bias=False)
+        self.normd3_1 = nn.GroupNorm(int(N/2), N, eps=1e-05, affine=True)
         #relu
-        self.convd3_2 = nn.Conv2d(64, 64, kernel_size=3, padding=0, bias=False)
-        self.normd3_2 = nn.GroupNorm(32, 64, eps=1e-05, affine=True)
+        self.convd3_2 = nn.Conv2d(N, N, kernel_size=3, padding=0, bias=False)
+        self.normd3_2 = nn.GroupNorm(int(N/2), N, eps=1e-05, affine=True)
         #relu
         #pool
 
         '''Bottleneck'''
-        self.emb4 = nn.Linear(4, 64)
-        self.convb1_1 = nn.Conv2d(64, 64, kernel_size=3, padding=0, bias=False)
-        self.normb1_1 = nn.GroupNorm(32, 64, eps=1e-05, affine=True)
+        self.emb4 = nn.Linear(4, N)
+        self.convb1_1 = nn.Conv2d(N, N, kernel_size=3, padding=0, bias=False)
+        self.normb1_1 = nn.GroupNorm(int(N/2), N, eps=1e-05, affine=True)
         #relu
-        self.attention = Attention(64) # Attention mechanism
-        self.convb1_2 = nn.Conv2d(64, 64, kernel_size=3, padding=0, bias=False)
-        self.normb1_2 = nn.GroupNorm(32, 64, eps=1e-05, affine=True)
+        self.attention = Attention(N) # Attention mechanism
+        self.convb1_2 = nn.Conv2d(N, N, kernel_size=3, padding=0, bias=False)
+        self.normb1_2 = nn.GroupNorm(int(N/2), N, eps=1e-05, affine=True)
         #relu
 
         '''Up Block 1'''
-        self.emb5 = nn.Linear(4, 128)
-        self.convu1_1 = nn.Conv2d(128, 64, kernel_size=3, padding=0, bias=False)
-        self.normu1_1 = nn.GroupNorm(32, 64, eps=1e-05, affine=True)
+        self.emb5 = nn.Linear(4, N*2)
+        self.convu1_1 = nn.Conv2d(N*2, N, kernel_size=3, padding=0, bias=False)
+        self.normu1_1 = nn.GroupNorm(int(N/2), N, eps=1e-05, affine=True)
         #relu
-        self.convu1_2 = nn.Conv2d(64, 64, kernel_size=3, padding=0, bias=False)
-        self.normu1_2 = nn.GroupNorm(32, 64, eps=1e-05, affine=True)
+        self.convu1_2 = nn.Conv2d(N, N, kernel_size=3, padding=0, bias=False)
+        self.normu1_2 = nn.GroupNorm(int(N/2), N, eps=1e-05, affine=True)
         #relu
 
         '''Up Block 2'''
-        self.emb6 = nn.Linear(4, 128)
-        self.convu2_1 = nn.Conv2d(128,64, kernel_size=3, padding=0, bias=False)
-        self.normu2_1 = nn.GroupNorm(32, 64, eps=1e-05, affine=True)
+        self.emb6 = nn.Linear(4, N*2)
+        self.convu2_1 = nn.Conv2d(N*2, N, kernel_size=3, padding=0, bias=False)
+        self.normu2_1 = nn.GroupNorm(int(N/2), N, eps=1e-05, affine=True)
         #relu
-        self.convu2_2 = nn.Conv2d(64, 64, kernel_size=3, padding=0, bias=False)
-        self.normu2_2 = nn.GroupNorm(32, 64, eps=1e-05, affine=True)
+        self.convu2_2 = nn.Conv2d(N, N, kernel_size=3, padding=0, bias=False)
+        self.normu2_2 = nn.GroupNorm(int(N/2), N, eps=1e-05, affine=True)
         #relu
 
         '''Up Block 3'''
-        self.emb7 = nn.Linear(4, 128)
-        self.convu3_1 = nn.Conv2d(128, 64, kernel_size=3, padding=0, bias=False)
-        self.normu3_1 = nn.GroupNorm(32, 64, eps=1e-05, affine=True)
+        self.emb7 = nn.Linear(4, N*2)
+        self.convu3_1 = nn.Conv2d(N*2, N, kernel_size=3, padding=0, bias=False)
+        self.normu3_1 = nn.GroupNorm(int(N/2), N, eps=1e-05, affine=True)
         #relu
-        self.convu3_2 = nn.Conv2d(64, 64, kernel_size=3, padding=0, bias=False)
-        self.normu3_2 = nn.GroupNorm(32, 64, eps=1e-05, affine=True)
+        self.convu3_2 = nn.Conv2d(N, N, kernel_size=3, padding=0, bias=False)
+        self.normu3_2 = nn.GroupNorm(int(N/2), N, eps=1e-05, affine=True)
         #relu
 
         '''Output'''
-        self.out = nn.Conv2d(64, 1, kernel_size=1, padding=0, bias=True) # Final convolutional layer produce single output channel
+        self.out = nn.Conv2d(N, 1, kernel_size=1, padding=0, bias=True) # Final convolutional layer produce single output channel
         #relu
 
 
@@ -322,7 +324,7 @@ class UNetLite_hls(nn.Module):
         pos_enc_a = torch.sin(t.repeat(1, channels // 2) * inv_freq)
         pos_enc_b = torch.cos(t.repeat(1, channels // 2) * inv_freq)
         pos_enc = torch.cat([pos_enc_a, pos_enc_b], dim=-1)
-        return pos_enc * 10 # Play with scaling the amplitude here
+        return pos_enc * 1 # Play with scaling the amplitude here
     
     def custom_pad(self, input, pad_left_right, pad_top_bottom):
         '''Custom padding so LHS and RHS of image are touching (circular padding). Top & bottom padded values = 0'''
