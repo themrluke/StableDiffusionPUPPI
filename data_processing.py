@@ -64,13 +64,16 @@ class Dataset:
         return True
 
     def preprocess(self, saturation: int, new_dim: Tuple[int, int]) -> None:
-        logging.info('scaling')
-        self.signal_tensor_scaled = Dataset.scale(self.signal_tensor, saturation, self.dim)
-        self.pileup_tensor_scaled = Dataset.scale(self.pileup_tensor, saturation, self.dim)
-
+    
         logging.info('re-sizing')
-        self.signal_tensor_resized = Dataset.resize(self.signal_tensor_scaled, self.n_events, new_dim)
-        self.pileup_tensor_resized = Dataset.resize(self.pileup_tensor_scaled, self.n_events, new_dim)
+        self.signal_tensor_resized = Dataset.resize(self.signal_tensor, self.n_events, new_dim)
+        self.pileup_tensor_resized = Dataset.resize(self.pileup_tensor, self.n_events, new_dim)
+
+        #logging.info('scaling')
+        #self.signal_tensor_scaled = Dataset.scale(self.signal_tensor_resized, saturation, new_dim) 
+        #self.pileup_tensor_scaled = Dataset.scale(self.pileup_tensor_resized, saturation, new_dim)
+
+        
 
     @property
     def signal(self) -> np.ndarray:
@@ -96,19 +99,19 @@ class Dataset:
         output = np.resize(input, (n_event, dim[0], dim[1])).astype('float')
         return output
 
-    @staticmethod
-    def scale(input: np.ndarray, saturation: float, dim: Tuple[int, int]) -> np.ndarray:
+    #@staticmethod
+    #def scale(input: np.ndarray, saturation: float, dim: Tuple[int, int]) -> np.ndarray:
 
-        sf = saturation
-        all_events = input
-        shape = all_events.shape[0]
-        all_events_flat = all_events.flatten()
-        saturated = np.where(all_events_flat > sf)
-        all_events_flat[saturated] = sf
-        all_events = all_events_flat.reshape((shape, dim[0], dim[1]))
-        scale_factor = 1. / sf
-        output = all_events * scale_factor
-        return output
+        #sf = saturation
+        #all_events = input
+        #shape = all_events.shape[0]
+        #all_events_flat = all_events.flatten()
+        #saturated = np.where(all_events_flat > sf)
+        #all_events_flat[saturated] = sf
+        #all_events = all_events_flat.reshape((shape, dim[0], dim[1]))
+        #scale_factor = 1. / sf
+        #output = all_events * scale_factor
+        #return output
 
 
 if __name__ == '__main__':

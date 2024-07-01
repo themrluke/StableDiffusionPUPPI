@@ -41,4 +41,6 @@ class NoiseScheduler:
         for _ in range(timestep - 1):
             overlayed_array += noise_sample[np.random.randint(0, n_events, size=1)[0]]
 
-        return (clean_frame + overlayed_array), overlayed_array
+        noisy_image = clean_frame + overlayed_array
+        
+        return noisy_image, overlayed_array
