@@ -273,15 +273,17 @@ class UNetLite_hls(nn.Module):
         pos_enc_a = torch.sin(t.repeat(1, channels // 2) * inv_freq)
         pos_enc_b = torch.cos(t.repeat(1, channels // 2) * inv_freq)
         pos_enc = torch.cat([pos_enc_a, pos_enc_b], dim=-1)
-        return pos_enc * 0.87 # Play with scaling the amplitude here
+        return pos_enc * 1 # Play with scaling the amplitude here 
+        #scalar = 3: MSE for the full_image across 300 events is: 0.16957847596456607
+        #scalar = 1: MSE for the full_image across 300 events is: 0.14356728384892145
     
     def custom_pad(self, input, pad_left_right, pad_top_bottom):
         '''Custom padding so LHS and RHS of image are touching (circular padding). Top & bottom padded values = 0'''
         # Circular padding on the left and right
         input = F.pad(input, pad=(pad_left_right, pad_left_right, 0, 0), mode='circular')
         # Zero padding on the top and bottom
-        #input = F.pad(input, pad=(0, 0, pad_top_bottom, pad_top_bottom), mode='constant', value=0)
-        input = F.pad(input, pad=(0, 0, pad_top_bottom, pad_top_bottom), mode='replicate')
+        input = F.pad(input, pad=(0, 0, pad_top_bottom, pad_top_bottom), mode='constant', value=0)
+        #input = F.pad(input, pad=(0, 0, pad_top_bottom, pad_top_bottom), mode='replicate')
         return input
 
     def forward(self, x, t):
