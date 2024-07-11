@@ -29,18 +29,24 @@ class NoiseScheduler:
 
     @staticmethod
     def add_pile_up_noise(clean_frame: torch.Tensor, noise_sample: torch.Tensor, 
-                          timestep: int, n_events: int, **kwargs) -> Tuple[torch.Tensor, torch.Tensor]:
+                        timestep: int, n_events: int, **kwargs) -> Tuple[torch.Tensor, torch.Tensor]:
         seed_value = kwargs.get('random_seed', int(time.time()))
         np.random.seed(seed_value)
 
-        if timestep > 0:
-            overlayed_array = noise_sample[0].clone()
-        else:
-            overlayed_array = torch.tensor(0)
+        batch_size, channels, height, width = clean_frame.shape
+        overlayed_array = torch.zeros_like(clean_frame)
 
-        for _ in range(timestep - 1):
-            overlayed_array += noise_sample[np.random.randint(0, n_events, size=1)[0]]
+        for i in range(batch_size):
+            if timestep.item() > 0:
+                single_overlayed_array = noise_sample[np.random.randint(0, n_events)].clone().repeat(channels, 1, 1)
+            else:
+                single_overlayed_array = torch.zeros((channels, height, width))
+
+            for _ in range(timestep.item() - 1):
+                single_overlayed_array += noise_sample[np.random.randint(0, n_events)].clone().repeat(channels, 1, 1)
+
+            overlayed_array[i] = single_overlayed_array
 
         noisy_image = clean_frame + overlayed_array
-        
+
         return noisy_image, overlayed_array

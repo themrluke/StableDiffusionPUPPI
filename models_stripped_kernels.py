@@ -4,6 +4,7 @@ from diffusers import UNet2DModel
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
+import numpy as np
 import os
 
 @dataclass
@@ -207,10 +208,7 @@ class UNetLite_hls(nn.Module):
         '''Define upsampling, ReLU activation function and pooling method'''
         self.relu = nn.ReLU()
         #self.pool = nn.MaxPool2d(2) # Use for Pooling method of downsampling
-        self.pool = nn.Conv2d(N , N, kernel_size=3, stride=2, padding=0, bias=False) # Convolution method of downsampling
         #self.up = nn.Upsample(scale_factor=2, mode="nearest") # Use for nearest method of upsampling
-        self.up = nn.ConvTranspose2d(N, N, kernel_size=2, stride=2)  # Deconvolution method for upsampling# Use for deconvolution method of upsampling
-
 
         '''Down Block 1'''
         # 1st number in self.convd1_1 brackets is number of input channels
@@ -222,43 +220,49 @@ class UNetLite_hls(nn.Module):
         self.convd1_2 = nn.Conv2d(N, N, kernel_size=3, padding=0, bias=False) # 2nd number in () here must match 2nd number in () next line
         self.normd1_2 = nn.GroupNorm(int(N/2), N, eps=1e-05, affine=True)
         #relu
-        #pool
+        self.pool1 = nn.Conv2d(N , N, kernel_size=3, stride=2, padding=0, bias=False) # Convolution method of downsampling
         
         '''Down Block 2'''
+        self.normd2_1 = nn.GroupNorm(int(N/2), N, eps=1e-05, affine=True)
         self.emb2 = nn.Linear(4, N)
         self.convd2_1 = nn.Conv2d(N, N, kernel_size=3, padding=0, bias=False)
-        self.normd2_1 = nn.GroupNorm(int(N/2), N, eps=1e-05, affine=True) # Make sure this 6 is the same as the  in the prev line. ie 6*N if the 6 above gets changed to 6*N
+        self.normd2_2 = nn.GroupNorm(int(N/2), N, eps=1e-05, affine=True) # Make sure this 6 is the same as the  in the prev line. ie 6*N if the 6 above gets changed to 6*N
         #relu
         self.convd2_2 = nn.Conv2d(N, N, kernel_size=3, padding=0, bias=False)
-        self.normd2_2 = nn.GroupNorm(int(N/2), N, eps=1e-05, affine=True)
+        self.normd2_3 = nn.GroupNorm(int(N/2), N, eps=1e-05, affine=True)
         #relu
-        #pool
+        self.pool2 = nn.Conv2d(N , N, kernel_size=3, stride=2, padding=0, bias=False)
 
         '''Bottleneck'''
+        self.normb1_1 = nn.GroupNorm(int(N/2), N, eps=1e-05, affine=True)
         self.emb4 = nn.Linear(4, N)
         self.convb1_1 = nn.Conv2d(N, N, kernel_size=3, padding=0, bias=False)
-        self.normb1_1 = nn.GroupNorm(int(N/2), N, eps=1e-05, affine=True)
+        self.normb1_2 = nn.GroupNorm(int(N/2), N, eps=1e-05, affine=True)
         #relu
         self.convb1_2 = nn.Conv2d(N, N, kernel_size=3, padding=0, bias=False)
-        self.normb1_2 = nn.GroupNorm(int(N/2), N, eps=1e-05, affine=True)
+        self.normb1_3 = nn.GroupNorm(int(N/2), N, eps=1e-05, affine=True)
         #relu
 
         '''Up Block 1'''
+        self.up1 = nn.ConvTranspose2d(N, N, kernel_size=2, stride=2) # Deconvolution method for upsampling# Use for deconvolution method of upsampling
+        self.normu1_1 = nn.GroupNorm(int(N/2), N, eps=1e-05, affine=True)
         self.emb5 = nn.Linear(4, N*2)
         self.convu1_1 = nn.Conv2d(N*2, N, kernel_size=3, padding=0, bias=False)
-        self.normu1_1 = nn.GroupNorm(int(N/2), N, eps=1e-05, affine=True)
+        self.normu1_2 = nn.GroupNorm(int(N/2), N, eps=1e-05, affine=True)
         #relu
         self.convu1_2 = nn.Conv2d(N, N, kernel_size=3, padding=0, bias=False)
-        self.normu1_2 = nn.GroupNorm(int(N/2), N, eps=1e-05, affine=True)
+        self.normu1_3 = nn.GroupNorm(int(N/2), N, eps=1e-05, affine=True)
         #relu
 
         '''Up Block 2'''
+        self.up2 = nn.ConvTranspose2d(N, N, kernel_size=2, stride=2)
+        self.normu2_1 = nn.GroupNorm(int(N/2), N, eps=1e-05, affine=True)
         self.emb6 = nn.Linear(4, N*2)
         self.convu2_1 = nn.Conv2d(N*2, N, kernel_size=3, padding=0, bias=False)
-        self.normu2_1 = nn.GroupNorm(int(N/2), N, eps=1e-05, affine=True)
+        self.normu2_2 = nn.GroupNorm(int(N/2), N, eps=1e-05, affine=True)
         #relu
         self.convu2_2 = nn.Conv2d(N, N, kernel_size=3, padding=0, bias=False)
-        self.normu2_2 = nn.GroupNorm(int(N/2), N, eps=1e-05, affine=True)
+        self.normu2_3 = nn.GroupNorm(int(N/2), N, eps=1e-05, affine=True)
         #relu
 
         '''Output'''
@@ -273,7 +277,7 @@ class UNetLite_hls(nn.Module):
         pos_enc_a = torch.sin(t.repeat(1, channels // 2) * inv_freq)
         pos_enc_b = torch.cos(t.repeat(1, channels // 2) * inv_freq)
         pos_enc = torch.cat([pos_enc_a, pos_enc_b], dim=-1)
-        return pos_enc * 1 # Play with scaling the amplitude here 
+        return pos_enc # Play with scaling the amplitude here 
         #scalar = 3: MSE for the full_image across 300 events is: 0.16957847596456607
         #scalar = 1: MSE for the full_image across 300 events is: 0.14356728384892145
     
@@ -283,7 +287,6 @@ class UNetLite_hls(nn.Module):
         input = F.pad(input, pad=(pad_left_right, pad_left_right, 0, 0), mode='circular')
         # Zero padding on the top and bottom
         input = F.pad(input, pad=(0, 0, pad_top_bottom, pad_top_bottom), mode='constant', value=0)
-        #input = F.pad(input, pad=(0, 0, pad_top_bottom, pad_top_bottom), mode='replicate')
         return input
 
     def forward(self, x, t):
@@ -303,62 +306,62 @@ class UNetLite_hls(nn.Module):
 
         # Down 2
         xd2 = self.custom_pad(xd1, pad_left_right=1, pad_top_bottom=1) # Pad before convolutional pooling method
-        xd2 = self.pool(xd2) # Changed from xd2 to xd1
-        xd2 = self.normd1_1(xd2) # Normalisation after pooling
+        xd2 = self.pool1(xd2) # Changed from xd2 to xd1
+        xd2 = self.normd2_1(xd2) # Normalisation after pooling
         xd2 = self.relu(xd2) # Activation function after pooling
         emb2 = self.emb2(t)[:, :, None, None].repeat(1, 1, xd2.shape[-2], xd2.shape[-1])
         xd2 = self.custom_pad(emb2 + xd2, pad_left_right=1, pad_top_bottom=1)
         xd2 = self.convd2_1(xd2)
-        xd2 = self.normd2_1(xd2)
+        xd2 = self.normd2_2(xd2)
         xd2 = self.relu(xd2)
         xd2 = self.custom_pad(xd2, pad_left_right=1, pad_top_bottom=1)
         xd2 = self.convd2_2(xd2)
-        xd2 = self.normd2_2(xd2)
+        xd2 = self.normd2_3(xd2)
         xd2 = self.relu(xd2)
         
         # Bottleneck 1
         xb1 = self.custom_pad(xd2, pad_left_right=1, pad_top_bottom=1) # Changed from xd3 to xd2 for 2 block model
-        xb1 = self.pool(xb1) # Changed from xb1 to xd2
-        xb1 = self.normd1_1(xb1)
+        xb1 = self.pool2(xb1) # Changed from xb1 to xd2
+        xb1 = self.normb1_1(xb1)
         xb1 = self.relu(xb1)
         emb4 = self.emb4(t)[:, :, None, None].repeat(1, 1, xb1.shape[-2], xb1.shape[-1])
         xb1 = self.custom_pad(emb4 + xb1, pad_left_right=1, pad_top_bottom=1)
         xb1 = self.convb1_1(xb1)
-        xb1 = self.normb1_1(xb1)
+        xb1 = self.normb1_2(xb1)
         xb1 = self.relu(xb1)
         xb1 = self.custom_pad(xb1, pad_left_right=1, pad_top_bottom=1)
         xb1 = self.convb1_2(xb1)
-        xb1 = self.normb1_2(xb1)
+        xb1 = self.normb1_3(xb1)
         xb1 = self.relu(xb1)
 
         # Up 1
-        xu1 = self.up(xb1)
-        xu1 = self.normd1_1(xu1) # Normalisation after convolutional upsampling
+        xu1 = self.up1(xb1)
+        xu1 = self.normu1_1(xu1) # Normalisation after convolutional upsampling
         xu1 = self.relu(xu1) # Activation function after convolutional upsampling
         emb5 = self.emb5(t)[:, :, None, None].repeat(1, 1, xu1.shape[-2], xu1.shape[-1])
         xu1 = emb5 + torch.cat([xu1, xd2], dim=1) # Changed from xd3 to xd2 for 2 block model
         xu1 = self.custom_pad(xu1, pad_left_right=1, pad_top_bottom=1)
         xu1 = self.convu1_1(xu1)
-        xu1 = self.normu1_1(xu1)
+        xu1 = self.normu1_2(xu1)
         xu1 = self.relu(xu1)
         xu1 = self.custom_pad(xu1, pad_left_right=1, pad_top_bottom=1)
         xu1 = self.convu1_2(xu1) 
-        xu1 = self.normu1_2(xu1)
+        xu1 = self.normu1_3(xu1)
         xu1 = self.relu(xu1)
 
         # Up 2
-        xu2 = self.up(xu1)
-        xu2 = self.normd1_1(xu2) # Normalisation after convolutional upsampling
+        xu2 = self.up2(xu1)
+        xu2 = self.normu2_1(xu2) # Normalisation after convolutional upsampling
         xu2 = self.relu(xu2) # Activation function after convolutional upsampling
         emb6 = self.emb6(t)[:, :, None, None].repeat(1, 1, xu2.shape[-2], xu2.shape[-1])
         xu2 = emb6 + torch.cat([xu2, xd1], dim=1) # Changed from xd2 to xd1 for 2 block model
         xu2 = self.custom_pad(xu2, pad_left_right=1, pad_top_bottom=1)
         xu2 = self.convu2_1(xu2)
-        xu2 = self.normu2_1(xu2)
+        xu2 = self.normu2_2(xu2)
         xu2 = self.relu(xu2)
         xu2 = self.custom_pad(xu2, pad_left_right=1, pad_top_bottom=1)
         xu2 = self.convu2_2(xu2)
-        xu2 = self.normu2_2(xu2)
+        xu2 = self.normu2_3(xu2)
         xu2 = self.relu(xu2)
         
         # Output

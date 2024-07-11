@@ -23,12 +23,21 @@ class Dataset:
     end_idx: Optional[int] = None
 
     def __call__(self):
+
         try:
-            load = self._load()
-            if load:
-                self.root_to_numpy()
-        except Exception as e:
-            logging.error(f"Load failed: {e}")
+            if self.start_idx is None and self.end_idx is None:
+                self.start_idx = 0
+                self.end_idx = self.n_events
+            self.signal_tensor = np.load(f'{os.getcwd()}/signal.npy')[self.start_idx:self.end_idx]
+            self.pileup_tensor = np.load(f'{os.getcwd()}/pile_up.npy')[self.start_idx:self.end_idx]
+
+        except:
+            try:
+                load = self._load()
+                if load:
+                    self.root_to_numpy()
+            except Exception as e:
+                logging.error(f"Load failed: {e}")
 
         if self.save:
             self._save()
@@ -37,14 +46,15 @@ class Dataset:
         return self.n_events
 
     def _load(self):
+
         self.signal_uproot = uproot.open(self.signal_file)
         self.pile_up_uproot = uproot.open(self.pile_up_file)
         return True
     
     def _save(self):
         logging.info(f'saving files')
-        np.save(f'{os.getcwd()}/signal.npy', self.signal_uproot)
-        np.save(f'{os.getcwd()}/pile_up.npy', self.signal_uproot)
+        np.save(f'{os.getcwd()}/signal.npy', self.signal_tensor)
+        np.save(f'{os.getcwd()}/pile_up.npy', self.pileup_tensor)
 
     def root_to_numpy(self):
         logging.info(f'loading file {self.signal_file}')
@@ -63,18 +73,11 @@ class Dataset:
 
         return True
 
-    def preprocess(self, saturation: int, new_dim: Tuple[int, int]) -> None:
-    
+    def preprocess(self, new_dim: Tuple[int, int]) -> None:
         logging.info('re-sizing')
         self.signal_tensor_resized = Dataset.resize(self.signal_tensor, self.n_events, new_dim)
         self.pileup_tensor_resized = Dataset.resize(self.pileup_tensor, self.n_events, new_dim)
-
-        #logging.info('scaling')
-        #self.signal_tensor_scaled = Dataset.scale(self.signal_tensor_resized, saturation, new_dim) 
-        #self.pileup_tensor_scaled = Dataset.scale(self.pileup_tensor_resized, saturation, new_dim)
-
-        
-
+       
     @property
     def signal(self) -> np.ndarray:
         if hasattr(self, 'signal_tensor_resized'):
@@ -93,26 +96,10 @@ class Dataset:
         else:
             return self.pileup_tensor
 
-
     @staticmethod
     def resize(input: np.ndarray, n_event: int, dim: Tuple[int, int]) -> np.ndarray:
         output = np.resize(input, (n_event, dim[0], dim[1])).astype('float')
         return output
-
-    #@staticmethod
-    #def scale(input: np.ndarray, saturation: float, dim: Tuple[int, int]) -> np.ndarray:
-
-        #sf = saturation
-        #all_events = input
-        #shape = all_events.shape[0]
-        #all_events_flat = all_events.flatten()
-        #saturated = np.where(all_events_flat > sf)
-        #all_events_flat[saturated] = sf
-        #all_events = all_events_flat.reshape((shape, dim[0], dim[1]))
-        #scale_factor = 1. / sf
-        #output = all_events * scale_factor
-        #return output
-
 
 if __name__ == '__main__':
    fire.Fire(Dataset)
