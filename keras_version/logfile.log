@@ -3800,3 +3800,37 @@ INFO:root:re-sizing
 WARNING:tensorflow:From /tmp/ipykernel_3071156/2814181091.py:1: _EagerTensorBase.cpu (from tensorflow.python.framework.ops) is deprecated and will be removed in a future version.
 Instructions for updating:
 Use tf.identity instead.
+INFO:root:re-sizing
+WARNING:tensorflow:From /tmp/ipykernel_3190753/2814181091.py:1: _EagerTensorBase.cpu (from tensorflow.python.framework.ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.identity instead.
+INFO:root:re-sizing
+WARNING:tensorflow:From /tmp/ipykernel_3227682/2814181091.py:1: _EagerTensorBase.cpu (from tensorflow.python.framework.ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.identity instead.
+INFO:root:re-sizing
+INFO:root:re-sizing
+WARNING:tensorflow:From /tmp/ipykernel_3236195/2814181091.py:1: _EagerTensorBase.cpu (from tensorflow.python.framework.ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.identity instead.
+INFO:root:re-sizing
+WARNING:tensorflow:From /tmp/ipykernel_3245739/2814181091.py:1: _EagerTensorBase.cpu (from tensorflow.python.framework.ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.identity instead.
+INFO:root:re-sizing
+WARNING:tensorflow:From /tmp/ipykernel_3258489/2814181091.py:1: _EagerTensorBase.cpu (from tensorflow.python.framework.ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.identity instead.
+INFO:root:re-sizing
+INFO:root:re-sizing
+WARNING:tensorflow:From /tmp/ipykernel_3271077/2814181091.py:1: _EagerTensorBase.cpu (from tensorflow.python.framework.ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.identity instead.
+INFO:root:re-sizing
+WARNING:tensorflow:From /tmp/ipykernel_3294539/2814181091.py:1: _EagerTensorBase.cpu (from tensorflow.python.framework.ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.identity instead.
+INFO:root:re-sizing
+WARNING:tensorflow:From /tmp/ipykernel_3296449/2814181091.py:1: _EagerTensorBase.cpu (from tensorflow.python.framework.ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.identity instead.
