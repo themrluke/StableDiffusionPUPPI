@@ -1,13 +1,13 @@
 import numpy as np
 
 def find_local_maxima(img, neighborhood_size):
-    img = img.cpu().numpy()
-    num_events, num_channels, height, width = img.shape
+    img = img.numpy()
+    num_events, height, width, _ = img.shape
     result_img = np.zeros_like(img)
     maxima_positions = []
 
     # Extend the image by wrapping around LHS and RHS
-    extended_img = np.concatenate((img, img, img), axis=3)
+    extended_img = np.concatenate((img, img, img), axis=2)
 
     # Flatten the image and sort the pixel values in descending order along with their indices for all events
     flat_img = img.reshape(num_events, -1)
@@ -30,7 +30,7 @@ def find_local_maxima(img, neighborhood_size):
 
     # Ensure the neighborhood coordinates are within the bounds of the image
     valid_mask = (neighborhood_coords[:, :, 0] >= 0) & (neighborhood_coords[:, :, 0] < height) & \
-                 (neighborhood_coords[:, :, 1] >= width) & (neighborhood_coords[:, :, 1] < 2 * width)
+                 (neighborhood_coords[:, :, 1] >= 0) & (neighborhood_coords[:, :, 1] < width)
     
     neighborhood_coords = neighborhood_coords[valid_mask].reshape(-1, 2)
 
@@ -57,25 +57,27 @@ def find_local_maxima(img, neighborhood_size):
             start_j = j + width - neighborhood_size // 2
             end_j = j + width + neighborhood_size // 2 + 1
 
+            if start_i >= end_i or start_j >= end_j:
+                continue
+
             # Extract the neighborhood for all events
-            neighborhood = extended_img[:, :, start_i:end_i, start_j:end_j]
+            neighborhood = extended_img[:, start_i:end_i, start_j:end_j, :]
 
             # Find the local maxima for all events simultaneously
             max_indices = np.argmax(neighborhood.reshape(num_events, -1), axis=1)
             max_coords = np.unravel_index(max_indices, (end_i - start_i, end_j - start_j))
 
             # Vectorized comparison for local maxima
-            local_maxima_mask = (max_coords[0] == i - start_i) & (max_coords[1] == j + width - start_j) & (img[:, 0, i, j] >= thresholds)
-
+            local_maxima_mask = (max_coords[0] == i - start_i) & (max_coords[1] == j + width - start_j) & (img[:, i, j, 0] >= thresholds)
+            
             # Update result_img and maxima_positions
             if np.any(local_maxima_mask):
-                result_img[local_maxima_mask, 0, i, j] = neighborhood[local_maxima_mask].sum(axis=(1, 2, 3))
+                result_img[local_maxima_mask, i, j, 0] = neighborhood[local_maxima_mask].sum(axis=(1, 2, 3))
                 events_with_maxima = np.where(local_maxima_mask)[0]
                 for event in events_with_maxima:
-                    maxima_positions.append({'event': event, 'i': i, 'j': j, 'pixel_value': img[event, 0, i, j], 'sum_around_maxima': result_img[event, 0, i, j]})
-    
-    return result_img, maxima_positions
+                    maxima_positions.append({'event': event, 'i': i, 'j': j, 'pixel_value': img[event, i, j, 0], 'sum_around_maxima': result_img[event, i, j, 0]})
 
+    return result_img, maxima_positions
 
 def find_matching_maxima(reference_maxima, test_maxima):
     matching_maxima = []
