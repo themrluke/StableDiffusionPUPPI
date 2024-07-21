@@ -1,2 +1,0 @@
-# Prevent large numpy files being included in commits
-*.npy
