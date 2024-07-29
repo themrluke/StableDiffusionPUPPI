@@ -4,12 +4,12 @@
 #include "parameters.h"
 
 void myproject(
-    hls::stream<input2_t> &input_images, hls::stream<integer_input_t> &input_time, hls::stream<input_t> &pos_encoding_main, hls::stream<input17_t> &pos_encoding_bottleneck,
-    hls::stream<integer_input_t> &input_time, hls::stream<result_t> &layer49_out
+    hls::stream<input2_t> &input_images, hls::stream<integer_input_t> &time_input, hls::stream<input_t> &pos_enc_main, hls::stream<input17_t> &pos_enc_bottleneck,
+    hls::stream<integer_input_t> &time_input, hls::stream<result_t> &layer49_out
 ) {
 
     // hls-fpga-machine-learning insert IO
-    #pragma HLS INTERFACE axis port=input_images,input_time,pos_encoding_main,pos_encoding_bottleneck,input_time,layer49_out 
+    #pragma HLS INTERFACE axis port=input_images,time_input,pos_enc_main,pos_enc_bottleneck,time_input,layer49_out 
     #pragma HLS DATAFLOW 
 
 #ifndef __SYNTHESIS__
@@ -54,7 +54,7 @@ void myproject(
     #pragma HLS STREAM variable=layer53_cpy1 depth=4096
     hls::stream<input_t> layer53_cpy2("layer53_cpy2");
     #pragma HLS STREAM variable=layer53_cpy2 depth=4096
-    nnet::clone_stream<input_t, input_t, 16384>(pos_encoding_main, layer53_cpy1, layer53_cpy2); // clone_pos_encoding_main
+    nnet::clone_stream<input_t, input_t, 16384>(pos_enc_main, layer53_cpy1, layer53_cpy2); // clone_pos_enc_main
 
     hls::stream<layer50_t> layer50_out("layer50_out");
     #pragma HLS STREAM variable=layer50_out depth=4096
@@ -102,7 +102,7 @@ void myproject(
 
     hls::stream<layer51_t> layer51_out("layer51_out");
     #pragma HLS STREAM variable=layer51_out depth=1024
-    nnet::pointwise_conv_2d_cl<input17_t, layer51_t, config51>(pos_encoding_bottleneck, layer51_out, w51, b51); // emb4
+    nnet::pointwise_conv_2d_cl<input17_t, layer51_t, config51>(pos_enc_bottleneck, layer51_out, w51, b51); // emb4
 
     hls::stream<layer21_t> layer21_out("layer21_out");
     #pragma HLS STREAM variable=layer21_out depth=1024

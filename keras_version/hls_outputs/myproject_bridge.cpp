@@ -49,47 +49,47 @@ void collect_trace_output(struct trace_data *c_trace_outputs) {
 
 // Wrapper of top level function for Python bridge
 void myproject_float(
-    float input_images[N_INPUT_1_2*N_INPUT_2_2*N_INPUT_3_2], float input_time[N_INPUT_1_48], float pos_encoding_main[N_INPUT_1_1*N_INPUT_2_1*N_INPUT_3_1], float pos_encoding_bottleneck[N_INPUT_1_17*N_INPUT_2_17*N_INPUT_3_17],
-    float input_time[N_INPUT_1_48], float layer49_out[OUT_HEIGHT_46*OUT_WIDTH_46*N_FILT_46]
+    float input_images[N_INPUT_1_2*N_INPUT_2_2*N_INPUT_3_2], float time_input[N_INPUT_1_48], float pos_enc_main[N_INPUT_1_1*N_INPUT_2_1*N_INPUT_3_1], float pos_enc_bottleneck[N_INPUT_1_17*N_INPUT_2_17*N_INPUT_3_17],
+    float time_input[N_INPUT_1_48], float layer49_out[OUT_HEIGHT_46*OUT_WIDTH_46*N_FILT_46]
 ) {
 
     hls::stream<input2_t> input_images_ap("input_images");
     nnet::convert_data<float, input2_t, N_INPUT_1_2*N_INPUT_2_2*N_INPUT_3_2>(input_images, input_images_ap);
-    hls::stream<integer_input_t> input_time_ap("input_time");
-    nnet::convert_data<float, integer_input_t, N_INPUT_1_48>(input_time, input_time_ap);
-    hls::stream<input_t> pos_encoding_main_ap("pos_encoding_main");
-    nnet::convert_data<float, input_t, N_INPUT_1_1*N_INPUT_2_1*N_INPUT_3_1>(pos_encoding_main, pos_encoding_main_ap);
-    hls::stream<input17_t> pos_encoding_bottleneck_ap("pos_encoding_bottleneck");
-    nnet::convert_data<float, input17_t, N_INPUT_1_17*N_INPUT_2_17*N_INPUT_3_17>(pos_encoding_bottleneck, pos_encoding_bottleneck_ap);
+    hls::stream<integer_input_t> time_input_ap("time_input");
+    nnet::convert_data<float, integer_input_t, N_INPUT_1_48>(time_input, time_input_ap);
+    hls::stream<input_t> pos_enc_main_ap("pos_enc_main");
+    nnet::convert_data<float, input_t, N_INPUT_1_1*N_INPUT_2_1*N_INPUT_3_1>(pos_enc_main, pos_enc_main_ap);
+    hls::stream<input17_t> pos_enc_bottleneck_ap("pos_enc_bottleneck");
+    nnet::convert_data<float, input17_t, N_INPUT_1_17*N_INPUT_2_17*N_INPUT_3_17>(pos_enc_bottleneck, pos_enc_bottleneck_ap);
 
-    hls::stream<integer_input_t> input_time_ap("input_time");
+    hls::stream<integer_input_t> time_input_ap("time_input");
     hls::stream<result_t> layer49_out_ap("layer49_out");
 
-    myproject(input_images_ap,input_time_ap,pos_encoding_main_ap,pos_encoding_bottleneck_ap,input_time_ap,layer49_out_ap);
+    myproject(input_images_ap,time_input_ap,pos_enc_main_ap,pos_enc_bottleneck_ap,time_input_ap,layer49_out_ap);
 
-    nnet::convert_data<integer_input_t, float, N_INPUT_1_48>(input_time_ap, input_time);
+    nnet::convert_data<integer_input_t, float, N_INPUT_1_48>(time_input_ap, time_input);
     nnet::convert_data<result_t, float, OUT_HEIGHT_46*OUT_WIDTH_46*N_FILT_46>(layer49_out_ap, layer49_out);
 }
 
 void myproject_double(
-    double input_images[N_INPUT_1_2*N_INPUT_2_2*N_INPUT_3_2], double input_time[N_INPUT_1_48], double pos_encoding_main[N_INPUT_1_1*N_INPUT_2_1*N_INPUT_3_1], double pos_encoding_bottleneck[N_INPUT_1_17*N_INPUT_2_17*N_INPUT_3_17],
-    double input_time[N_INPUT_1_48], double layer49_out[OUT_HEIGHT_46*OUT_WIDTH_46*N_FILT_46]
+    double input_images[N_INPUT_1_2*N_INPUT_2_2*N_INPUT_3_2], double time_input[N_INPUT_1_48], double pos_enc_main[N_INPUT_1_1*N_INPUT_2_1*N_INPUT_3_1], double pos_enc_bottleneck[N_INPUT_1_17*N_INPUT_2_17*N_INPUT_3_17],
+    double time_input[N_INPUT_1_48], double layer49_out[OUT_HEIGHT_46*OUT_WIDTH_46*N_FILT_46]
 ) {
     hls::stream<input2_t> input_images_ap("input_images");
     nnet::convert_data<double, input2_t, N_INPUT_1_2*N_INPUT_2_2*N_INPUT_3_2>(input_images, input_images_ap);
-    hls::stream<integer_input_t> input_time_ap("input_time");
-    nnet::convert_data<double, integer_input_t, N_INPUT_1_48>(input_time, input_time_ap);
-    hls::stream<input_t> pos_encoding_main_ap("pos_encoding_main");
-    nnet::convert_data<double, input_t, N_INPUT_1_1*N_INPUT_2_1*N_INPUT_3_1>(pos_encoding_main, pos_encoding_main_ap);
-    hls::stream<input17_t> pos_encoding_bottleneck_ap("pos_encoding_bottleneck");
-    nnet::convert_data<double, input17_t, N_INPUT_1_17*N_INPUT_2_17*N_INPUT_3_17>(pos_encoding_bottleneck, pos_encoding_bottleneck_ap);
+    hls::stream<integer_input_t> time_input_ap("time_input");
+    nnet::convert_data<double, integer_input_t, N_INPUT_1_48>(time_input, time_input_ap);
+    hls::stream<input_t> pos_enc_main_ap("pos_enc_main");
+    nnet::convert_data<double, input_t, N_INPUT_1_1*N_INPUT_2_1*N_INPUT_3_1>(pos_enc_main, pos_enc_main_ap);
+    hls::stream<input17_t> pos_enc_bottleneck_ap("pos_enc_bottleneck");
+    nnet::convert_data<double, input17_t, N_INPUT_1_17*N_INPUT_2_17*N_INPUT_3_17>(pos_enc_bottleneck, pos_enc_bottleneck_ap);
 
-    hls::stream<integer_input_t> input_time_ap("input_time");
+    hls::stream<integer_input_t> time_input_ap("time_input");
     hls::stream<result_t> layer49_out_ap("layer49_out");
 
-    myproject(input_images_ap,input_time_ap,pos_encoding_main_ap,pos_encoding_bottleneck_ap,input_time_ap,layer49_out_ap);
+    myproject(input_images_ap,time_input_ap,pos_enc_main_ap,pos_enc_bottleneck_ap,time_input_ap,layer49_out_ap);
 
-    nnet::convert_data<integer_input_t, double, N_INPUT_1_48>(input_time_ap, input_time);
+    nnet::convert_data<integer_input_t, double, N_INPUT_1_48>(time_input_ap, time_input);
     nnet::convert_data<result_t, double, OUT_HEIGHT_46*OUT_WIDTH_46*N_FILT_46>(layer49_out_ap, layer49_out);
 }
 }

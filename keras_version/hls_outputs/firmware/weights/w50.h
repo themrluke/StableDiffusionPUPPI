@@ -1,6 +1,6 @@
 //Numpy array shape [4, 1]
-//Min -0.582443118095
-//Max 0.112923346460
+//Min -0.582434475422
+//Max 0.112927138805
 //Number of zeros 0
 
 #ifndef W50_H_
@@ -9,7 +9,7 @@
 #ifndef __SYNTHESIS__
 emb1_weight_t w50[4];
 #else
-emb1_weight_t w50[4] = {-0.548060, -0.582443, -0.383904, 0.112923};
+emb1_weight_t w50[4] = {-0.548047, -0.582434, -0.383899, 0.112927};
 #endif
 
 #endif

@@ -9,8 +9,8 @@
 
 // Prototype of top level function for C-synthesis
 void myproject(
-    hls::stream<input2_t> &input_images, hls::stream<integer_input_t> &input_time, hls::stream<input_t> &pos_encoding_main, hls::stream<input17_t> &pos_encoding_bottleneck,
-    hls::stream<integer_input_t> &input_time, hls::stream<result_t> &layer49_out
+    hls::stream<input2_t> &input_images, hls::stream<integer_input_t> &time_input, hls::stream<input_t> &pos_enc_main, hls::stream<input17_t> &pos_enc_bottleneck,
+    hls::stream<integer_input_t> &time_input, hls::stream<result_t> &layer49_out
 );
 
 #endif

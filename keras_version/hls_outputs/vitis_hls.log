@@ -1,0 +1,16 @@
+
+****** Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2024.1 (64-bit)
+  **** SW Build 5069499 on May 21 2024
+  **** IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
+  **** SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
+  **** Start of session at: Mon Jul 29 18:09:11 2024
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source /opt/Xilinx/Vitis_HLS/2024.1/scripts/vitis_hls/hls.tcl -notrace
+INFO: [HLS 200-10] For user 'themrluke' on host 'Luke-ultimate-rig.' (Linux_x86_64 version 5.15.153.1-microsoft-standard-WSL2) on Mon Jul 29 18:09:12 BST 2024
+INFO: [HLS 200-10] On os Ubuntu 22.04.4 LTS
+INFO: [HLS 200-10] In directory '/home/themrluke/projects/stablediffusion/keras_version/hls_outputs'
+WARNING: [HLS 200-2053] The vitis_hls executable is deprecated. Consider using vitis-run --mode hls --tcl
+ERROR: HLS Tcl script does not exist: build_prj.tcl
+INFO: [HLS 200-112] Total CPU user time: 0.79 seconds. Total CPU system time: 0.02 seconds. Total elapsed time: 0.93 seconds; peak allocated memory: 97.809 MB.

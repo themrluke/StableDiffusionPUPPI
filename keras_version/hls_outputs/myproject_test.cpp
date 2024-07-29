@@ -60,17 +60,17 @@ int main(int argc, char **argv) {
             // hls-fpga-machine-learning insert data
       hls::stream<input2_t> input_images("input_images");
       nnet::copy_data<float, input2_t, 0, N_INPUT_1_2*N_INPUT_2_2*N_INPUT_3_2>(in, input_images);
-      hls::stream<integer_input_t> input_time("input_time");
-      nnet::copy_data<float, integer_input_t, 4096, N_INPUT_1_48>(in, input_time);
-      hls::stream<input_t> pos_encoding_main("pos_encoding_main");
-      nnet::copy_data<float, input_t, 4097, N_INPUT_1_1*N_INPUT_2_1*N_INPUT_3_1>(in, pos_encoding_main);
-      hls::stream<input17_t> pos_encoding_bottleneck("pos_encoding_bottleneck");
-      nnet::copy_data<float, input17_t, 20481, N_INPUT_1_17*N_INPUT_2_17*N_INPUT_3_17>(in, pos_encoding_bottleneck);
-      hls::stream<integer_input_t> input_time("input_time");
+      hls::stream<integer_input_t> time_input("time_input");
+      nnet::copy_data<float, integer_input_t, 4096, N_INPUT_1_48>(in, time_input);
+      hls::stream<input_t> pos_enc_main("pos_enc_main");
+      nnet::copy_data<float, input_t, 4097, N_INPUT_1_1*N_INPUT_2_1*N_INPUT_3_1>(in, pos_enc_main);
+      hls::stream<input17_t> pos_enc_bottleneck("pos_enc_bottleneck");
+      nnet::copy_data<float, input17_t, 20481, N_INPUT_1_17*N_INPUT_2_17*N_INPUT_3_17>(in, pos_enc_bottleneck);
+      hls::stream<integer_input_t> time_input("time_input");
       hls::stream<result_t> layer49_out("layer49_out");
 
             // hls-fpga-machine-learning insert top-level-function
-            myproject(input_images,input_time,pos_encoding_main,pos_encoding_bottleneck,input_time,layer49_out);
+            myproject(input_images,time_input,pos_enc_main,pos_enc_bottleneck,time_input,layer49_out);
 
             if (e % CHECKPOINT == 0) {
                 std::cout << "Predictions" << std::endl;
@@ -85,13 +85,13 @@ int main(int argc, char **argv) {
                 std::cout << std::endl;
                 std::cout << "Quantized predictions" << std::endl;
                 // hls-fpga-machine-learning insert quantized
-                nnet::print_result<integer_input_t, N_INPUT_1_48>(input_time, std::cout, true);
+                nnet::print_result<integer_input_t, N_INPUT_1_48>(time_input, std::cout, true);
                 nnet::print_result<result_t, OUT_HEIGHT_46*OUT_WIDTH_46*N_FILT_46>(layer49_out, std::cout, true);
             }
             e++;
 
             // hls-fpga-machine-learning insert tb-output
-            nnet::print_result<integer_input_t, N_INPUT_1_48>(input_time, fout);
+            nnet::print_result<integer_input_t, N_INPUT_1_48>(time_input, fout);
             nnet::print_result<result_t, OUT_HEIGHT_46*OUT_WIDTH_46*N_FILT_46>(layer49_out, fout);
         }
         fin.close();
@@ -102,24 +102,24 @@ int main(int argc, char **argv) {
         // hls-fpga-machine-learning insert zero
     hls::stream<input2_t> input_images("input_images");
     nnet::fill_zero<input2_t, N_INPUT_1_2*N_INPUT_2_2*N_INPUT_3_2>(input_images);
-    hls::stream<integer_input_t> input_time("input_time");
-    nnet::fill_zero<integer_input_t, N_INPUT_1_48>(input_time);
-    hls::stream<input_t> pos_encoding_main("pos_encoding_main");
-    nnet::fill_zero<input_t, N_INPUT_1_1*N_INPUT_2_1*N_INPUT_3_1>(pos_encoding_main);
-    hls::stream<input17_t> pos_encoding_bottleneck("pos_encoding_bottleneck");
-    nnet::fill_zero<input17_t, N_INPUT_1_17*N_INPUT_2_17*N_INPUT_3_17>(pos_encoding_bottleneck);
-    hls::stream<integer_input_t> input_time("input_time");
+    hls::stream<integer_input_t> time_input("time_input");
+    nnet::fill_zero<integer_input_t, N_INPUT_1_48>(time_input);
+    hls::stream<input_t> pos_enc_main("pos_enc_main");
+    nnet::fill_zero<input_t, N_INPUT_1_1*N_INPUT_2_1*N_INPUT_3_1>(pos_enc_main);
+    hls::stream<input17_t> pos_enc_bottleneck("pos_enc_bottleneck");
+    nnet::fill_zero<input17_t, N_INPUT_1_17*N_INPUT_2_17*N_INPUT_3_17>(pos_enc_bottleneck);
+    hls::stream<integer_input_t> time_input("time_input");
     hls::stream<result_t> layer49_out("layer49_out");
 
         // hls-fpga-machine-learning insert top-level-function
-        myproject(input_images,input_time,pos_encoding_main,pos_encoding_bottleneck,input_time,layer49_out);
+        myproject(input_images,time_input,pos_enc_main,pos_enc_bottleneck,time_input,layer49_out);
 
         // hls-fpga-machine-learning insert output
-        nnet::print_result<integer_input_t, N_INPUT_1_48>(input_time, std::cout, true);
+        nnet::print_result<integer_input_t, N_INPUT_1_48>(time_input, std::cout, true);
         nnet::print_result<result_t, OUT_HEIGHT_46*OUT_WIDTH_46*N_FILT_46>(layer49_out, std::cout, true);
 
         // hls-fpga-machine-learning insert tb-output
-        nnet::print_result<integer_input_t, N_INPUT_1_48>(input_time, fout);
+        nnet::print_result<integer_input_t, N_INPUT_1_48>(time_input, fout);
         nnet::print_result<result_t, OUT_HEIGHT_46*OUT_WIDTH_46*N_FILT_46>(layer49_out, fout);
     }
 

@@ -1,6 +1,6 @@
 //Numpy array shape [1]
-//Min 0.006001694128
-//Max 0.006001694128
+//Min 0.006001553033
+//Max 0.006001553033
 //Number of zeros 0
 
 #ifndef B62_H_

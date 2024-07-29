@@ -58,8 +58,33 @@ def shell_source(script):
     os.environ.update(env)
 
 
+# def vivado_setup(outdir): # Use this one on DICE
+#       executable_text = textwrap.dedent(
+#       f"""
+#       export PATH=/opt/cactus/bin/uhal/tools:$PATH 
+#       export LD_LIBRARY_PATH=/opt/cactus/lib:$LD_LIBRARY_PATH 
+#       source /software/CAD/Xilinx/2019.2/Vivado/2019.2/settings64.sh;
+#       source /software/CAD/setup_mentor2019.sh
+#       export LC_ALL=en_US.utf-8
+#       export LANG=en_US.utf-8
+#       """
+#       )
+  
+#       job_executable_file = os.path.join(outdir, f"vivado.sh") #this has to be kappaF kappaV directory!
+#       with open(job_executable_file, "w", encoding="utf-8") as f:
+#         f.write(executable_text)
+#       make_executable(job_executable_file)
+#       shell_source(job_executable_file)
 
-def vivado_setup(outdir):
+#       if 'linux' in sys.platform or 'darwin' in sys.platform:
+#             found = os.system('command -v vivado_hls > /dev/null')
+#             if found != 0:
+#                 print('Vivado HLS installation not found. Make sure "vivado_hls" is on PATH.')
+#                 sys.exit(1)
+#       csim = synth = cosim = validation = export = vsynth = reset =1
+#       os.system(f"cd {outdir} && vivado_hls -f build_prj.tcl reset={reset} validation={validation} export={export} csim={csim} synth={synth} cosim={cosim}  export=True vsynth={vsynth}")
+
+def vivado_setup(outdir): # Use this one at home
     '''
     This function sets up the environment for Vitis HLS
     It writes and executes a shell script to set up the necessary paths and environment variables
@@ -99,10 +124,12 @@ def vivado_setup(outdir):
             print('Vitis HLS installation not found. Make sure "vitis_hls" is on PATH.')
             sys.exit(1)
     csim = synth = cosim = validation = export = vsynth = reset = 1
-    # os.system(f"cd {outdir} && vitis_hls -f build_prj.tcl reset={reset} validation={validation} export={export} csim={csim} synth={synth} cosim={cosim} export=True vsynth={vsynth}")
+    os.system(f"cd {outdir} && vitis_hls -f build_prj.tcl reset={reset} validation={validation} export={export} csim={csim} synth={synth} cosim={cosim} export=True vsynth={vsynth}")
 
 
-def hls4ml_converter(params, model_path, outdir):
+
+
+def hls4ml_converter(params, model_path, outdir): 
     '''
     This function converts a Keras model to an HLS model using hls4ml.
     '''
@@ -139,12 +166,13 @@ def hls4ml_converter(params, model_path, outdir):
     if 'input_main' in config['LayerName']:
         config['LayerName']['input_main']['Precision']['result'] = 'ap_fixed<8,2, AP_RND, AP_SAT>'
     if 'time_input' in config['LayerName']:
-        config['LayerName']['time_input']['Precision']['result'] = 'ap_fixed<8,2, AP_RND, AP_SAT>'
+        config['LayerName']['time_input']['Precision']['result'] = 'ap_int<32>'  # Change precision to ap_int<32> to avoid conflicts
     if 'pos_encoding_main' in config['LayerName']:
         config['LayerName']['pos_encoding_main']['Precision']['result'] = 'ap_fixed<8,2, AP_RND, AP_SAT>'
     if 'pos_encoding_bottleneck' in config['LayerName']:
         config['LayerName']['pos_encoding_bottleneck']['Precision']['result'] = 'ap_fixed<8,2, AP_RND, AP_SAT>'
-
+    
+    
     ## Can also set specific layers to custom quantizations, e.g:
 
     # config['LayerName']['output_logit']['Precision']["result"] = 'ap_fixed<16,6, AP_RND, AP_SAT>'
@@ -253,14 +281,17 @@ def main():
     MODELPATH = "trained_models_lite/temp/model_epoch_9.h5"  # TensorFlow SavedModel path
 
     outdir = "hls_outputs"
-
+    print('STAGE1')
     if os.path.exists(outdir):
         shutil.rmtree(outdir)
     os.makedirs(outdir, exist_ok=False)
+    print('STAGE2')
     vivado_setup(outdir)
-
+    print('STAGE3')
     model, hls_model = hls4ml_converter(params, MODELPATH, outdir)
+    print('STAGE4')
     hls_model.build(csim=True)
+    print('STAGE5')
 
     hls_config = hls_model.config.config["HLSConfig"]
 

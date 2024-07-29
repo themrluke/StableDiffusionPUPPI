@@ -46,6 +46,7 @@ class TrainingConfig:
         os.makedirs(self.output_dir, exist_ok=True)
 
 def positional_encoding(timestep, batch_size, dim, d_model, max_len):
+    
     pos = np.arange(max_len)[:, np.newaxis]
     i = np.arange(d_model)[np.newaxis, :]
     angle_rates = 1 / np.power(10000, (2 * (i // 2)) / np.float32(d_model))
@@ -53,22 +54,22 @@ def positional_encoding(timestep, batch_size, dim, d_model, max_len):
     angle_rads[:, 0::2] = np.sin(angle_rads[:, 0::2])
     angle_rads[:, 1::2] = np.cos(angle_rads[:, 1::2])
     pos_encoding = tf.constant(angle_rads, dtype=tf.float32)
-
-    timestep = tf.cast(tf.reshape(timestep, [-1]), tf.int32)
     positional_encoding = tf.gather(pos_encoding, timestep)
-    positional_encoding = tf.reshape(positional_encoding, [tf.shape(timestep)[0], 1, 1, d_model])
+    positional_encoding = tf.reshape(positional_encoding, [1, 1, 1, d_model])
     return tf.tile(positional_encoding, [batch_size, dim[0], dim[1], 1])
+
+
 
 def create_unet_lite_hls(dim, batch_size):
     c_in = 1
     time_dim = 4
-    max_len = 5000
     N = 4  # Number of kernels at each layer
 
     inputs = Input(shape=(dim[0], dim[1], c_in), name='input_images')
-    time_input = Input(shape=(1,), dtype=tf.int32, name='input_time')
-    pos_encoding = Input(shape=(dim[0], dim[1], time_dim), dtype=tf.float32, name='pos_encoding_main')
-    pos_encoding_bottleneck = Input(shape=(32, 32, time_dim), dtype=tf.float32, name='pos_encoding_bottleneck')  # Adjusted height/width for bottleneck
+    time_input = Input(shape=(), dtype=tf.int32, name='time_input')  # Define as scalar input
+
+    pos_encoding = Input(shape=(dim[0], dim[1], time_dim), dtype=tf.float32, name='pos_enc_main')
+    pos_encoding_bottleneck = Input(shape=(int(dim[0]/2), int(dim[1]/2), time_dim), dtype=tf.float32, name='pos_enc_bottleneck')  # Adjusted height/width for bottleneck
 
     # Down Block 1
     emb1 = Dense(c_in, name='emb1')(pos_encoding)
