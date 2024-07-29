@@ -112,6 +112,7 @@ def hls4ml_converter(params, model_path, outdir):
         print(model.summary())
     except Exception as e:
         print(f"Error loading model: {e}")
+        return None, None
       
     #hls4ml.model.optimizer.OutputRoundingSaturationMode.layers = ['Activation']
     #hls4ml.model.optimizer.OutputRoundingSaturationMode.rounding_mode = 'AP_RND'
@@ -133,6 +134,16 @@ def hls4ml_converter(params, model_path, outdir):
         config['LayerName'][l]['Precision']['weight'] = 'ap_fixed<8,2, AP_RND, AP_SAT>'
         config['LayerName'][l]['Precision']['bias'] = 'ap_fixed<8,2, AP_RND, AP_SAT>'
         config['LayerName'][l]['Trace'] = True
+
+    # Ensuring the input names are correctly mapped
+    if 'input_main' in config['LayerName']:
+        config['LayerName']['input_main']['Precision']['result'] = 'ap_fixed<8,2, AP_RND, AP_SAT>'
+    if 'time_input' in config['LayerName']:
+        config['LayerName']['time_input']['Precision']['result'] = 'ap_fixed<8,2, AP_RND, AP_SAT>'
+    if 'pos_encoding_main' in config['LayerName']:
+        config['LayerName']['pos_encoding_main']['Precision']['result'] = 'ap_fixed<8,2, AP_RND, AP_SAT>'
+    if 'pos_encoding_bottleneck' in config['LayerName']:
+        config['LayerName']['pos_encoding_bottleneck']['Precision']['result'] = 'ap_fixed<8,2, AP_RND, AP_SAT>'
 
     ## Can also set specific layers to custom quantizations, e.g:
 
@@ -237,7 +248,7 @@ def main():
     params = {"clock_freq": 360,
               "part": 'xcvu9p-flga2577-2-e',
               "ReuseFactor": 1,
-              "io_type": "io_serial"
+              "io_type": "io_stream" # Changed from io_serial   
     }
     MODELPATH = "trained_models_lite/temp/model_epoch_9.h5"  # TensorFlow SavedModel path
 

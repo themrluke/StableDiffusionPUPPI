@@ -1,0 +1,468 @@
+Backend: Vivado
+ClockPeriod: 2.7777777777777777
+HLSConfig:
+  LayerName:
+    add:
+      ParallelizationFactor: 1
+      Precision:
+        bias: ap_fixed<8,2, AP_RND, AP_SAT>
+        result: ap_fixed<8,2, AP_RND, AP_SAT>
+        weight: ap_fixed<8,2, AP_RND, AP_SAT>
+      ReuseFactor: 1
+      Strategy: Latency
+      Trace: true
+    add_1:
+      ParallelizationFactor: 1
+      Precision:
+        bias: ap_fixed<8,2, AP_RND, AP_SAT>
+        result: ap_fixed<8,2, AP_RND, AP_SAT>
+        weight: ap_fixed<8,2, AP_RND, AP_SAT>
+      ReuseFactor: 1
+      Strategy: Latency
+      Trace: true
+    add_2:
+      ParallelizationFactor: 1
+      Precision:
+        bias: ap_fixed<8,2, AP_RND, AP_SAT>
+        result: ap_fixed<8,2, AP_RND, AP_SAT>
+        weight: ap_fixed<8,2, AP_RND, AP_SAT>
+      ReuseFactor: 1
+      Strategy: Latency
+      Trace: true
+    convb1_1:
+      ParallelizationFactor: 1
+      Precision:
+        bias: ap_fixed<8,2, AP_RND, AP_SAT>
+        result: ap_fixed<8,2, AP_RND, AP_SAT>
+        weight: ap_fixed<8,2, AP_RND, AP_SAT>
+      ReuseFactor: 1
+      Strategy: Latency
+      Trace: true
+    convb1_1_linear:
+      ParallelizationFactor: 1
+      Precision:
+        bias: ap_fixed<8,2, AP_RND, AP_SAT>
+        result: ap_fixed<8,2, AP_RND, AP_SAT>
+        weight: ap_fixed<8,2, AP_RND, AP_SAT>
+      ReuseFactor: 1
+      Strategy: Latency
+      Trace: true
+    convb1_2:
+      ParallelizationFactor: 1
+      Precision:
+        bias: ap_fixed<8,2, AP_RND, AP_SAT>
+        result: ap_fixed<8,2, AP_RND, AP_SAT>
+        weight: ap_fixed<8,2, AP_RND, AP_SAT>
+      ReuseFactor: 1
+      Strategy: Latency
+      Trace: true
+    convb1_2_linear:
+      ParallelizationFactor: 1
+      Precision:
+        bias: ap_fixed<8,2, AP_RND, AP_SAT>
+        result: ap_fixed<8,2, AP_RND, AP_SAT>
+        weight: ap_fixed<8,2, AP_RND, AP_SAT>
+      ReuseFactor: 1
+      Strategy: Latency
+      Trace: true
+    convd1_1:
+      ParallelizationFactor: 1
+      Precision:
+        bias: ap_fixed<8,2, AP_RND, AP_SAT>
+        result: ap_fixed<8,2, AP_RND, AP_SAT>
+        weight: ap_fixed<8,2, AP_RND, AP_SAT>
+      ReuseFactor: 1
+      Strategy: Latency
+      Trace: true
+    convd1_1_linear:
+      ParallelizationFactor: 1
+      Precision:
+        bias: ap_fixed<8,2, AP_RND, AP_SAT>
+        result: ap_fixed<8,2, AP_RND, AP_SAT>
+        weight: ap_fixed<8,2, AP_RND, AP_SAT>
+      ReuseFactor: 1
+      Strategy: Latency
+      Trace: true
+    convd1_2:
+      ParallelizationFactor: 1
+      Precision:
+        bias: ap_fixed<8,2, AP_RND, AP_SAT>
+        result: ap_fixed<8,2, AP_RND, AP_SAT>
+        weight: ap_fixed<8,2, AP_RND, AP_SAT>
+      ReuseFactor: 1
+      Strategy: Latency
+      Trace: true
+    convd1_2_linear:
+      ParallelizationFactor: 1
+      Precision:
+        bias: ap_fixed<8,2, AP_RND, AP_SAT>
+        result: ap_fixed<8,2, AP_RND, AP_SAT>
+        weight: ap_fixed<8,2, AP_RND, AP_SAT>
+      ReuseFactor: 1
+      Strategy: Latency
+      Trace: true
+    convu1_1:
+      ParallelizationFactor: 1
+      Precision:
+        bias: ap_fixed<8,2, AP_RND, AP_SAT>
+        result: ap_fixed<8,2, AP_RND, AP_SAT>
+        weight: ap_fixed<8,2, AP_RND, AP_SAT>
+      ReuseFactor: 1
+      Strategy: Latency
+      Trace: true
+    convu1_1_linear:
+      ParallelizationFactor: 1
+      Precision:
+        bias: ap_fixed<8,2, AP_RND, AP_SAT>
+        result: ap_fixed<8,2, AP_RND, AP_SAT>
+        weight: ap_fixed<8,2, AP_RND, AP_SAT>
+      ReuseFactor: 1
+      Strategy: Latency
+      Trace: true
+    convu1_2:
+      ParallelizationFactor: 1
+      Precision:
+        bias: ap_fixed<8,2, AP_RND, AP_SAT>
+        result: ap_fixed<8,2, AP_RND, AP_SAT>
+        weight: ap_fixed<8,2, AP_RND, AP_SAT>
+      ReuseFactor: 1
+      Strategy: Latency
+      Trace: true
+    convu1_2_linear:
+      ParallelizationFactor: 1
+      Precision:
+        bias: ap_fixed<8,2, AP_RND, AP_SAT>
+        result: ap_fixed<8,2, AP_RND, AP_SAT>
+        weight: ap_fixed<8,2, AP_RND, AP_SAT>
+      ReuseFactor: 1
+      Strategy: Latency
+      Trace: true
+    convu1_3:
+      ParallelizationFactor: 1
+      Precision:
+        bias: ap_fixed<8,2, AP_RND, AP_SAT>
+        result: ap_fixed<8,2, AP_RND, AP_SAT>
+        weight: ap_fixed<8,2, AP_RND, AP_SAT>
+      ReuseFactor: 1
+      Strategy: Latency
+      Trace: true
+    convu1_3_linear:
+      ParallelizationFactor: 1
+      Precision:
+        bias: ap_fixed<8,2, AP_RND, AP_SAT>
+        result: ap_fixed<8,2, AP_RND, AP_SAT>
+        weight: ap_fixed<8,2, AP_RND, AP_SAT>
+      ReuseFactor: 1
+      Strategy: Latency
+      Trace: true
+    emb1:
+      ParallelizationFactor: 1
+      Precision:
+        bias: ap_fixed<8,2, AP_RND, AP_SAT>
+        result: ap_fixed<8,2, AP_RND, AP_SAT>
+        weight: ap_fixed<8,2, AP_RND, AP_SAT>
+      ReuseFactor: 1
+      Strategy: Latency
+      Trace: true
+    emb1_linear:
+      ParallelizationFactor: 1
+      Precision:
+        bias: ap_fixed<8,2, AP_RND, AP_SAT>
+        result: ap_fixed<8,2, AP_RND, AP_SAT>
+        weight: ap_fixed<8,2, AP_RND, AP_SAT>
+      ReuseFactor: 1
+      Strategy: Latency
+      Trace: true
+    emb4:
+      ParallelizationFactor: 1
+      Precision:
+        bias: ap_fixed<8,2, AP_RND, AP_SAT>
+        result: ap_fixed<8,2, AP_RND, AP_SAT>
+        weight: ap_fixed<8,2, AP_RND, AP_SAT>
+      ReuseFactor: 1
+      Strategy: Latency
+      Trace: true
+    emb4_linear:
+      ParallelizationFactor: 1
+      Precision:
+        bias: ap_fixed<8,2, AP_RND, AP_SAT>
+        result: ap_fixed<8,2, AP_RND, AP_SAT>
+        weight: ap_fixed<8,2, AP_RND, AP_SAT>
+      ReuseFactor: 1
+      Strategy: Latency
+      Trace: true
+    emb5:
+      ParallelizationFactor: 1
+      Precision:
+        bias: ap_fixed<8,2, AP_RND, AP_SAT>
+        result: ap_fixed<8,2, AP_RND, AP_SAT>
+        weight: ap_fixed<8,2, AP_RND, AP_SAT>
+      ReuseFactor: 1
+      Strategy: Latency
+      Trace: true
+    emb5_linear:
+      ParallelizationFactor: 1
+      Precision:
+        bias: ap_fixed<8,2, AP_RND, AP_SAT>
+        result: ap_fixed<8,2, AP_RND, AP_SAT>
+        weight: ap_fixed<8,2, AP_RND, AP_SAT>
+      ReuseFactor: 1
+      Strategy: Latency
+      Trace: true
+    input_images:
+      ParallelizationFactor: 1
+      Precision:
+        bias: ap_fixed<8,2, AP_RND, AP_SAT>
+        result: ap_fixed<8,2, AP_RND, AP_SAT>
+        weight: ap_fixed<8,2, AP_RND, AP_SAT>
+      ReuseFactor: 1
+      Strategy: Latency
+      Trace: true
+    input_time:
+      ParallelizationFactor: 1
+      Precision:
+        bias: ap_fixed<8,2, AP_RND, AP_SAT>
+        result: ap_fixed<8,2, AP_RND, AP_SAT>
+        weight: ap_fixed<8,2, AP_RND, AP_SAT>
+      ReuseFactor: 1
+      Strategy: Latency
+      Trace: true
+    normb1_1:
+      ParallelizationFactor: 1
+      Precision:
+        bias: ap_fixed<8,2, AP_RND, AP_SAT>
+        result: ap_fixed<8,2, AP_RND, AP_SAT>
+        scale: fixed<16,6>
+        weight: ap_fixed<8,2, AP_RND, AP_SAT>
+      ReuseFactor: 1
+      Strategy: Latency
+      Trace: true
+    normb1_2:
+      ParallelizationFactor: 1
+      Precision:
+        bias: ap_fixed<8,2, AP_RND, AP_SAT>
+        result: ap_fixed<8,2, AP_RND, AP_SAT>
+        scale: fixed<16,6>
+        weight: ap_fixed<8,2, AP_RND, AP_SAT>
+      ReuseFactor: 1
+      Strategy: Latency
+      Trace: true
+    normb1_3:
+      ParallelizationFactor: 1
+      Precision:
+        bias: ap_fixed<8,2, AP_RND, AP_SAT>
+        result: ap_fixed<8,2, AP_RND, AP_SAT>
+        scale: fixed<16,6>
+        weight: ap_fixed<8,2, AP_RND, AP_SAT>
+      ReuseFactor: 1
+      Strategy: Latency
+      Trace: true
+    normd1_1:
+      ParallelizationFactor: 1
+      Precision:
+        bias: ap_fixed<8,2, AP_RND, AP_SAT>
+        result: ap_fixed<8,2, AP_RND, AP_SAT>
+        scale: fixed<16,6>
+        weight: ap_fixed<8,2, AP_RND, AP_SAT>
+      ReuseFactor: 1
+      Strategy: Latency
+      Trace: true
+    normd1_2:
+      ParallelizationFactor: 1
+      Precision:
+        bias: ap_fixed<8,2, AP_RND, AP_SAT>
+        result: ap_fixed<8,2, AP_RND, AP_SAT>
+        scale: fixed<16,6>
+        weight: ap_fixed<8,2, AP_RND, AP_SAT>
+      ReuseFactor: 1
+      Strategy: Latency
+      Trace: true
+    normu1_1:
+      ParallelizationFactor: 1
+      Precision:
+        bias: ap_fixed<8,2, AP_RND, AP_SAT>
+        result: ap_fixed<8,2, AP_RND, AP_SAT>
+        scale: fixed<16,6>
+        weight: ap_fixed<8,2, AP_RND, AP_SAT>
+      ReuseFactor: 1
+      Strategy: Latency
+      Trace: true
+    normu1_2:
+      ParallelizationFactor: 1
+      Precision:
+        bias: ap_fixed<8,2, AP_RND, AP_SAT>
+        result: ap_fixed<8,2, AP_RND, AP_SAT>
+        scale: fixed<16,6>
+        weight: ap_fixed<8,2, AP_RND, AP_SAT>
+      ReuseFactor: 1
+      Strategy: Latency
+      Trace: true
+    normu1_3:
+      ParallelizationFactor: 1
+      Precision:
+        bias: ap_fixed<8,2, AP_RND, AP_SAT>
+        result: ap_fixed<8,2, AP_RND, AP_SAT>
+        scale: fixed<16,6>
+        weight: ap_fixed<8,2, AP_RND, AP_SAT>
+      ReuseFactor: 1
+      Strategy: Latency
+      Trace: true
+    out:
+      ParallelizationFactor: 1
+      Precision:
+        bias: ap_fixed<8,2, AP_RND, AP_SAT>
+        result: ap_fixed<8,2, AP_RND, AP_SAT>
+        weight: ap_fixed<8,2, AP_RND, AP_SAT>
+      ReuseFactor: 1
+      Strategy: Latency
+      Trace: true
+    out_linear:
+      ParallelizationFactor: 1
+      Precision:
+        bias: ap_fixed<8,2, AP_RND, AP_SAT>
+        result: ap_fixed<8,2, AP_RND, AP_SAT>
+        weight: ap_fixed<8,2, AP_RND, AP_SAT>
+      ReuseFactor: 1
+      Strategy: Latency
+      Trace: true
+    pool3:
+      ParallelizationFactor: 1
+      Precision:
+        bias: ap_fixed<8,2, AP_RND, AP_SAT>
+        result: ap_fixed<8,2, AP_RND, AP_SAT>
+        weight: ap_fixed<8,2, AP_RND, AP_SAT>
+      ReuseFactor: 1
+      Strategy: Latency
+      Trace: true
+    pool3_linear:
+      ParallelizationFactor: 1
+      Precision:
+        bias: ap_fixed<8,2, AP_RND, AP_SAT>
+        result: ap_fixed<8,2, AP_RND, AP_SAT>
+        weight: ap_fixed<8,2, AP_RND, AP_SAT>
+      ReuseFactor: 1
+      Strategy: Latency
+      Trace: true
+    pos_encoding_bottleneck:
+      ParallelizationFactor: 1
+      Precision:
+        bias: ap_fixed<8,2, AP_RND, AP_SAT>
+        result: ap_fixed<8,2, AP_RND, AP_SAT>
+        weight: ap_fixed<8,2, AP_RND, AP_SAT>
+      ReuseFactor: 1
+      Strategy: Latency
+      Trace: true
+    pos_encoding_main:
+      ParallelizationFactor: 1
+      Precision:
+        bias: ap_fixed<8,2, AP_RND, AP_SAT>
+        result: ap_fixed<8,2, AP_RND, AP_SAT>
+        weight: ap_fixed<8,2, AP_RND, AP_SAT>
+      ReuseFactor: 1
+      Strategy: Latency
+      Trace: true
+    relu_1:
+      ParallelizationFactor: 1
+      Precision:
+        bias: ap_fixed<8,2, AP_RND, AP_SAT>
+        result: ap_fixed<8,2, AP_RND, AP_SAT>
+        weight: ap_fixed<8,2, AP_RND, AP_SAT>
+      ReuseFactor: 1
+      Strategy: Latency
+      Trace: true
+    relu_2:
+      ParallelizationFactor: 1
+      Precision:
+        bias: ap_fixed<8,2, AP_RND, AP_SAT>
+        result: ap_fixed<8,2, AP_RND, AP_SAT>
+        weight: ap_fixed<8,2, AP_RND, AP_SAT>
+      ReuseFactor: 1
+      Strategy: Latency
+      Trace: true
+    relu_3:
+      ParallelizationFactor: 1
+      Precision:
+        bias: ap_fixed<8,2, AP_RND, AP_SAT>
+        result: ap_fixed<8,2, AP_RND, AP_SAT>
+        weight: ap_fixed<8,2, AP_RND, AP_SAT>
+      ReuseFactor: 1
+      Strategy: Latency
+      Trace: true
+    relu_4:
+      ParallelizationFactor: 1
+      Precision:
+        bias: ap_fixed<8,2, AP_RND, AP_SAT>
+        result: ap_fixed<8,2, AP_RND, AP_SAT>
+        weight: ap_fixed<8,2, AP_RND, AP_SAT>
+      ReuseFactor: 1
+      Strategy: Latency
+      Trace: true
+    relu_5:
+      ParallelizationFactor: 1
+      Precision:
+        bias: ap_fixed<8,2, AP_RND, AP_SAT>
+        result: ap_fixed<8,2, AP_RND, AP_SAT>
+        weight: ap_fixed<8,2, AP_RND, AP_SAT>
+      ReuseFactor: 1
+      Strategy: Latency
+      Trace: true
+    relu_6:
+      ParallelizationFactor: 1
+      Precision:
+        bias: ap_fixed<8,2, AP_RND, AP_SAT>
+        result: ap_fixed<8,2, AP_RND, AP_SAT>
+        weight: ap_fixed<8,2, AP_RND, AP_SAT>
+      ReuseFactor: 1
+      Strategy: Latency
+      Trace: true
+    relu_7:
+      ParallelizationFactor: 1
+      Precision:
+        bias: ap_fixed<8,2, AP_RND, AP_SAT>
+        result: ap_fixed<8,2, AP_RND, AP_SAT>
+        weight: ap_fixed<8,2, AP_RND, AP_SAT>
+      ReuseFactor: 1
+      Strategy: Latency
+      Trace: true
+    relu_8:
+      ParallelizationFactor: 1
+      Precision:
+        bias: ap_fixed<8,2, AP_RND, AP_SAT>
+        result: ap_fixed<8,2, AP_RND, AP_SAT>
+        weight: ap_fixed<8,2, AP_RND, AP_SAT>
+      ReuseFactor: 1
+      Strategy: Latency
+      Trace: true
+    relu_9:
+      ParallelizationFactor: 1
+      Precision:
+        bias: ap_fixed<8,2, AP_RND, AP_SAT>
+        result: ap_fixed<8,2, AP_RND, AP_SAT>
+        weight: ap_fixed<8,2, AP_RND, AP_SAT>
+      ReuseFactor: 1
+      Strategy: Latency
+      Trace: true
+    up1:
+      ParallelizationFactor: 1
+      Precision:
+        bias: ap_fixed<8,2, AP_RND, AP_SAT>
+        result: ap_fixed<8,2, AP_RND, AP_SAT>
+        weight: ap_fixed<8,2, AP_RND, AP_SAT>
+      ReuseFactor: 1
+      Strategy: Latency
+      Trace: true
+  Model:
+    BramFactor: 1000000000
+    Precision: ap_fixed<16, 6, AP_RND, AP_SAT>
+    ReuseFactor: 1
+    Strategy: Latency
+    TraceOutput: false
+IOType: io_stream
+InputData: null
+KerasModel: !keras_model 'hls_outputs/keras_model.h5'
+OutputDir: hls_outputs
+OutputPredictions: null
+Part: xcvu9p-flga2577-2-e
+ProjectName: myproject
+Stamp: 09326f07
+Version: 1.0.0

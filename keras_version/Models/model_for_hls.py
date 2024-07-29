@@ -65,10 +65,10 @@ def create_unet_lite_hls(dim, batch_size):
     max_len = 5000
     N = 4  # Number of kernels at each layer
 
-    inputs = Input(shape=(dim[0], dim[1], c_in))
-    time_input = Input(shape=(1,), dtype=tf.int32)
-    pos_encoding = Input(shape=(dim[0], dim[1], time_dim), dtype=tf.float32)
-    pos_encoding_bottleneck = Input(shape=(32, 32, time_dim), dtype=tf.float32)  # Adjusted height/width for bottleneck
+    inputs = Input(shape=(dim[0], dim[1], c_in), name='input_images')
+    time_input = Input(shape=(1,), dtype=tf.int32, name='input_time')
+    pos_encoding = Input(shape=(dim[0], dim[1], time_dim), dtype=tf.float32, name='pos_encoding_main')
+    pos_encoding_bottleneck = Input(shape=(32, 32, time_dim), dtype=tf.float32, name='pos_encoding_bottleneck')  # Adjusted height/width for bottleneck
 
     # Down Block 1
     emb1 = Dense(c_in, name='emb1')(pos_encoding)
