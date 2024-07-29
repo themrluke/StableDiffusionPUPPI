@@ -15,8 +15,8 @@ class Model:
     def __getitem__(self):
 
         if self.model_type == 'UNet':
-           return self.get_unet()
-        elif self.model_type == 'UNet-lite':
+            return self.get_unet()
+        elif self.model_type == 'UNet_lite':
             return self.get_unet_lite()
         
     def get_unet(self):
@@ -42,10 +42,8 @@ class Model:
         return model
     
     def get_unet_lite(self):
-        
         model = UNetLite_hls()
         return model
-        #return NotImplementedError('UNet lite not yet implemented')
 
 
 @dataclass
@@ -110,6 +108,9 @@ class PositionalEncoding(tf.keras.layers.Layer):
         
         return tf.tile(positional_encoding, [batch_size, 1, 1, 1])  # (batch_size, 1, 1, time_dim)
 
+
+    
+
 class Attention(tf.keras.layers.Layer):
     def __init__(self, dim):
         super(Attention, self).__init__()
@@ -145,7 +146,7 @@ class UNetLite_hls(tf.keras.Model):
         self.time_dim = time_dim
         self.positional_encoding = PositionalEncoding(time_dim, max_len=5000)
 
-        N = 4 # Change number of kernels at each layer here
+        N = 8 # Change number of kernels at each layer here
 
         '''Define upsampling, ReLU activation function'''
         self.relu = ReLU()
@@ -179,10 +180,10 @@ class UNetLite_hls(tf.keras.Model):
         self.pool3 = Conv2D(N, kernel_size=3, strides=2, padding='valid', use_bias=False)
         self.normb1_1 = LayerNormalization(axis=-1, epsilon=1e-5)
         self.emb4 = Dense(N)
-        self.convb1_1 = Conv2D(N*2, kernel_size=3, padding='valid', use_bias=False)
+        self.convb1_1 = Conv2D(N, kernel_size=3, padding='valid', use_bias=False)
         self.normb1_2 = LayerNormalization(axis=-1, epsilon=1e-5)
-        #self.attention = Attention(N)
-        self.convb1_2 = Conv2D(N*2, kernel_size=3, padding='valid', use_bias=False)
+        self.attention = Attention(N)
+        self.convb1_2 = Conv2D(N, kernel_size=3, padding='valid', use_bias=False)
         self.normb1_3 = LayerNormalization(axis=-1, epsilon=1e-5)
 
         '''Up Block 1'''
@@ -249,12 +250,12 @@ class UNetLite_hls(tf.keras.Model):
         xb1 = self.normb1_3(xb1)
         xb1 = self.relu(xb1)
 
-        # Up 1
+        # Up 3
         xu1 = self.up1(xb1)
         xu1 = self.normu3_1(xu1)
         xu1 = self.relu(xu1)
-        emb5 = tf.tile(self.emb5(t), [1, tf.shape(xu1)[1], tf.shape(xu1)[2], 1])
-        xu1 = CustomPadding(1, 1)(emb5 + Concatenate()([xu1, xd1]))
+        emb7 = tf.tile(self.emb7(t), [1, tf.shape(xu1)[1], tf.shape(xu1)[2], 1])
+        xu1 = CustomPadding(1, 1)(emb7 + Concatenate()([xu1, xd1]))
         xu1 = self.convu3_1(xu1)
         xu1 = self.normu3_2(xu1)
         xu1 = self.relu(xu1)
