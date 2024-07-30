@@ -1,0 +1,1 @@
+set ::AESL_AUTOSIM::gTopFileName /storage/sa21722/stablediffusion/keras_version/hls_outputs/myproject_prj/solution1/./sim/autowrap/testbench/myproject.cpp_pre.cpp.tb.cpp

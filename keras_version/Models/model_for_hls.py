@@ -46,7 +46,6 @@ class TrainingConfig:
         os.makedirs(self.output_dir, exist_ok=True)
 
 def positional_encoding(timestep, batch_size, dim, d_model, max_len):
-    
     pos = np.arange(max_len)[:, np.newaxis]
     i = np.arange(d_model)[np.newaxis, :]
     angle_rates = 1 / np.power(10000, (2 * (i // 2)) / np.float32(d_model))
@@ -59,14 +58,12 @@ def positional_encoding(timestep, batch_size, dim, d_model, max_len):
     return tf.tile(positional_encoding, [batch_size, dim[0], dim[1], 1])
 
 
-
 def create_unet_lite_hls(dim, batch_size):
     c_in = 1
     time_dim = 4
     N = 4  # Number of kernels at each layer
 
     inputs = Input(shape=(dim[0], dim[1], c_in), name='input_images')
-    time_input = Input(shape=(), dtype=tf.int32, name='time_input')  # Define as scalar input
 
     pos_encoding = Input(shape=(dim[0], dim[1], time_dim), dtype=tf.float32, name='pos_enc_main')
     pos_encoding_bottleneck = Input(shape=(int(dim[0]/2), int(dim[1]/2), time_dim), dtype=tf.float32, name='pos_enc_bottleneck')  # Adjusted height/width for bottleneck
@@ -112,5 +109,5 @@ def create_unet_lite_hls(dim, batch_size):
     output = Conv2D(1, kernel_size=1, padding='same', use_bias=True, name='out')(xu1)
     output = ReLU(name='relu_9')(output)
 
-    model = KerasModel(inputs=[inputs, time_input, pos_encoding, pos_encoding_bottleneck], outputs=output, name='UNetLite_hls')
+    model = KerasModel(inputs=[inputs, pos_encoding, pos_encoding_bottleneck], outputs=output, name='UNetLite_hls')
     return model

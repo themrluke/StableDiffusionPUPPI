@@ -1,6 +1,6 @@
 //Numpy array shape [4]
-//Min -0.000005043881
-//Max 0.000011234707
+//Min -0.000013374321
+//Max 0.000003014823
 //Number of zeros 0
 
 #ifndef B31_H_
@@ -9,7 +9,7 @@
 #ifndef __SYNTHESIS__
 convu1_1_bias_t b31[4];
 #else
-convu1_1_bias_t b31[4] = {0.045248, -0.310741, 0.049874, 0.137376};
+convu1_1_bias_t b31[4] = {0.045192, -0.310767, 0.049977, 0.137342};
 #endif
 
 #endif

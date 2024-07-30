@@ -433,15 +433,6 @@ HLSConfig:
       ReuseFactor: 1
       Strategy: Latency
       Trace: true
-    time_input:
-      ParallelizationFactor: 1
-      Precision:
-        bias: ap_fixed<8,2, AP_RND, AP_SAT>
-        result: ap_fixed<8,2, AP_RND, AP_SAT>
-        weight: ap_fixed<8,2, AP_RND, AP_SAT>
-      ReuseFactor: 1
-      Strategy: Latency
-      Trace: true
     up1:
       ParallelizationFactor: 1
       Precision:
@@ -464,5 +455,5 @@ OutputDir: hls_outputs
 OutputPredictions: null
 Part: xcvu9p-flga2577-2-e
 ProjectName: myproject
-Stamp: E5bf93af
+Stamp: Fa3b0fbB
 Version: 1.0.0

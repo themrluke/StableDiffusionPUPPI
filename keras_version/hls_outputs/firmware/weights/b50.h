@@ -1,15 +1,15 @@
-//Numpy array shape [1]
-//Min 0.002495125867
-//Max 0.002495125867
+//Numpy array shape [4]
+//Min -0.003525165142
+//Max 0.003809550311
 //Number of zeros 0
 
 #ifndef B50_H_
 #define B50_H_
 
 #ifndef __SYNTHESIS__
-emb1_bias_t b50[1];
+emb4_bias_t b50[4];
 #else
-emb1_bias_t b50[1] = {0.002495};
+emb4_bias_t b50[4] = {0.003210, -0.003525, 0.003810, -0.001547};
 #endif
 
 #endif

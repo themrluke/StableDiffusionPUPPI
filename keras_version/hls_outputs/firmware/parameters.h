@@ -21,34 +21,34 @@
 #include "nnet_utils/nnet_stream.h"
 
 // hls-fpga-machine-learning insert weights
-#include "weights/w50.h"
-#include "weights/b50.h"
+#include "weights/w49.h"
+#include "weights/b49.h"
 #include "weights/w6.h"
 #include "weights/b6.h"
 #include "weights/w10.h"
 #include "weights/b10.h"
 #include "weights/w14.h"
 #include "weights/b14.h"
-#include "weights/w51.h"
-#include "weights/b51.h"
+#include "weights/w50.h"
+#include "weights/b50.h"
 #include "weights/w22.h"
 #include "weights/b22.h"
 #include "weights/w26.h"
 #include "weights/b26.h"
 #include "weights/w31.h"
 #include "weights/b31.h"
-#include "weights/w52.h"
-#include "weights/b52.h"
+#include "weights/w51.h"
+#include "weights/b51.h"
 #include "weights/w38.h"
 #include "weights/b38.h"
 #include "weights/w42.h"
 #include "weights/b42.h"
-#include "weights/w62.h"
-#include "weights/b62.h"
+#include "weights/w61.h"
+#include "weights/b61.h"
 
 // hls-fpga-machine-learning insert layer-config
 // emb1
-struct config50_mult : nnet::dense_config {
+struct config49_mult : nnet::dense_config {
     static const unsigned n_in = 4;
     static const unsigned n_out = 1;
     static const unsigned reuse_factor = 1;
@@ -62,7 +62,7 @@ struct config50_mult : nnet::dense_config {
     using product = nnet::product::mult<x_T, y_T>;
 };
 
-struct config50 : nnet::conv2d_config {
+struct config49 : nnet::conv2d_config {
     static const unsigned pad_top = 0;
     static const unsigned pad_bottom = 0;
     static const unsigned pad_left = 0;
@@ -95,13 +95,13 @@ struct config50 : nnet::conv2d_config {
     typedef model_default_t accum_t;
     typedef emb1_bias_t bias_t;
     typedef emb1_weight_t weight_t;
-    typedef config50_mult mult_config;
+    typedef config49_mult mult_config;
     template<unsigned K, unsigned S, unsigned W>
     using scale_index_height = nnet::scale_index_regular<K, S, W>;
     template<unsigned K, unsigned S, unsigned W>
     using scale_index_width = nnet::scale_index_regular<K, S, W>;
 };
-const ap_uint<config50::filt_height * config50::filt_width> config50::pixels[] = {1};
+const ap_uint<config49::filt_height * config49::filt_width> config49::pixels[] = {1};
 
 // add
 struct config5 : nnet::merge_config {
@@ -109,7 +109,7 @@ struct config5 : nnet::merge_config {
 };
 
 // zp2d_convd1_1
-struct config54 : nnet::padding2d_config {
+struct config53 : nnet::padding2d_config {
     static const unsigned in_height = 64;
     static const unsigned in_width = 64;
     static const unsigned n_chan = 1;
@@ -187,7 +187,7 @@ struct ReLU_config9 : nnet::activ_config {
 };
 
 // zp2d_convd1_2
-struct config55 : nnet::padding2d_config {
+struct config54 : nnet::padding2d_config {
     static const unsigned in_height = 64;
     static const unsigned in_width = 64;
     static const unsigned n_chan = 4;
@@ -265,7 +265,7 @@ struct ReLU_config13 : nnet::activ_config {
 };
 
 // zp2d_pool3
-struct config56 : nnet::padding2d_config {
+struct config55 : nnet::padding2d_config {
     static const unsigned in_height = 64;
     static const unsigned in_width = 64;
     static const unsigned n_chan = 4;
@@ -343,7 +343,7 @@ struct ReLU_config18 : nnet::activ_config {
 };
 
 // emb4
-struct config51_mult : nnet::dense_config {
+struct config50_mult : nnet::dense_config {
     static const unsigned n_in = 4;
     static const unsigned n_out = 4;
     static const unsigned reuse_factor = 1;
@@ -357,7 +357,7 @@ struct config51_mult : nnet::dense_config {
     using product = nnet::product::mult<x_T, y_T>;
 };
 
-struct config51 : nnet::conv2d_config {
+struct config50 : nnet::conv2d_config {
     static const unsigned pad_top = 0;
     static const unsigned pad_bottom = 0;
     static const unsigned pad_left = 0;
@@ -390,13 +390,13 @@ struct config51 : nnet::conv2d_config {
     typedef model_default_t accum_t;
     typedef emb4_bias_t bias_t;
     typedef emb4_weight_t weight_t;
-    typedef config51_mult mult_config;
+    typedef config50_mult mult_config;
     template<unsigned K, unsigned S, unsigned W>
     using scale_index_height = nnet::scale_index_regular<K, S, W>;
     template<unsigned K, unsigned S, unsigned W>
     using scale_index_width = nnet::scale_index_regular<K, S, W>;
 };
-const ap_uint<config51::filt_height * config51::filt_width> config51::pixels[] = {1};
+const ap_uint<config50::filt_height * config50::filt_width> config50::pixels[] = {1};
 
 // add_1
 struct config21 : nnet::merge_config {
@@ -404,7 +404,7 @@ struct config21 : nnet::merge_config {
 };
 
 // zp2d_convb1_1
-struct config57 : nnet::padding2d_config {
+struct config56 : nnet::padding2d_config {
     static const unsigned in_height = 32;
     static const unsigned in_width = 32;
     static const unsigned n_chan = 4;
@@ -482,7 +482,7 @@ struct ReLU_config25 : nnet::activ_config {
 };
 
 // zp2d_convb1_2
-struct config58 : nnet::padding2d_config {
+struct config57 : nnet::padding2d_config {
     static const unsigned in_height = 32;
     static const unsigned in_width = 32;
     static const unsigned n_chan = 8;
@@ -569,7 +569,7 @@ struct config30 : nnet::resize_config {
 };
 
 // zp2d_convu1_1
-struct config59 : nnet::padding2d_config {
+struct config58 : nnet::padding2d_config {
     static const unsigned in_height = 64;
     static const unsigned in_width = 64;
     static const unsigned n_chan = 8;
@@ -647,7 +647,7 @@ struct ReLU_config34 : nnet::activ_config {
 };
 
 // emb5
-struct config52_mult : nnet::dense_config {
+struct config51_mult : nnet::dense_config {
     static const unsigned n_in = 4;
     static const unsigned n_out = 4;
     static const unsigned reuse_factor = 1;
@@ -661,7 +661,7 @@ struct config52_mult : nnet::dense_config {
     using product = nnet::product::mult<x_T, y_T>;
 };
 
-struct config52 : nnet::conv2d_config {
+struct config51 : nnet::conv2d_config {
     static const unsigned pad_top = 0;
     static const unsigned pad_bottom = 0;
     static const unsigned pad_left = 0;
@@ -694,13 +694,13 @@ struct config52 : nnet::conv2d_config {
     typedef model_default_t accum_t;
     typedef emb5_bias_t bias_t;
     typedef emb5_weight_t weight_t;
-    typedef config52_mult mult_config;
+    typedef config51_mult mult_config;
     template<unsigned K, unsigned S, unsigned W>
     using scale_index_height = nnet::scale_index_regular<K, S, W>;
     template<unsigned K, unsigned S, unsigned W>
     using scale_index_width = nnet::scale_index_regular<K, S, W>;
 };
-const ap_uint<config52::filt_height * config52::filt_width> config52::pixels[] = {1};
+const ap_uint<config51::filt_height * config51::filt_width> config51::pixels[] = {1};
 
 // add_2
 struct config37 : nnet::merge_config {
@@ -708,7 +708,7 @@ struct config37 : nnet::merge_config {
 };
 
 // zp2d_convu1_2
-struct config60 : nnet::padding2d_config {
+struct config59 : nnet::padding2d_config {
     static const unsigned in_height = 64;
     static const unsigned in_width = 64;
     static const unsigned n_chan = 4;
@@ -786,7 +786,7 @@ struct ReLU_config41 : nnet::activ_config {
 };
 
 // zp2d_convu1_3
-struct config61 : nnet::padding2d_config {
+struct config60 : nnet::padding2d_config {
     static const unsigned in_height = 64;
     static const unsigned in_width = 64;
     static const unsigned n_chan = 4;
@@ -864,7 +864,7 @@ struct ReLU_config45 : nnet::activ_config {
 };
 
 // out
-struct config62_mult : nnet::dense_config {
+struct config61_mult : nnet::dense_config {
     static const unsigned n_in = 4;
     static const unsigned n_out = 1;
     static const unsigned reuse_factor = 1;
@@ -878,7 +878,7 @@ struct config62_mult : nnet::dense_config {
     using product = nnet::product::mult<x_T, y_T>;
 };
 
-struct config62 : nnet::conv2d_config {
+struct config61 : nnet::conv2d_config {
     static const unsigned pad_top = 0;
     static const unsigned pad_bottom = 0;
     static const unsigned pad_left = 0;
@@ -911,16 +911,16 @@ struct config62 : nnet::conv2d_config {
     typedef model_default_t accum_t;
     typedef out_bias_t bias_t;
     typedef out_weight_t weight_t;
-    typedef config62_mult mult_config;
+    typedef config61_mult mult_config;
     template<unsigned K, unsigned S, unsigned W>
     using scale_index_height = nnet::scale_index_regular<K, S, W>;
     template<unsigned K, unsigned S, unsigned W>
     using scale_index_width = nnet::scale_index_regular<K, S, W>;
 };
-const ap_uint<config62::filt_height * config62::filt_width> config62::pixels[] = {1};
+const ap_uint<config61::filt_height * config61::filt_width> config61::pixels[] = {1};
 
 // relu_9
-struct ReLU_config49 : nnet::activ_config {
+struct ReLU_config48 : nnet::activ_config {
     static const unsigned n_in = 4096;
     static const unsigned table_size = 1024;
     static const unsigned io_type = nnet::io_stream;

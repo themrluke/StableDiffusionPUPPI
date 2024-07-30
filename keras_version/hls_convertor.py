@@ -58,73 +58,67 @@ def shell_source(script):
     os.environ.update(env)
 
 
-# def vivado_setup(outdir): # Use this one on DICE
-#       executable_text = textwrap.dedent(
-#       f"""
-#       export PATH=/opt/cactus/bin/uhal/tools:$PATH 
-#       export LD_LIBRARY_PATH=/opt/cactus/lib:$LD_LIBRARY_PATH 
-#       source /software/CAD/Xilinx/2019.2/Vivado/2019.2/settings64.sh;
-#       source /software/CAD/setup_mentor2019.sh
-#       export LC_ALL=en_US.utf-8
-#       export LANG=en_US.utf-8
-#       """
-#       )
-  
-#       job_executable_file = os.path.join(outdir, f"vivado.sh") #this has to be kappaF kappaV directory!
-#       with open(job_executable_file, "w", encoding="utf-8") as f:
-#         f.write(executable_text)
-#       make_executable(job_executable_file)
-#       shell_source(job_executable_file)
-
-#       if 'linux' in sys.platform or 'darwin' in sys.platform:
-#             found = os.system('command -v vivado_hls > /dev/null')
-#             if found != 0:
-#                 print('Vivado HLS installation not found. Make sure "vivado_hls" is on PATH.')
-#                 sys.exit(1)
-#       csim = synth = cosim = validation = export = vsynth = reset =1
-#       os.system(f"cd {outdir} && vivado_hls -f build_prj.tcl reset={reset} validation={validation} export={export} csim={csim} synth={synth} cosim={cosim}  export=True vsynth={vsynth}")
-
-def vivado_setup(outdir): # Use this one at home
+def vivado_setup(outdir):
     '''
-    This function sets up the environment for Vitis HLS
-    It writes and executes a shell script to set up the necessary paths and environment variables
+    This function creates a shell script to set up the environment for Vivado HLS 2019.2
     '''
-    # Setting environment variables directly in Python
-    # Append new paths to existing PATH and LD_LIBRARY_PATH, or initialize them if they don't exist
-    os.environ['PATH'] = '/opt/Xilinx/Vitis_HLS/2024.1/bin:' + os.environ.get('PATH', '')
-    os.environ['LD_LIBRARY_PATH'] = '/opt/Xilinx/Vitis_HLS/2024.1/lib:' + os.environ.get('LD_LIBRARY_PATH', '')
-    os.environ['LC_ALL'] = 'en_US.utf-8'
-    os.environ['LANG'] = 'en_US.utf-8'
-    
     executable_text = textwrap.dedent(
-        f"""
-        # Update the PATH and LD_LIBRARY_PATH to include Vitis HLS
-        export PATH=/opt/Xilinx/Vitis_HLS/2024.1/bin:$PATH
-        export LD_LIBRARY_PATH=/opt/Xilinx/Vitis_HLS/2024.1/lib:$LD_LIBRARY_PATH
-        source /opt/Xilinx/Vitis_HLS/2024.1/settings64.sh
-        export LC_ALL=en_US.utf-8
-        export LANG=en_US.utf-8
-        """
+    f"""
+    export PATH=/software/CAD/Xilinx/2019.2/Vivado/2019.2/bin:$PATH
+    export LD_LIBRARY_PATH=/software/CAD/Xilinx/2019.2/Vivado/2019.2/lib:$LD_LIBRARY_PATH
+    source /software/CAD/Xilinx/2019.2/Vivado/2019.2/settings64.sh
+    export LC_ALL=en_US.utf-8
+    export LANG=en_US.utf-8
+    """
     )
-    
-    job_executable_file = os.path.join(outdir, "vivado.sh")
+    job_executable_file = os.path.join(outdir, "vivado_hls.sh")
     with open(job_executable_file, "w", encoding="utf-8") as f:
         f.write(executable_text)
-    
     make_executable(job_executable_file)
+    shell_source(job_executable_file)
 
-    os.chmod(job_executable_file, 0o755) # Ensure the script is executable
 
-    # Directly execute the script instead of sourcing it
-    os.system(f'bash {job_executable_file}')
+# def vivado_setup(outdir): # Use this one at home
+#     '''
+#     This function sets up the environment for Vitis HLS
+#     It writes and executes a shell script to set up the necessary paths and environment variables
+#     '''
+#     # Setting environment variables directly in Python
+#     # Append new paths to existing PATH and LD_LIBRARY_PATH, or initialize them if they don't exist
+#     os.environ['PATH'] = '/opt/Xilinx/Vitis_HLS/2024.1/bin:' + os.environ.get('PATH', '')
+#     os.environ['LD_LIBRARY_PATH'] = '/opt/Xilinx/Vitis_HLS/2024.1/lib:' + os.environ.get('LD_LIBRARY_PATH', '')
+#     os.environ['LC_ALL'] = 'en_US.utf-8'
+#     os.environ['LANG'] = 'en_US.utf-8'
+    
+#     executable_text = textwrap.dedent(
+#         f"""
+#         # Update the PATH and LD_LIBRARY_PATH to include Vitis HLS
+#         export PATH=/opt/Xilinx/Vitis_HLS/2024.1/bin:$PATH
+#         export LD_LIBRARY_PATH=/opt/Xilinx/Vitis_HLS/2024.1/lib:$LD_LIBRARY_PATH
+#         source /opt/Xilinx/Vitis_HLS/2024.1/settings64.sh
+#         export LC_ALL=en_US.utf-8
+#         export LANG=en_US.utf-8
+#         """
+#     )
+    
+#     job_executable_file = os.path.join(outdir, "vivado.sh")
+#     with open(job_executable_file, "w", encoding="utf-8") as f:
+#         f.write(executable_text)
+    
+#     make_executable(job_executable_file)
 
-    if 'linux' in sys.platform or 'darwin' in sys.platform:
-        found = os.system('command -v vitis_hls > /dev/null')
-        if found != 0:
-            print('Vitis HLS installation not found. Make sure "vitis_hls" is on PATH.')
-            sys.exit(1)
-    csim = synth = cosim = validation = export = vsynth = reset = 1
-    os.system(f"cd {outdir} && vitis_hls -f build_prj.tcl reset={reset} validation={validation} export={export} csim={csim} synth={synth} cosim={cosim} export=True vsynth={vsynth}")
+#     os.chmod(job_executable_file, 0o755) # Ensure the script is executable
+
+#     # Directly execute the script instead of sourcing it
+#     os.system(f'bash {job_executable_file}')
+
+#     if 'linux' in sys.platform or 'darwin' in sys.platform:
+#         found = os.system('command -v vitis_hls > /dev/null')
+#         if found != 0:
+#             print('Vitis HLS installation not found. Make sure "vitis_hls" is on PATH.')
+#             sys.exit(1)
+#     csim = synth = cosim = validation = export = vsynth = reset = 1
+#     os.system(f"cd {outdir} && vitis_hls -f build_prj.tcl reset={reset} validation={validation} export={export} csim={csim} synth={synth} cosim={cosim} export=True vsynth={vsynth}")
 
 
 
@@ -140,19 +134,14 @@ def hls4ml_converter(params, model_path, outdir):
     except Exception as e:
         print(f"Error loading model: {e}")
         return None, None
-      
-    #hls4ml.model.optimizer.OutputRoundingSaturationMode.layers = ['Activation']
-    #hls4ml.model.optimizer.OutputRoundingSaturationMode.rounding_mode = 'AP_RND'
-    #hls4ml.model.optimizer.OutputRoundingSaturationMode.saturation_mode = 'AP_SAT'
 
     config = hls4ml.utils.config_from_keras_model(model, granularity='name')
     
     print("-----------------------------------")
     print("Configuration")
 
-    config['Model']['Precision'] = f'ap_fixed<16, 6, AP_RND, AP_SAT>'
+    config['Model']['Precision'] = 'ap_fixed<16, 6, AP_RND, AP_SAT>'
 
-    ## Set all layers to <8,2> precision
     for l in config['LayerName']:
         config['LayerName'][l]['Strategy'] = 'Latency'
         config['LayerName'][l]['ParallelizationFactor'] = 1
@@ -161,17 +150,6 @@ def hls4ml_converter(params, model_path, outdir):
         config['LayerName'][l]['Precision']['weight'] = 'ap_fixed<8,2, AP_RND, AP_SAT>'
         config['LayerName'][l]['Precision']['bias'] = 'ap_fixed<8,2, AP_RND, AP_SAT>'
         config['LayerName'][l]['Trace'] = True
-
-    # Ensuring the input names are correctly mapped
-    if 'input_main' in config['LayerName']:
-        config['LayerName']['input_main']['Precision']['result'] = 'ap_fixed<8,2, AP_RND, AP_SAT>'
-    if 'time_input' in config['LayerName']:
-        config['LayerName']['time_input']['Precision']['result'] = 'ap_int<32>'  # Change precision to ap_int<32> to avoid conflicts
-    if 'pos_encoding_main' in config['LayerName']:
-        config['LayerName']['pos_encoding_main']['Precision']['result'] = 'ap_fixed<8,2, AP_RND, AP_SAT>'
-    if 'pos_encoding_bottleneck' in config['LayerName']:
-        config['LayerName']['pos_encoding_bottleneck']['Precision']['result'] = 'ap_fixed<8,2, AP_RND, AP_SAT>'
-    
     
     ## Can also set specific layers to custom quantizations, e.g:
 
@@ -203,14 +181,19 @@ def hls4ml_converter(params, model_path, outdir):
     with open(f"{outdir}/config.json", "w") as outfile: 
         json.dump(config, outfile)
     print("-----------------------------------\n")  
-    
-    hls_model = hls4ml.converters.convert_from_keras_model(model,
-                                                           hls_config=config,   
-                                                           output_dir=outdir,    
-                                                           clock_period=1000./params['clock_freq'], 
-                                                           part=params['part'],
-                                                           io_type=params["io_type"])     
-    
+
+    try:
+        hls_model = hls4ml.converters.convert_from_keras_model(model,
+                                                            hls_config=config,   
+                                                            output_dir=outdir,    
+                                                            clock_period=1000./params['clock_freq'], 
+                                                            part=params['part'],
+                                                            io_type=params["io_type"])
+    except Exception as e:
+        print(f"Error during HLS conversion: {e}")
+        return None, None
+
+
     hls_model.compile()
 
     return model, hls_model
@@ -302,6 +285,8 @@ def main():
     with open(f"{outdir}/config_final.json", "w") as outfile: 
         json.dump(hls_config, outfile)
     print("-----------------------------------")   
+    csim = synth = cosim = validation = export = vsynth = reset = 1
+    os.system(f"cd {outdir} && vivado_hls -f build_prj.tcl reset={reset} validation={validation} export={export} csim={csim} synth={synth} cosim={cosim} export=True vsynth={vsynth}")
 
     ### Add here some code to load in some data, add noise, and perform inference. Try to do this for both the model and hls_model.
     ### I think you can call the hls model in the same way you would with the normal model.
