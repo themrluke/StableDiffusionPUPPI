@@ -1,0 +1,374 @@
+2024-07-31 15:23:14.274111: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  SSE4.1 SSE4.2 AVX AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-07-31 15:23:20.421109: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  SSE4.1 SSE4.2 AVX AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-07-31 15:23:21.863763: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1613] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 13764 MB memory:  -> device: 0, name: Tesla T4, pci bus id: 0000:01:00.0, compute capability: 7.5
+2024-07-31 15:23:21.866100: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1613] Created device /job:localhost/replica:0/task:0/device:GPU:1 with 13258 MB memory:  -> device: 1, name: Tesla T4, pci bus id: 0000:21:00.0, compute capability: 7.5
+2024-07-31 15:23:21.868282: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1613] Created device /job:localhost/replica:0/task:0/device:GPU:2 with 13764 MB memory:  -> device: 2, name: Tesla T4, pci bus id: 0000:41:00.0, compute capability: 7.5
+2024-07-31 15:23:21.870713: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1613] Created device /job:localhost/replica:0/task:0/device:GPU:3 with 13764 MB memory:  -> device: 3, name: Tesla T4, pci bus id: 0000:a1:00.0, compute capability: 7.5
+2024-07-31 15:23:21.872950: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1613] Created device /job:localhost/replica:0/task:0/device:GPU:4 with 13764 MB memory:  -> device: 4, name: Tesla T4, pci bus id: 0000:c1:00.0, compute capability: 7.5
+2024-07-31 15:23:21.875690: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1613] Created device /job:localhost/replica:0/task:0/device:GPU:5 with 12614 MB memory:  -> device: 5, name: Tesla T4, pci bus id: 0000:e2:00.0, compute capability: 7.5
+STAGE1
+STAGE2
+STAGE3
+Loading model
+Done
+Model: "UNetLite_hls"
+__________________________________________________________________________________________________
+ Layer (type)                   Output Shape         Param #     Connected to                     
+==================================================================================================
+ pos_enc_main (InputLayer)      [(None, 64, 64, 4)]  0           []                               
+                                                                                                  
+ input_images (InputLayer)      [(None, 64, 64, 1)]  0           []                               
+                                                                                                  
+ emb1 (Dense)                   (None, 64, 64, 1)    5           ['pos_enc_main[0][0]']           
+                                                                                                  
+ add (Add)                      (None, 64, 64, 1)    0           ['input_images[0][0]',           
+                                                                  'emb1[0][0]']                   
+                                                                                                  
+ convd1_1 (Conv2D)              (None, 64, 64, 4)    36          ['add[0][0]']                    
+                                                                                                  
+ normd1_1 (BatchNormalization)  (None, 64, 64, 4)    16          ['convd1_1[0][0]']               
+                                                                                                  
+ relu_1 (ReLU)                  (None, 64, 64, 4)    0           ['normd1_1[0][0]']               
+                                                                                                  
+ convd1_2 (Conv2D)              (None, 64, 64, 4)    144         ['relu_1[0][0]']                 
+                                                                                                  
+ normd1_2 (BatchNormalization)  (None, 64, 64, 4)    16          ['convd1_2[0][0]']               
+                                                                                                  
+ relu_2 (ReLU)                  (None, 64, 64, 4)    0           ['normd1_2[0][0]']               
+                                                                                                  
+ pool3 (Conv2D)                 (None, 32, 32, 4)    144         ['relu_2[0][0]']                 
+                                                                                                  
+ normb1_1 (BatchNormalization)  (None, 32, 32, 4)    16          ['pool3[0][0]']                  
+                                                                                                  
+ pos_enc_bottleneck (InputLayer  [(None, 32, 32, 4)]  0          []                               
+ )                                                                                                
+                                                                                                  
+ relu_3 (ReLU)                  (None, 32, 32, 4)    0           ['normb1_1[0][0]']               
+                                                                                                  
+ emb4 (Dense)                   (None, 32, 32, 4)    20          ['pos_enc_bottleneck[0][0]']     
+                                                                                                  
+ add_1 (Add)                    (None, 32, 32, 4)    0           ['relu_3[0][0]',                 
+                                                                  'emb4[0][0]']                   
+                                                                                                  
+ convb1_1 (Conv2D)              (None, 32, 32, 8)    288         ['add_1[0][0]']                  
+                                                                                                  
+ normb1_2 (BatchNormalization)  (None, 32, 32, 8)    32          ['convb1_1[0][0]']               
+                                                                                                  
+ relu_4 (ReLU)                  (None, 32, 32, 8)    0           ['normb1_2[0][0]']               
+                                                                                                  
+ convb1_2 (Conv2D)              (None, 32, 32, 8)    576         ['relu_4[0][0]']                 
+                                                                                                  
+ normb1_3 (BatchNormalization)  (None, 32, 32, 8)    32          ['convb1_2[0][0]']               
+                                                                                                  
+ relu_5 (ReLU)                  (None, 32, 32, 8)    0           ['normb1_3[0][0]']               
+                                                                                                  
+ up1 (UpSampling2D)             (None, 64, 64, 8)    0           ['relu_5[0][0]']                 
+                                                                                                  
+ convu1_1 (Conv2D)              (None, 64, 64, 4)    292         ['up1[0][0]']                    
+                                                                                                  
+ normu1_1 (BatchNormalization)  (None, 64, 64, 4)    16          ['convu1_1[0][0]']               
+                                                                                                  
+ relu_6 (ReLU)                  (None, 64, 64, 4)    0           ['normu1_1[0][0]']               
+                                                                                                  
+ emb5 (Dense)                   (None, 64, 64, 4)    20          ['pos_enc_main[0][0]']           
+                                                                                                  
+ add_2 (Add)                    (None, 64, 64, 4)    0           ['relu_6[0][0]',                 
+                                                                  'emb5[0][0]']                   
+                                                                                                  
+ convu1_2 (Conv2D)              (None, 64, 64, 4)    144         ['add_2[0][0]']                  
+                                                                                                  
+ normu1_2 (BatchNormalization)  (None, 64, 64, 4)    16          ['convu1_2[0][0]']               
+                                                                                                  
+ relu_7 (ReLU)                  (None, 64, 64, 4)    0           ['normu1_2[0][0]']               
+                                                                                                  
+ convu1_3 (Conv2D)              (None, 64, 64, 4)    144         ['relu_7[0][0]']                 
+                                                                                                  
+ normu1_3 (BatchNormalization)  (None, 64, 64, 4)    16          ['convu1_3[0][0]']               
+                                                                                                  
+ relu_8 (ReLU)                  (None, 64, 64, 4)    0           ['normu1_3[0][0]']               
+                                                                                                  
+ out (Conv2D)                   (None, 64, 64, 1)    5           ['relu_8[0][0]']                 
+                                                                                                  
+ relu_9 (ReLU)                  (None, 64, 64, 1)    0           ['out[0][0]']                    
+                                                                                                  
+==================================================================================================
+Total params: 1,978
+Trainable params: 1,898
+Non-trainable params: 80
+__________________________________________________________________________________________________
+None
+Interpreting Model
+Topology:
+Layer name: pos_enc_main, layer type: InputLayer, input shapes: [[None, 64, 64, 4]], output shape: [None, 64, 64, 4]
+Layer name: input_images, layer type: InputLayer, input shapes: [[None, 64, 64, 1]], output shape: [None, 64, 64, 1]
+Layer name: emb1, layer type: Dense, input shapes: [[None, 64, 64, 4]], output shape: [None, 64, 64, 1]
+Layer name: add, layer type: Merge, input shapes: [[None, 64, 64, 1], [None, 64, 64, 1]], output shape: [None, 64, 64, 1]
+Layer name: convd1_1, layer type: Conv2D, input shapes: [[None, 64, 64, 1]], output shape: [None, 64, 64, 4]
+Layer name: normd1_1, layer type: BatchNormalization, input shapes: [[None, 64, 64, 4]], output shape: [None, 64, 64, 4]
+Layer name: relu_1, layer type: Activation, input shapes: [[None, 64, 64, 4]], output shape: [None, 64, 64, 4]
+Layer name: convd1_2, layer type: Conv2D, input shapes: [[None, 64, 64, 4]], output shape: [None, 64, 64, 4]
+Layer name: normd1_2, layer type: BatchNormalization, input shapes: [[None, 64, 64, 4]], output shape: [None, 64, 64, 4]
+Layer name: relu_2, layer type: Activation, input shapes: [[None, 64, 64, 4]], output shape: [None, 64, 64, 4]
+Layer name: pool3, layer type: Conv2D, input shapes: [[None, 64, 64, 4]], output shape: [None, 32, 32, 4]
+Layer name: normb1_1, layer type: BatchNormalization, input shapes: [[None, 32, 32, 4]], output shape: [None, 32, 32, 4]
+Layer name: pos_enc_bottleneck, layer type: InputLayer, input shapes: [[None, 32, 32, 4]], output shape: [None, 32, 32, 4]
+Layer name: relu_3, layer type: Activation, input shapes: [[None, 32, 32, 4]], output shape: [None, 32, 32, 4]
+Layer name: emb4, layer type: Dense, input shapes: [[None, 32, 32, 4]], output shape: [None, 32, 32, 4]
+Layer name: add_1, layer type: Merge, input shapes: [[None, 32, 32, 4], [None, 32, 32, 4]], output shape: [None, 32, 32, 4]
+Layer name: convb1_1, layer type: Conv2D, input shapes: [[None, 32, 32, 4]], output shape: [None, 32, 32, 8]
+Layer name: normb1_2, layer type: BatchNormalization, input shapes: [[None, 32, 32, 8]], output shape: [None, 32, 32, 8]
+Layer name: relu_4, layer type: Activation, input shapes: [[None, 32, 32, 8]], output shape: [None, 32, 32, 8]
+Layer name: convb1_2, layer type: Conv2D, input shapes: [[None, 32, 32, 8]], output shape: [None, 32, 32, 8]
+Layer name: normb1_3, layer type: BatchNormalization, input shapes: [[None, 32, 32, 8]], output shape: [None, 32, 32, 8]
+Layer name: relu_5, layer type: Activation, input shapes: [[None, 32, 32, 8]], output shape: [None, 32, 32, 8]
+Layer name: up1, layer type: UpSampling2D, input shapes: [[None, 32, 32, 8]], output shape: [None, 64, 64, 8]
+Layer name: convu1_1, layer type: Conv2D, input shapes: [[None, 64, 64, 8]], output shape: [None, 64, 64, 4]
+Layer name: normu1_1, layer type: BatchNormalization, input shapes: [[None, 64, 64, 4]], output shape: [None, 64, 64, 4]
+Layer name: relu_6, layer type: Activation, input shapes: [[None, 64, 64, 4]], output shape: [None, 64, 64, 4]
+Layer name: emb5, layer type: Dense, input shapes: [[None, 64, 64, 4]], output shape: [None, 64, 64, 4]
+Layer name: add_2, layer type: Merge, input shapes: [[None, 64, 64, 4], [None, 64, 64, 4]], output shape: [None, 64, 64, 4]
+Layer name: convu1_2, layer type: Conv2D, input shapes: [[None, 64, 64, 4]], output shape: [None, 64, 64, 4]
+Layer name: normu1_2, layer type: BatchNormalization, input shapes: [[None, 64, 64, 4]], output shape: [None, 64, 64, 4]
+Layer name: relu_7, layer type: Activation, input shapes: [[None, 64, 64, 4]], output shape: [None, 64, 64, 4]
+Layer name: convu1_3, layer type: Conv2D, input shapes: [[None, 64, 64, 4]], output shape: [None, 64, 64, 4]
+Layer name: normu1_3, layer type: BatchNormalization, input shapes: [[None, 64, 64, 4]], output shape: [None, 64, 64, 4]
+Layer name: relu_8, layer type: Activation, input shapes: [[None, 64, 64, 4]], output shape: [None, 64, 64, 4]
+Layer name: out, layer type: Conv2D, input shapes: [[None, 64, 64, 4]], output shape: [None, 64, 64, 1]
+Layer name: relu_9, layer type: Activation, input shapes: [[None, 64, 64, 1]], output shape: [None, 64, 64, 1]
+-----------------------------------
+Configuration
+
+-----------------------------------
+Model               : {'Precision': 'ap_fixed<16, 6, AP_RND, AP_SAT>', 'ReuseFactor': 1, 'Strategy': 'Latency', 'BramFactor': 1000000000, 'TraceOutput': False}
+pos_enc_main        : {'Trace': True, 'Precision': {'result': 'ap_fixed<8,2, AP_RND, AP_SAT>', 'weight': 'ap_fixed<8,2, AP_RND, AP_SAT>', 'bias': 'ap_fixed<8,2, AP_RND, AP_SAT>'}, 'Strategy': 'Latency', 'ParallelizationFactor': 1, 'ReuseFactor': 1}
+input_images        : {'Trace': True, 'Precision': {'result': 'ap_fixed<8,2, AP_RND, AP_SAT>', 'weight': 'ap_fixed<8,2, AP_RND, AP_SAT>', 'bias': 'ap_fixed<8,2, AP_RND, AP_SAT>'}, 'Strategy': 'Latency', 'ParallelizationFactor': 1, 'ReuseFactor': 1}
+emb1                : {'Trace': True, 'Precision': {'result': 'ap_fixed<8,2, AP_RND, AP_SAT>', 'weight': 'ap_fixed<8,2, AP_RND, AP_SAT>', 'bias': 'ap_fixed<8,2, AP_RND, AP_SAT>'}, 'Strategy': 'Latency', 'ParallelizationFactor': 1, 'ReuseFactor': 1}
+emb1_linear         : {'Trace': True, 'Precision': {'result': 'ap_fixed<8,2, AP_RND, AP_SAT>', 'weight': 'ap_fixed<8,2, AP_RND, AP_SAT>', 'bias': 'ap_fixed<8,2, AP_RND, AP_SAT>'}, 'Strategy': 'Latency', 'ParallelizationFactor': 1, 'ReuseFactor': 1}
+add                 : {'Trace': True, 'Precision': {'result': 'ap_fixed<8,2, AP_RND, AP_SAT>', 'weight': 'ap_fixed<8,2, AP_RND, AP_SAT>', 'bias': 'ap_fixed<8,2, AP_RND, AP_SAT>'}, 'Strategy': 'Latency', 'ParallelizationFactor': 1, 'ReuseFactor': 1}
+convd1_1            : {'Trace': True, 'Precision': {'result': 'ap_fixed<8,2, AP_RND, AP_SAT>', 'weight': 'ap_fixed<8,2, AP_RND, AP_SAT>', 'bias': 'ap_fixed<8,2, AP_RND, AP_SAT>'}, 'Strategy': 'Latency', 'ParallelizationFactor': 1, 'ReuseFactor': 1}
+convd1_1_linear     : {'Trace': True, 'Precision': {'result': 'ap_fixed<8,2, AP_RND, AP_SAT>', 'weight': 'ap_fixed<8,2, AP_RND, AP_SAT>', 'bias': 'ap_fixed<8,2, AP_RND, AP_SAT>'}, 'Strategy': 'Latency', 'ParallelizationFactor': 1, 'ReuseFactor': 1}
+normd1_1            : {'Trace': True, 'Precision': {'result': 'ap_fixed<8,2, AP_RND, AP_SAT>', 'scale': 'fixed<16,6>', 'bias': 'ap_fixed<8,2, AP_RND, AP_SAT>', 'weight': 'ap_fixed<8,2, AP_RND, AP_SAT>'}, 'Strategy': 'Latency', 'ParallelizationFactor': 1, 'ReuseFactor': 1}
+relu_1              : {'Trace': True, 'Precision': {'result': 'ap_fixed<8,2, AP_RND, AP_SAT>', 'weight': 'ap_fixed<8,2, AP_RND, AP_SAT>', 'bias': 'ap_fixed<8,2, AP_RND, AP_SAT>'}, 'Strategy': 'Latency', 'ParallelizationFactor': 1, 'ReuseFactor': 1}
+convd1_2            : {'Trace': True, 'Precision': {'result': 'ap_fixed<8,2, AP_RND, AP_SAT>', 'weight': 'ap_fixed<8,2, AP_RND, AP_SAT>', 'bias': 'ap_fixed<8,2, AP_RND, AP_SAT>'}, 'Strategy': 'Latency', 'ParallelizationFactor': 1, 'ReuseFactor': 1}
+convd1_2_linear     : {'Trace': True, 'Precision': {'result': 'ap_fixed<8,2, AP_RND, AP_SAT>', 'weight': 'ap_fixed<8,2, AP_RND, AP_SAT>', 'bias': 'ap_fixed<8,2, AP_RND, AP_SAT>'}, 'Strategy': 'Latency', 'ParallelizationFactor': 1, 'ReuseFactor': 1}
+normd1_2            : {'Trace': True, 'Precision': {'result': 'ap_fixed<8,2, AP_RND, AP_SAT>', 'scale': 'fixed<16,6>', 'bias': 'ap_fixed<8,2, AP_RND, AP_SAT>', 'weight': 'ap_fixed<8,2, AP_RND, AP_SAT>'}, 'Strategy': 'Latency', 'ParallelizationFactor': 1, 'ReuseFactor': 1}
+relu_2              : {'Trace': True, 'Precision': {'result': 'ap_fixed<8,2, AP_RND, AP_SAT>', 'weight': 'ap_fixed<8,2, AP_RND, AP_SAT>', 'bias': 'ap_fixed<8,2, AP_RND, AP_SAT>'}, 'Strategy': 'Latency', 'ParallelizationFactor': 1, 'ReuseFactor': 1}
+pool3               : {'Trace': True, 'Precision': {'result': 'ap_fixed<8,2, AP_RND, AP_SAT>', 'weight': 'ap_fixed<8,2, AP_RND, AP_SAT>', 'bias': 'ap_fixed<8,2, AP_RND, AP_SAT>'}, 'Strategy': 'Latency', 'ParallelizationFactor': 1, 'ReuseFactor': 1}
+pool3_linear        : {'Trace': True, 'Precision': {'result': 'ap_fixed<8,2, AP_RND, AP_SAT>', 'weight': 'ap_fixed<8,2, AP_RND, AP_SAT>', 'bias': 'ap_fixed<8,2, AP_RND, AP_SAT>'}, 'Strategy': 'Latency', 'ParallelizationFactor': 1, 'ReuseFactor': 1}
+normb1_1            : {'Trace': True, 'Precision': {'result': 'ap_fixed<8,2, AP_RND, AP_SAT>', 'scale': 'fixed<16,6>', 'bias': 'ap_fixed<8,2, AP_RND, AP_SAT>', 'weight': 'ap_fixed<8,2, AP_RND, AP_SAT>'}, 'Strategy': 'Latency', 'ParallelizationFactor': 1, 'ReuseFactor': 1}
+pos_enc_bottleneck  : {'Trace': True, 'Precision': {'result': 'ap_fixed<8,2, AP_RND, AP_SAT>', 'weight': 'ap_fixed<8,2, AP_RND, AP_SAT>', 'bias': 'ap_fixed<8,2, AP_RND, AP_SAT>'}, 'Strategy': 'Latency', 'ParallelizationFactor': 1, 'ReuseFactor': 1}
+relu_3              : {'Trace': True, 'Precision': {'result': 'ap_fixed<8,2, AP_RND, AP_SAT>', 'weight': 'ap_fixed<8,2, AP_RND, AP_SAT>', 'bias': 'ap_fixed<8,2, AP_RND, AP_SAT>'}, 'Strategy': 'Latency', 'ParallelizationFactor': 1, 'ReuseFactor': 1}
+emb4                : {'Trace': True, 'Precision': {'result': 'ap_fixed<8,2, AP_RND, AP_SAT>', 'weight': 'ap_fixed<8,2, AP_RND, AP_SAT>', 'bias': 'ap_fixed<8,2, AP_RND, AP_SAT>'}, 'Strategy': 'Latency', 'ParallelizationFactor': 1, 'ReuseFactor': 1}
+emb4_linear         : {'Trace': True, 'Precision': {'result': 'ap_fixed<8,2, AP_RND, AP_SAT>', 'weight': 'ap_fixed<8,2, AP_RND, AP_SAT>', 'bias': 'ap_fixed<8,2, AP_RND, AP_SAT>'}, 'Strategy': 'Latency', 'ParallelizationFactor': 1, 'ReuseFactor': 1}
+add_1               : {'Trace': True, 'Precision': {'result': 'ap_fixed<8,2, AP_RND, AP_SAT>', 'weight': 'ap_fixed<8,2, AP_RND, AP_SAT>', 'bias': 'ap_fixed<8,2, AP_RND, AP_SAT>'}, 'Strategy': 'Latency', 'ParallelizationFactor': 1, 'ReuseFactor': 1}
+convb1_1            : {'Trace': True, 'Precision': {'result': 'ap_fixed<8,2, AP_RND, AP_SAT>', 'weight': 'ap_fixed<8,2, AP_RND, AP_SAT>', 'bias': 'ap_fixed<8,2, AP_RND, AP_SAT>'}, 'Strategy': 'Latency', 'ParallelizationFactor': 1, 'ReuseFactor': 1}
+convb1_1_linear     : {'Trace': True, 'Precision': {'result': 'ap_fixed<8,2, AP_RND, AP_SAT>', 'weight': 'ap_fixed<8,2, AP_RND, AP_SAT>', 'bias': 'ap_fixed<8,2, AP_RND, AP_SAT>'}, 'Strategy': 'Latency', 'ParallelizationFactor': 1, 'ReuseFactor': 1}
+normb1_2            : {'Trace': True, 'Precision': {'result': 'ap_fixed<8,2, AP_RND, AP_SAT>', 'scale': 'fixed<16,6>', 'bias': 'ap_fixed<8,2, AP_RND, AP_SAT>', 'weight': 'ap_fixed<8,2, AP_RND, AP_SAT>'}, 'Strategy': 'Latency', 'ParallelizationFactor': 1, 'ReuseFactor': 1}
+relu_4              : {'Trace': True, 'Precision': {'result': 'ap_fixed<8,2, AP_RND, AP_SAT>', 'weight': 'ap_fixed<8,2, AP_RND, AP_SAT>', 'bias': 'ap_fixed<8,2, AP_RND, AP_SAT>'}, 'Strategy': 'Latency', 'ParallelizationFactor': 1, 'ReuseFactor': 1}
+convb1_2            : {'Trace': True, 'Precision': {'result': 'ap_fixed<8,2, AP_RND, AP_SAT>', 'weight': 'ap_fixed<8,2, AP_RND, AP_SAT>', 'bias': 'ap_fixed<8,2, AP_RND, AP_SAT>'}, 'Strategy': 'Latency', 'ParallelizationFactor': 1, 'ReuseFactor': 1}
+convb1_2_linear     : {'Trace': True, 'Precision': {'result': 'ap_fixed<8,2, AP_RND, AP_SAT>', 'weight': 'ap_fixed<8,2, AP_RND, AP_SAT>', 'bias': 'ap_fixed<8,2, AP_RND, AP_SAT>'}, 'Strategy': 'Latency', 'ParallelizationFactor': 1, 'ReuseFactor': 1}
+normb1_3            : {'Trace': True, 'Precision': {'result': 'ap_fixed<8,2, AP_RND, AP_SAT>', 'scale': 'fixed<16,6>', 'bias': 'ap_fixed<8,2, AP_RND, AP_SAT>', 'weight': 'ap_fixed<8,2, AP_RND, AP_SAT>'}, 'Strategy': 'Latency', 'ParallelizationFactor': 1, 'ReuseFactor': 1}
+relu_5              : {'Trace': True, 'Precision': {'result': 'ap_fixed<8,2, AP_RND, AP_SAT>', 'weight': 'ap_fixed<8,2, AP_RND, AP_SAT>', 'bias': 'ap_fixed<8,2, AP_RND, AP_SAT>'}, 'Strategy': 'Latency', 'ParallelizationFactor': 1, 'ReuseFactor': 1}
+up1                 : {'Trace': True, 'Precision': {'result': 'ap_fixed<8,2, AP_RND, AP_SAT>', 'weight': 'ap_fixed<8,2, AP_RND, AP_SAT>', 'bias': 'ap_fixed<8,2, AP_RND, AP_SAT>'}, 'Strategy': 'Latency', 'ParallelizationFactor': 1, 'ReuseFactor': 1}
+convu1_1            : {'Trace': True, 'Precision': {'result': 'ap_fixed<8,2, AP_RND, AP_SAT>', 'weight': 'ap_fixed<8,2, AP_RND, AP_SAT>', 'bias': 'ap_fixed<8,2, AP_RND, AP_SAT>'}, 'Strategy': 'Latency', 'ParallelizationFactor': 1, 'ReuseFactor': 1}
+convu1_1_linear     : {'Trace': True, 'Precision': {'result': 'ap_fixed<8,2, AP_RND, AP_SAT>', 'weight': 'ap_fixed<8,2, AP_RND, AP_SAT>', 'bias': 'ap_fixed<8,2, AP_RND, AP_SAT>'}, 'Strategy': 'Latency', 'ParallelizationFactor': 1, 'ReuseFactor': 1}
+normu1_1            : {'Trace': True, 'Precision': {'result': 'ap_fixed<8,2, AP_RND, AP_SAT>', 'scale': 'fixed<16,6>', 'bias': 'ap_fixed<8,2, AP_RND, AP_SAT>', 'weight': 'ap_fixed<8,2, AP_RND, AP_SAT>'}, 'Strategy': 'Latency', 'ParallelizationFactor': 1, 'ReuseFactor': 1}
+relu_6              : {'Trace': True, 'Precision': {'result': 'ap_fixed<8,2, AP_RND, AP_SAT>', 'weight': 'ap_fixed<8,2, AP_RND, AP_SAT>', 'bias': 'ap_fixed<8,2, AP_RND, AP_SAT>'}, 'Strategy': 'Latency', 'ParallelizationFactor': 1, 'ReuseFactor': 1}
+emb5                : {'Trace': True, 'Precision': {'result': 'ap_fixed<8,2, AP_RND, AP_SAT>', 'weight': 'ap_fixed<8,2, AP_RND, AP_SAT>', 'bias': 'ap_fixed<8,2, AP_RND, AP_SAT>'}, 'Strategy': 'Latency', 'ParallelizationFactor': 1, 'ReuseFactor': 1}
+emb5_linear         : {'Trace': True, 'Precision': {'result': 'ap_fixed<8,2, AP_RND, AP_SAT>', 'weight': 'ap_fixed<8,2, AP_RND, AP_SAT>', 'bias': 'ap_fixed<8,2, AP_RND, AP_SAT>'}, 'Strategy': 'Latency', 'ParallelizationFactor': 1, 'ReuseFactor': 1}
+add_2               : {'Trace': True, 'Precision': {'result': 'ap_fixed<8,2, AP_RND, AP_SAT>', 'weight': 'ap_fixed<8,2, AP_RND, AP_SAT>', 'bias': 'ap_fixed<8,2, AP_RND, AP_SAT>'}, 'Strategy': 'Latency', 'ParallelizationFactor': 1, 'ReuseFactor': 1}
+convu1_2            : {'Trace': True, 'Precision': {'result': 'ap_fixed<8,2, AP_RND, AP_SAT>', 'weight': 'ap_fixed<8,2, AP_RND, AP_SAT>', 'bias': 'ap_fixed<8,2, AP_RND, AP_SAT>'}, 'Strategy': 'Latency', 'ParallelizationFactor': 1, 'ReuseFactor': 1}
+convu1_2_linear     : {'Trace': True, 'Precision': {'result': 'ap_fixed<8,2, AP_RND, AP_SAT>', 'weight': 'ap_fixed<8,2, AP_RND, AP_SAT>', 'bias': 'ap_fixed<8,2, AP_RND, AP_SAT>'}, 'Strategy': 'Latency', 'ParallelizationFactor': 1, 'ReuseFactor': 1}
+normu1_2            : {'Trace': True, 'Precision': {'result': 'ap_fixed<8,2, AP_RND, AP_SAT>', 'scale': 'fixed<16,6>', 'bias': 'ap_fixed<8,2, AP_RND, AP_SAT>', 'weight': 'ap_fixed<8,2, AP_RND, AP_SAT>'}, 'Strategy': 'Latency', 'ParallelizationFactor': 1, 'ReuseFactor': 1}
+relu_7              : {'Trace': True, 'Precision': {'result': 'ap_fixed<8,2, AP_RND, AP_SAT>', 'weight': 'ap_fixed<8,2, AP_RND, AP_SAT>', 'bias': 'ap_fixed<8,2, AP_RND, AP_SAT>'}, 'Strategy': 'Latency', 'ParallelizationFactor': 1, 'ReuseFactor': 1}
+convu1_3            : {'Trace': True, 'Precision': {'result': 'ap_fixed<8,2, AP_RND, AP_SAT>', 'weight': 'ap_fixed<8,2, AP_RND, AP_SAT>', 'bias': 'ap_fixed<8,2, AP_RND, AP_SAT>'}, 'Strategy': 'Latency', 'ParallelizationFactor': 1, 'ReuseFactor': 1}
+convu1_3_linear     : {'Trace': True, 'Precision': {'result': 'ap_fixed<8,2, AP_RND, AP_SAT>', 'weight': 'ap_fixed<8,2, AP_RND, AP_SAT>', 'bias': 'ap_fixed<8,2, AP_RND, AP_SAT>'}, 'Strategy': 'Latency', 'ParallelizationFactor': 1, 'ReuseFactor': 1}
+normu1_3            : {'Trace': True, 'Precision': {'result': 'ap_fixed<8,2, AP_RND, AP_SAT>', 'scale': 'fixed<16,6>', 'bias': 'ap_fixed<8,2, AP_RND, AP_SAT>', 'weight': 'ap_fixed<8,2, AP_RND, AP_SAT>'}, 'Strategy': 'Latency', 'ParallelizationFactor': 1, 'ReuseFactor': 1}
+relu_8              : {'Trace': True, 'Precision': {'result': 'ap_fixed<8,2, AP_RND, AP_SAT>', 'weight': 'ap_fixed<8,2, AP_RND, AP_SAT>', 'bias': 'ap_fixed<8,2, AP_RND, AP_SAT>'}, 'Strategy': 'Latency', 'ParallelizationFactor': 1, 'ReuseFactor': 1}
+out                 : {'Trace': True, 'Precision': {'result': 'ap_fixed<8,2, AP_RND, AP_SAT>', 'weight': 'ap_fixed<8,2, AP_RND, AP_SAT>', 'bias': 'ap_fixed<8,2, AP_RND, AP_SAT>'}, 'Strategy': 'Latency', 'ParallelizationFactor': 1, 'ReuseFactor': 1}
+out_linear          : {'Trace': True, 'Precision': {'result': 'ap_fixed<8,2, AP_RND, AP_SAT>', 'weight': 'ap_fixed<8,2, AP_RND, AP_SAT>', 'bias': 'ap_fixed<8,2, AP_RND, AP_SAT>'}, 'Strategy': 'Latency', 'ParallelizationFactor': 1, 'ReuseFactor': 1}
+INFO:root:Loading .npy files from /storage/sa21722/stablediffusion/keras_version/signal.npy and /storage/sa21722/stablediffusion/keras_version/pile_up.npy
+INFO:root:Re-sizing tensors...
+2024-07-31 15:23:30.849335: I tensorflow/compiler/xla/stream_executor/cuda/cuda_dnn.cc:428] Loaded cuDNN version 8902
+2024-07-31 15:23:30.928411: I tensorflow/tsl/platform/default/subprocess.cc:304] Start cannot spawn child process: No such file or directory
+relu_9              : {'Trace': True, 'Precision': {'result': 'ap_fixed<8,2, AP_RND, AP_SAT>', 'weight': 'ap_fixed<8,2, AP_RND, AP_SAT>', 'bias': 'ap_fixed<8,2, AP_RND, AP_SAT>'}, 'Strategy': 'Latency', 'ParallelizationFactor': 1, 'ReuseFactor': 1}
+-----------------------------------
+
+Interpreting Model
+Topology:
+Layer name: pos_enc_main, layer type: InputLayer, input shapes: [[None, 64, 64, 4]], output shape: [None, 64, 64, 4]
+Layer name: input_images, layer type: InputLayer, input shapes: [[None, 64, 64, 1]], output shape: [None, 64, 64, 1]
+Layer name: emb1, layer type: Dense, input shapes: [[None, 64, 64, 4]], output shape: [None, 64, 64, 1]
+Layer name: add, layer type: Merge, input shapes: [[None, 64, 64, 1], [None, 64, 64, 1]], output shape: [None, 64, 64, 1]
+Layer name: convd1_1, layer type: Conv2D, input shapes: [[None, 64, 64, 1]], output shape: [None, 64, 64, 4]
+Layer name: normd1_1, layer type: BatchNormalization, input shapes: [[None, 64, 64, 4]], output shape: [None, 64, 64, 4]
+Layer name: relu_1, layer type: Activation, input shapes: [[None, 64, 64, 4]], output shape: [None, 64, 64, 4]
+Layer name: convd1_2, layer type: Conv2D, input shapes: [[None, 64, 64, 4]], output shape: [None, 64, 64, 4]
+Layer name: normd1_2, layer type: BatchNormalization, input shapes: [[None, 64, 64, 4]], output shape: [None, 64, 64, 4]
+Layer name: relu_2, layer type: Activation, input shapes: [[None, 64, 64, 4]], output shape: [None, 64, 64, 4]
+Layer name: pool3, layer type: Conv2D, input shapes: [[None, 64, 64, 4]], output shape: [None, 32, 32, 4]
+Layer name: normb1_1, layer type: BatchNormalization, input shapes: [[None, 32, 32, 4]], output shape: [None, 32, 32, 4]
+Layer name: pos_enc_bottleneck, layer type: InputLayer, input shapes: [[None, 32, 32, 4]], output shape: [None, 32, 32, 4]
+Layer name: relu_3, layer type: Activation, input shapes: [[None, 32, 32, 4]], output shape: [None, 32, 32, 4]
+Layer name: emb4, layer type: Dense, input shapes: [[None, 32, 32, 4]], output shape: [None, 32, 32, 4]
+Layer name: add_1, layer type: Merge, input shapes: [[None, 32, 32, 4], [None, 32, 32, 4]], output shape: [None, 32, 32, 4]
+Layer name: convb1_1, layer type: Conv2D, input shapes: [[None, 32, 32, 4]], output shape: [None, 32, 32, 8]
+Layer name: normb1_2, layer type: BatchNormalization, input shapes: [[None, 32, 32, 8]], output shape: [None, 32, 32, 8]
+Layer name: relu_4, layer type: Activation, input shapes: [[None, 32, 32, 8]], output shape: [None, 32, 32, 8]
+Layer name: convb1_2, layer type: Conv2D, input shapes: [[None, 32, 32, 8]], output shape: [None, 32, 32, 8]
+Layer name: normb1_3, layer type: BatchNormalization, input shapes: [[None, 32, 32, 8]], output shape: [None, 32, 32, 8]
+Layer name: relu_5, layer type: Activation, input shapes: [[None, 32, 32, 8]], output shape: [None, 32, 32, 8]
+Layer name: up1, layer type: UpSampling2D, input shapes: [[None, 32, 32, 8]], output shape: [None, 64, 64, 8]
+Layer name: convu1_1, layer type: Conv2D, input shapes: [[None, 64, 64, 8]], output shape: [None, 64, 64, 4]
+Layer name: normu1_1, layer type: BatchNormalization, input shapes: [[None, 64, 64, 4]], output shape: [None, 64, 64, 4]
+Layer name: relu_6, layer type: Activation, input shapes: [[None, 64, 64, 4]], output shape: [None, 64, 64, 4]
+Layer name: emb5, layer type: Dense, input shapes: [[None, 64, 64, 4]], output shape: [None, 64, 64, 4]
+Layer name: add_2, layer type: Merge, input shapes: [[None, 64, 64, 4], [None, 64, 64, 4]], output shape: [None, 64, 64, 4]
+Layer name: convu1_2, layer type: Conv2D, input shapes: [[None, 64, 64, 4]], output shape: [None, 64, 64, 4]
+Layer name: normu1_2, layer type: BatchNormalization, input shapes: [[None, 64, 64, 4]], output shape: [None, 64, 64, 4]
+Layer name: relu_7, layer type: Activation, input shapes: [[None, 64, 64, 4]], output shape: [None, 64, 64, 4]
+Layer name: convu1_3, layer type: Conv2D, input shapes: [[None, 64, 64, 4]], output shape: [None, 64, 64, 4]
+Layer name: normu1_3, layer type: BatchNormalization, input shapes: [[None, 64, 64, 4]], output shape: [None, 64, 64, 4]
+Layer name: relu_8, layer type: Activation, input shapes: [[None, 64, 64, 4]], output shape: [None, 64, 64, 4]
+Layer name: out, layer type: Conv2D, input shapes: [[None, 64, 64, 4]], output shape: [None, 64, 64, 1]
+Layer name: relu_9, layer type: Activation, input shapes: [[None, 64, 64, 1]], output shape: [None, 64, 64, 1]
+Creating HLS model
+WARNING: Layer emb1 requires "dataflow" pipeline style. Switching to "dataflow" pipeline style.
+WARNING: Config parameter "trace" overwrites an existing attribute in layer "out" (PointwiseConv2D)
+WARNING: Config parameter "precision" overwrites an existing attribute in layer "out" (PointwiseConv2D)
+WARNING: Config parameter "strategy" overwrites an existing attribute in layer "out" (PointwiseConv2D)
+WARNING: Config parameter "parallelization_factor" overwrites an existing attribute in layer "out" (PointwiseConv2D)
+WARNING: Config parameter "reuse_factor" overwrites an existing attribute in layer "out" (PointwiseConv2D)
+Writing HLS project
+Done
+STAGE4
+1/4 [======>.......................] - ETA: 2s4/4 [==============================] - ETA: 0s4/4 [==============================] - 1s 53ms/step
+Done taking outputs for Keras model.
+Recompiling myproject with tracing
+Writing HLS project
+Done
+Plotting graphs for: emb1 layer
+Plotting graphs for: add layer
+Plotting graphs for: convd1_1 layer
+Plotting graphs for: relu_1 layer
+Plotting graphs for: convd1_2 layer
+Plotting graphs for: relu_2 layer
+Plotting graphs for: pool3 layer
+Plotting graphs for: relu_3 layer
+Plotting graphs for: emb4 layer
+Plotting graphs for: add_1 layer
+Plotting graphs for: convb1_1 layer
+Plotting graphs for: relu_4 layer
+Plotting graphs for: convb1_2 layer
+Plotting graphs for: relu_5 layer
+Plotting graphs for: up1 layer
+Plotting graphs for: convu1_1 layer
+Plotting graphs for: relu_6 layer
+Plotting graphs for: emb5 layer
+Plotting graphs for: add_2 layer
+Plotting graphs for: convu1_2 layer
+Plotting graphs for: relu_7 layer
+Plotting graphs for: convu1_3 layer
+Plotting graphs for: relu_8 layer
+Plotting graphs for: out layer
+Plotting graphs for: relu_9 layer
+NOISY IMAGES SHAPE:  (100, 64, 64, 1)
+pos_encoding SHAPE:  (100, 64, 64, 4)
+pos_encoding_bottleneck SHAPE:  (100, 32, 32, 4)
+Interpreting Model
+Topology:
+Layer name: pos_enc_main, layer type: InputLayer, input shapes: [[None, 64, 64, 4]], output shape: [None, 64, 64, 4]
+Layer name: input_images, layer type: InputLayer, input shapes: [[None, 64, 64, 1]], output shape: [None, 64, 64, 1]
+Layer name: emb1, layer type: Dense, input shapes: [[None, 64, 64, 4]], output shape: [None, 64, 64, 1]
+Layer name: add, layer type: Merge, input shapes: [[None, 64, 64, 1], [None, 64, 64, 1]], output shape: [None, 64, 64, 1]
+Layer name: convd1_1, layer type: Conv2D, input shapes: [[None, 64, 64, 1]], output shape: [None, 64, 64, 4]
+Layer name: normd1_1, layer type: BatchNormalization, input shapes: [[None, 64, 64, 4]], output shape: [None, 64, 64, 4]
+Layer name: relu_1, layer type: Activation, input shapes: [[None, 64, 64, 4]], output shape: [None, 64, 64, 4]
+Layer name: convd1_2, layer type: Conv2D, input shapes: [[None, 64, 64, 4]], output shape: [None, 64, 64, 4]
+Layer name: normd1_2, layer type: BatchNormalization, input shapes: [[None, 64, 64, 4]], output shape: [None, 64, 64, 4]
+Layer name: relu_2, layer type: Activation, input shapes: [[None, 64, 64, 4]], output shape: [None, 64, 64, 4]
+Layer name: pool3, layer type: Conv2D, input shapes: [[None, 64, 64, 4]], output shape: [None, 32, 32, 4]
+Layer name: normb1_1, layer type: BatchNormalization, input shapes: [[None, 32, 32, 4]], output shape: [None, 32, 32, 4]
+Layer name: pos_enc_bottleneck, layer type: InputLayer, input shapes: [[None, 32, 32, 4]], output shape: [None, 32, 32, 4]
+Layer name: relu_3, layer type: Activation, input shapes: [[None, 32, 32, 4]], output shape: [None, 32, 32, 4]
+Layer name: emb4, layer type: Dense, input shapes: [[None, 32, 32, 4]], output shape: [None, 32, 32, 4]
+Layer name: add_1, layer type: Merge, input shapes: [[None, 32, 32, 4], [None, 32, 32, 4]], output shape: [None, 32, 32, 4]
+Layer name: convb1_1, layer type: Conv2D, input shapes: [[None, 32, 32, 4]], output shape: [None, 32, 32, 8]
+Layer name: normb1_2, layer type: BatchNormalization, input shapes: [[None, 32, 32, 8]], output shape: [None, 32, 32, 8]
+Layer name: relu_4, layer type: Activation, input shapes: [[None, 32, 32, 8]], output shape: [None, 32, 32, 8]
+Layer name: convb1_2, layer type: Conv2D, input shapes: [[None, 32, 32, 8]], output shape: [None, 32, 32, 8]
+Layer name: normb1_3, layer type: BatchNormalization, input shapes: [[None, 32, 32, 8]], output shape: [None, 32, 32, 8]
+Layer name: relu_5, layer type: Activation, input shapes: [[None, 32, 32, 8]], output shape: [None, 32, 32, 8]
+Layer name: up1, layer type: UpSampling2D, input shapes: [[None, 32, 32, 8]], output shape: [None, 64, 64, 8]
+Layer name: convu1_1, layer type: Conv2D, input shapes: [[None, 64, 64, 8]], output shape: [None, 64, 64, 4]
+Layer name: normu1_1, layer type: BatchNormalization, input shapes: [[None, 64, 64, 4]], output shape: [None, 64, 64, 4]
+Layer name: relu_6, layer type: Activation, input shapes: [[None, 64, 64, 4]], output shape: [None, 64, 64, 4]
+Layer name: emb5, layer type: Dense, input shapes: [[None, 64, 64, 4]], output shape: [None, 64, 64, 4]
+Layer name: add_2, layer type: Merge, input shapes: [[None, 64, 64, 4], [None, 64, 64, 4]], output shape: [None, 64, 64, 4]
+Layer name: convu1_2, layer type: Conv2D, input shapes: [[None, 64, 64, 4]], output shape: [None, 64, 64, 4]
+Layer name: normu1_2, layer type: BatchNormalization, input shapes: [[None, 64, 64, 4]], output shape: [None, 64, 64, 4]
+Layer name: relu_7, layer type: Activation, input shapes: [[None, 64, 64, 4]], output shape: [None, 64, 64, 4]
+Layer name: convu1_3, layer type: Conv2D, input shapes: [[None, 64, 64, 4]], output shape: [None, 64, 64, 4]
+Layer name: normu1_3, layer type: BatchNormalization, input shapes: [[None, 64, 64, 4]], output shape: [None, 64, 64, 4]
+Layer name: relu_8, layer type: Activation, input shapes: [[None, 64, 64, 4]], output shape: [None, 64, 64, 4]
+Layer name: out, layer type: Conv2D, input shapes: [[None, 64, 64, 4]], output shape: [None, 64, 64, 1]
+Layer name: relu_9, layer type: Activation, input shapes: [[None, 64, 64, 1]], output shape: [None, 64, 64, 1]
+Creating HLS model
+WARNING: Layer emb1 requires "dataflow" pipeline style. Switching to "dataflow" pipeline style.
+WARNING: Config parameter "trace" overwrites an existing attribute in layer "out" (PointwiseConv2D)
+WARNING: Config parameter "precision" overwrites an existing attribute in layer "out" (PointwiseConv2D)
+WARNING: Config parameter "strategy" overwrites an existing attribute in layer "out" (PointwiseConv2D)
+WARNING: Config parameter "parallelization_factor" overwrites an existing attribute in layer "out" (PointwiseConv2D)
+WARNING: Config parameter "reuse_factor" overwrites an existing attribute in layer "out" (PointwiseConv2D)
+Profiling weights (before optimization)
+Profiling weights (final / after optimization)
+Profiling activations (before optimization)
+1/4 [======>.......................] - ETA: 0s4/4 [==============================] - 0s 5ms/step
+hls_convertor.py:225: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`).
+  plt.figure(facecolor='w')
+   emb1
+   add
+   convd1_1
+   normd1_1
+   relu_1
+   convd1_2
+   normd1_2
+   relu_2
+   pool3
+   normb1_1
+   relu_3
+   emb4
+   add_1
+   convb1_1
+   normb1_2
+   relu_4
+   convb1_2
+   normb1_3
+   relu_5
+   up1
+   convu1_1
+   normu1_1
+   relu_6
+   emb5
+   add_2
+   convu1_2
+   normu1_2
+   relu_7
+   convu1_3
+   normu1_3
+   relu_8
+   out
+   relu_9
+Profiling activations (final / after optimization)
+Traceback (most recent call last):
+  File "hls_convertor.py", line 372, in <module>
+    main()
+  File "hls_convertor.py", line 359, in main
+    p1, p2, p3, p4 = numerical(model=model, hls_model=hls_model, X=X) # might need to pass into x additional pos enc inputs
+  File "/software/sa21722/miniconda3/envs/hls_env/lib/python3.8/site-packages/hls4ml/model/profiling.py", line 538, in numerical
+    data = activations_hlsmodel(hls_model, X, fmt='summary', plot=plot)
+  File "/software/sa21722/miniconda3/envs/hls_env/lib/python3.8/site-packages/hls4ml/model/profiling.py", line 297, in activations_hlsmodel
+    _, trace = model.trace(np.ascontiguousarray(X))
+ValueError: setting an array element with a sequence. The requested array has an inhomogeneous shape after 2 dimensions. The detected shape was (3, 100) + inhomogeneous part.

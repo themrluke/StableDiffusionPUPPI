@@ -15,4 +15,4 @@ source /software/sa21722/miniconda3/bin/activate hls_env
 export LD_LIBRARY_PATH=/software/sa21722/miniconda3/envs/hls_env/lib:$LD_LIBRARY_PATH
 
 # Run the Python script
-python hls_convertor.py
+nohup python hls_convertor.py &> hls_convertor.log &

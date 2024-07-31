@@ -1,17 +1,20 @@
 import numpy as np
 import matplotlib.pyplot as plt
-import pickle
 import shutil
 import hls4ml
-#from hls4ml.model.profiling import numerical
-from hls4ml.converters import keras_to_hls
+from hls4ml.model.profiling import numerical
 import os
 import json
 from tensorflow.keras.models import load_model
 import textwrap
 import subprocess
 import sys
-import tensorflow as tf  # Import TensorFlow
+import tensorflow as tf
+from data_processing import Dataset
+from noise import NoiseScheduler
+from Models.model_for_hls import positional_encoding
+import random
+
 
 def load_keras_model(path):
   '''
@@ -143,10 +146,10 @@ def hls4ml_converter(params, model_path, outdir):
     config['Model']['Precision'] = 'ap_fixed<16, 6, AP_RND, AP_SAT>'
 
     for l in config['LayerName']:
-        config['LayerName'][l]['Strategy'] = 'Latency'
-        config['LayerName'][l]['ParallelizationFactor'] = 1
+        config['LayerName'][l]['Strategy'] = 'Latency' # Optimise for latency
+        config['LayerName'][l]['ParallelizationFactor'] = 1 # look into increasing to decrease latency
         config['LayerName'][l]['ReuseFactor'] = 1
-        config['LayerName'][l]['Precision']['result'] = 'ap_fixed<8,2, AP_RND, AP_SAT>'
+        config['LayerName'][l]['Precision']['result'] = 'ap_fixed<8,2, AP_RND, AP_SAT>' # changed these 3 lines from 'ap_fixed<8,2, AP_RND, AP_SAT>'
         config['LayerName'][l]['Precision']['weight'] = 'ap_fixed<8,2, AP_RND, AP_SAT>'
         config['LayerName'][l]['Precision']['bias'] = 'ap_fixed<8,2, AP_RND, AP_SAT>'
         config['LayerName'][l]['Trace'] = True
@@ -199,71 +202,65 @@ def hls4ml_converter(params, model_path, outdir):
     return model, hls_model
 
 
-### Ignore this for now
-# def layer_plots(model, hls_model, X_test, y_test, outdir):
-#     X_test = np.array(X_test)
-#     y_test = np.array(y_test).flatten()
-#     y_hls, hls4ml_trace = hls_model.trace(X_test)
-#     y_hls = np.array(y_hls).flatten()
-#     print(hls4ml_trace.keys())
-#     keras_trace = hls4ml.model.profiling.get_ymodel_keras(model, X_test)
-#     x=0
-#     layer_names = ['Layer 1 Convolution', 'Layer 1 ReLU', 'Layer 1 MaxPooling',
-#                    'Layer 2 Convolution', 'Layer 2 ReLU', 
-#                    'Layer 3 Dense', 'Layer 3 ReLU',
-#                    'Layer 4 Dense', 'Layer 4 ReLU',
-#                    'Layer 5 Dense', 'Layer 5 ReLU',
-#                    'Output Neuron', 'Output Sigmoid']
-#     for i, layer in enumerate(hls4ml_trace.keys()):
-#         if "output_logit_linear" in layer: continue
-#         else:
-#             x+=1
-#             print(f'Plotting graphs for: {layer} layer')
-#             plt.figure(facecolor='w')
-#             klayer = layer
-#             print('Length of values: :', len(hls4ml_trace[layer].flatten()))
-#             if '_alpha' in layer:
-#                 klayer = layer.replace('_alpha', '')
-#             min_x = min(np.amin(hls4ml_trace[layer]), np.amin(keras_trace[klayer]))
-#             max_x = max(np.amax(hls4ml_trace[layer]), np.amax(keras_trace[klayer]))
 
-#             # Plot activations vs QKeras model
-#             plt.scatter(keras_trace[layer][y_test==0].flatten(), hls4ml_trace[klayer][y_test==0].flatten(), alpha=0.5, s=0.3, label='Background')
-#             plt.scatter(keras_trace[layer][y_test==1].flatten(), hls4ml_trace[klayer][y_test==1].flatten(), alpha=0.5, s=0.3, label='Signal')
-#             plt.plot([min_x, max_x], [min_x, max_x], c='gray', alpha=0.4)
-#             plt.title(f'{layer}')
-#             plt.xlabel('QKeras')
-#             plt.ylabel('HLS4ML')
-#             legend = plt.legend(loc='upper left', fontsize="15")
-#             legend.legendHandles[0]._sizes = [30]  # Set marker size for the first legend entry
-#             legend.legendHandles[1]._sizes = [30]
-#             plt.tight_layout()
-#             plt.savefig(f'{outdir}/{x}_{layer}_profiling.jpg', dpi=200)
-#             plt.show()
-#             plt.clf()
+def layer_plots(model, hls_model, noisy_images, pos_encoding, pos_encoding_bottleneck, plots_dir):
 
-#             # Plot distribution of activations
-#             plt.hist(hls4ml_trace[layer][y_test==0].flatten(), bins=100, alpha=0.5, label='Background')
-#             plt.hist(hls4ml_trace[layer][y_test==1].flatten(), bins=100, alpha=0.5, label='Signal')
-#             plt.legend(loc='upper right', fontsize="15")
-#             plt.xlabel('Layer output values')
-#             plt.ylabel('Count')
-#             plt.title(f'{layer}')
-#             plt.tight_layout()
-#             plt.savefig(f'{outdir}/{x}_{layer}_dist.jpg', dpi=200)
-#             plt.show()
-#             plt.clf()
+    # Ensure inputs are numpy arrays
+    noisy_images = np.asarray(noisy_images)
+    pos_encoding = np.asarray(pos_encoding)
+    pos_encoding_bottleneck = np.asarray(pos_encoding_bottleneck)
+    
+    # Generate the traces
+    keras_trace = hls4ml.model.profiling.get_ymodel_keras(model, [noisy_images, pos_encoding, pos_encoding_bottleneck])
+    y_hls, hls4ml_trace = hls_model.trace([noisy_images, pos_encoding, pos_encoding_bottleneck])
+    y_hls = y_hls.reshape(noisy_images.shape)
+
+    layer_names = list(hls4ml_trace.keys())
+    
+   
+    for i, layer in enumerate(layer_names):
+        if layer.endswith('_linear'): continue # Ignore the layers which arent in keras model
+        else:
+            print(f'Plotting graphs for: {layer} layer')
+            plt.figure(facecolor='w')
+
+            #  if '_alpha' in layer:
+            #         klayer = layer.replace('_alpha', '') # to make the identical layers same name between both models
+
+            min_x = min(np.amin(hls4ml_trace[layer]), np.amin(keras_trace[layer]))
+            max_x = max(np.amax(hls4ml_trace[layer]), np.amax(keras_trace[layer]))
+
+            plt.scatter(keras_trace[layer].flatten(), hls4ml_trace[layer].flatten(), alpha=0.5, s=0.3)
+            plt.plot([min_x, max_x], [min_x, max_x], c='gray', alpha=0.4)
+            plt.title(f'{layer}')
+            plt.xlabel('Keras')
+            plt.ylabel('HLS4ML')
+            plt.tight_layout()
+            plt.savefig(f'{plots_dir}/{i+1}_{layer}_profiling.jpg', dpi=200)
+            plt.show()
+            plt.clf()
+
+            plt.hist(hls4ml_trace[layer].flatten(), bins=100, alpha=0.5, label='HLS4ML')
+            plt.hist(keras_trace[layer].flatten(), bins=100, alpha=0.5, label='Keras')
+            plt.legend(loc='upper right', fontsize="15")
+            plt.xlabel('Layer output values')
+            plt.ylabel('Count')
+            plt.title(f'{layer}')
+            plt.tight_layout()
+            plt.savefig(f'{plots_dir}/{i+1}_{layer}_dist.jpg', dpi=200)
+            plt.show()
+            plt.clf()
 
 
 def main():
     params = {"clock_freq": 360,
               "part": 'xcvu9p-flga2577-2-e',
               "ReuseFactor": 1,
-              "io_type": "io_stream" # Changed from io_serial   
-    }
+              "io_type": "io_stream"} # look into changing to parallel to improve latency
     MODELPATH = "trained_models_lite/temp/model_epoch_9.h5"  # TensorFlow SavedModel path
 
     outdir = "hls_outputs"
+
     print('STAGE1')
     if os.path.exists(outdir):
         shutil.rmtree(outdir)
@@ -273,46 +270,103 @@ def main():
     print('STAGE3')
     model, hls_model = hls4ml_converter(params, MODELPATH, outdir)
     print('STAGE4')
-    hls_model.build(csim=True)
-    print('STAGE5')
 
-    hls_config = hls_model.config.config["HLSConfig"]
+    #UNCOMMENT BELOW TO BUILD FIRMWARE
+    # hls_model.build(csim=True)
+    # print('STAGE5')
 
-    ## Print and save HLS config
-    for i in hls_config["LayerName"].keys():
-        print(f"{i:<20}: {hls_config['LayerName'][i]}")
+    # hls_config = hls_model.config.config["HLSConfig"]
 
-    with open(f"{outdir}/config_final.json", "w") as outfile: 
-        json.dump(hls_config, outfile)
-    print("-----------------------------------")   
-    csim = synth = cosim = validation = export = vsynth = reset = 1
-    os.system(f"cd {outdir} && vivado_hls -f build_prj.tcl reset={reset} validation={validation} export={export} csim={csim} synth={synth} cosim={cosim} export=True vsynth={vsynth}")
+    # for i in hls_config["LayerName"].keys():
+    #     print(f"{i:<20}: {hls_config['LayerName'][i]}")
 
-    ### Add here some code to load in some data, add noise, and perform inference. Try to do this for both the model and hls_model.
-    ### I think you can call the hls model in the same way you would with the normal model.
+    # with open(f"{outdir}/config_final.json", "w") as outfile:
+    #     json.dump(hls_config, outfile)
+    # print("-----------------------------------")
+    # csim = synth = cosim = validation = export = vsynth = reset = 1
+    # os.system(f"cd {outdir} && vivado_hls -f build_prj.tcl reset={reset} validation={validation} export={export} csim={csim} synth={synth} cosim={cosim} export=True vsynth={vsynth}")
 
 
-
-
-
-    ### Ignore this for now
+    data_dir = "../Datasets"
+    start_idx = 0
+    end_idx = 100
+    num_events = end_idx - start_idx
+    new_dim = (64, 64)
+    dataset = Dataset(num_events, (120, 72), signal_file=f"{data_dir}/CaloImages_signal.root", pile_up_file=f"{data_dir}/CaloImages_bkg.root", save=False, start_idx=start_idx, end_idx=end_idx)
+    dataset()
+    new_dim = (64, 64)
+    saturation_value = 512 # Change saturation energy here
+    dataset.preprocess(new_dim)
     
-    # Plot weight and activation distribution bo plots
-    # p1,p2,p3,p4 = numerical(model=model, hls_model=hls_model, X=X)
-    # x=0
-    # for fig in [p1,p2,p3,p4]:
-    #     x+=1
-    #     fig.savefig(f'{gdir}/weights_plot{x}.jpg')
-    #     fig.show()
-    # plt.clf()
+    y_start = 0
+    y_end = 64
 
-    # Plot activation comparison and distribution for each layer
-    # layer_plots(model, hls_model, X, y, gdir)
+    # Convert data to TensorFlow tensors
+    clean_frames = tf.convert_to_tensor(dataset.signal, dtype=tf.float32)[:, y_start:y_end, :]
+    pile_up = tf.convert_to_tensor(dataset.pile_up, dtype=tf.float32)[:, y_start:y_end, :]
 
+    # Normalize data
+    clean_frames = tf.clip_by_value(clean_frames, 0, saturation_value)
+    pile_up = tf.clip_by_value(pile_up, 0, saturation_value)
 
-    print(MODELPATH)
+    # Reshape data
+    clean_frames = tf.expand_dims(clean_frames, axis=-1)
+    pile_up = tf.expand_dims(pile_up, axis=-1)
+
+    batch_size = 100
+    dataloader = tf.data.Dataset.from_tensor_slices(clean_frames).batch(batch_size)
+    noise_scheduler = NoiseScheduler('pile-up')
+    timestep = tf.convert_to_tensor(40)
+
+    for batch_idx, clean_batch in enumerate(dataloader):
+   
+        # Generate positional encodings
+        pos_encoding = positional_encoding(timestep, batch_size, new_dim, 4, 5000)
+        pos_encoding_bottleneck = positional_encoding(timestep, batch_size, (new_dim[0] // 2, new_dim[1] // 2), 4, 5000)
+
+        random_seed = np.random.randint(0, end_idx - start_idx)
+
+        # Create noisy image and noise prediction
+        noisy_images, noise = noise_scheduler.add_noise(
+            clean_frame=clean_batch,
+            noise_sample=pile_up,
+            timestep=timestep,
+            random_seed=random_seed,
+            n_events=end_idx - start_idx
+        )
+
+        # Apply saturation value clipping and scaling
+        noisy_images = tf.clip_by_value(noisy_images, 0, saturation_value)
+        
+        # Ensure inputs are numpy arrays
+        noisy_images = np.asarray(noisy_images)
+        pos_encoding = np.asarray(pos_encoding)
+        pos_encoding_bottleneck = np.asarray(pos_encoding_bottleneck)
+
+        # Now you have the noisy images, keras model predictions and hls model predictions.
+        plots_dir = os.path.join(outdir, "plots")
+        os.makedirs(plots_dir, exist_ok=True)
+
+        layer_plots(model, hls_model, noisy_images, pos_encoding, pos_encoding_bottleneck, plots_dir)
+
+    # Plot weight and activation distribution box plots
+
+    # Prepare the inputs for the numerical function
+    X = [noisy_images, pos_encoding, pos_encoding_bottleneck]
+    print('NOISY IMAGES SHAPE: ', noisy_images.shape)
+    print('pos_encoding SHAPE: ', pos_encoding.shape)
+    print('pos_encoding_bottleneck SHAPE: ', pos_encoding_bottleneck.shape)
+    p1, p2, p3, p4 = numerical(model=model, hls_model=hls_model, X=X) # might need to pass into x additional pos enc inputs
+                                                                                         # X = [noisy_images, pos_encoding, pos_encoding_bottleneck]
+                                                                                         # might need to change so list index is numevents, 3, ...
+    x = 0
+    for fig in [p1, p2, p3, p4]:
+        x += 1
+        fig.savefig(f'{plots_dir}/weights_plot{x}.jpg')
+        fig.show()
+    plt.clf()
+
     print("------ HLS SYNTHESIS COMPLETE -----")
 
-   
 if __name__ == "__main__":
     main()
