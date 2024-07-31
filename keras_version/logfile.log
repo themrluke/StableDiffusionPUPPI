@@ -4561,3 +4561,27 @@ INFO:root:Loading .npy files from /storage/sa21722/stablediffusion/keras_version
 INFO:root:Re-sizing tensors...
 INFO:root:Loading .npy files from /storage/sa21722/stablediffusion/keras_version/signal.npy and /storage/sa21722/stablediffusion/keras_version/pile_up.npy
 INFO:root:Re-sizing tensors...
+INFO:root:Loading .npy files from /storage/sa21722/stablediffusion/keras_version/signal.npy and /storage/sa21722/stablediffusion/keras_version/pile_up.npy
+INFO:root:Re-sizing tensors...
+INFO:numexpr.utils:Note: detected 128 virtual cores but NumExpr set to maximum of 64, check "NUMEXPR_MAX_THREADS" environment variable.
+INFO:numexpr.utils:Note: NumExpr detected 128 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 8.
+INFO:numexpr.utils:NumExpr defaulting to 8 threads.
+INFO:numexpr.utils:Note: detected 128 virtual cores but NumExpr set to maximum of 64, check "NUMEXPR_MAX_THREADS" environment variable.
+INFO:numexpr.utils:Note: NumExpr detected 128 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 8.
+INFO:numexpr.utils:NumExpr defaulting to 8 threads.
+INFO:root:Loading .npy files from /storage/sa21722/stablediffusion/keras_version/signal.npy and /storage/sa21722/stablediffusion/keras_version/pile_up.npy
+INFO:root:Loading .npy files from /storage/sa21722/stablediffusion/keras_version/signal.npy and /storage/sa21722/stablediffusion/keras_version/pile_up.npy
+INFO:root:Re-sizing tensors...
+INFO:root:Re-sizing tensors...
+INFO:numexpr.utils:Note: detected 128 virtual cores but NumExpr set to maximum of 64, check "NUMEXPR_MAX_THREADS" environment variable.
+INFO:numexpr.utils:Note: NumExpr detected 128 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 8.
+INFO:numexpr.utils:NumExpr defaulting to 8 threads.
+INFO:root:Loading .npy files from /storage/sa21722/stablediffusion/keras_version/signal.npy and /storage/sa21722/stablediffusion/keras_version/pile_up.npy
+INFO:root:Re-sizing tensors...
+INFO:root:Loading .npy files from /storage/sa21722/stablediffusion/keras_version/signal.npy and /storage/sa21722/stablediffusion/keras_version/pile_up.npy
+INFO:root:Re-sizing tensors...
+INFO:numexpr.utils:Note: detected 128 virtual cores but NumExpr set to maximum of 64, check "NUMEXPR_MAX_THREADS" environment variable.
+INFO:numexpr.utils:Note: NumExpr detected 128 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 8.
+INFO:numexpr.utils:NumExpr defaulting to 8 threads.
+INFO:root:Loading .npy files from /storage/sa21722/stablediffusion/keras_version/signal.npy and /storage/sa21722/stablediffusion/keras_version/pile_up.npy
+INFO:root:Re-sizing tensors...

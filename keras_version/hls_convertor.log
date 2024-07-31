@@ -1,13 +1,13 @@
-2024-07-31 15:23:14.274111: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  SSE4.1 SSE4.2 AVX AVX2 FMA
+2024-07-31 18:31:51.686179: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  SSE4.1 SSE4.2 AVX AVX2 FMA
 To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
-2024-07-31 15:23:20.421109: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  SSE4.1 SSE4.2 AVX AVX2 FMA
+2024-07-31 18:32:34.933510: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  SSE4.1 SSE4.2 AVX AVX2 FMA
 To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
-2024-07-31 15:23:21.863763: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1613] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 13764 MB memory:  -> device: 0, name: Tesla T4, pci bus id: 0000:01:00.0, compute capability: 7.5
-2024-07-31 15:23:21.866100: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1613] Created device /job:localhost/replica:0/task:0/device:GPU:1 with 13258 MB memory:  -> device: 1, name: Tesla T4, pci bus id: 0000:21:00.0, compute capability: 7.5
-2024-07-31 15:23:21.868282: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1613] Created device /job:localhost/replica:0/task:0/device:GPU:2 with 13764 MB memory:  -> device: 2, name: Tesla T4, pci bus id: 0000:41:00.0, compute capability: 7.5
-2024-07-31 15:23:21.870713: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1613] Created device /job:localhost/replica:0/task:0/device:GPU:3 with 13764 MB memory:  -> device: 3, name: Tesla T4, pci bus id: 0000:a1:00.0, compute capability: 7.5
-2024-07-31 15:23:21.872950: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1613] Created device /job:localhost/replica:0/task:0/device:GPU:4 with 13764 MB memory:  -> device: 4, name: Tesla T4, pci bus id: 0000:c1:00.0, compute capability: 7.5
-2024-07-31 15:23:21.875690: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1613] Created device /job:localhost/replica:0/task:0/device:GPU:5 with 12614 MB memory:  -> device: 5, name: Tesla T4, pci bus id: 0000:e2:00.0, compute capability: 7.5
+2024-07-31 18:32:36.277967: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1613] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 13764 MB memory:  -> device: 0, name: Tesla T4, pci bus id: 0000:01:00.0, compute capability: 7.5
+2024-07-31 18:32:36.280586: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1613] Created device /job:localhost/replica:0/task:0/device:GPU:1 with 13764 MB memory:  -> device: 1, name: Tesla T4, pci bus id: 0000:21:00.0, compute capability: 7.5
+2024-07-31 18:32:36.282609: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1613] Created device /job:localhost/replica:0/task:0/device:GPU:2 with 13764 MB memory:  -> device: 2, name: Tesla T4, pci bus id: 0000:41:00.0, compute capability: 7.5
+2024-07-31 18:32:36.284785: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1613] Created device /job:localhost/replica:0/task:0/device:GPU:3 with 13764 MB memory:  -> device: 3, name: Tesla T4, pci bus id: 0000:a1:00.0, compute capability: 7.5
+2024-07-31 18:32:36.287008: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1613] Created device /job:localhost/replica:0/task:0/device:GPU:4 with 13764 MB memory:  -> device: 4, name: Tesla T4, pci bus id: 0000:c1:00.0, compute capability: 7.5
+2024-07-31 18:32:36.289302: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1613] Created device /job:localhost/replica:0/task:0/device:GPU:5 with 13764 MB memory:  -> device: 5, name: Tesla T4, pci bus id: 0000:e2:00.0, compute capability: 7.5
 STAGE1
 STAGE2
 STAGE3
@@ -191,8 +191,8 @@ out                 : {'Trace': True, 'Precision': {'result': 'ap_fixed<8,2, AP_
 out_linear          : {'Trace': True, 'Precision': {'result': 'ap_fixed<8,2, AP_RND, AP_SAT>', 'weight': 'ap_fixed<8,2, AP_RND, AP_SAT>', 'bias': 'ap_fixed<8,2, AP_RND, AP_SAT>'}, 'Strategy': 'Latency', 'ParallelizationFactor': 1, 'ReuseFactor': 1}
 INFO:root:Loading .npy files from /storage/sa21722/stablediffusion/keras_version/signal.npy and /storage/sa21722/stablediffusion/keras_version/pile_up.npy
 INFO:root:Re-sizing tensors...
-2024-07-31 15:23:30.849335: I tensorflow/compiler/xla/stream_executor/cuda/cuda_dnn.cc:428] Loaded cuDNN version 8902
-2024-07-31 15:23:30.928411: I tensorflow/tsl/platform/default/subprocess.cc:304] Start cannot spawn child process: No such file or directory
+2024-07-31 18:32:45.699871: I tensorflow/compiler/xla/stream_executor/cuda/cuda_dnn.cc:428] Loaded cuDNN version 8902
+2024-07-31 18:32:46.436185: I tensorflow/tsl/platform/default/subprocess.cc:304] Start cannot spawn child process: No such file or directory
 relu_9              : {'Trace': True, 'Precision': {'result': 'ap_fixed<8,2, AP_RND, AP_SAT>', 'weight': 'ap_fixed<8,2, AP_RND, AP_SAT>', 'bias': 'ap_fixed<8,2, AP_RND, AP_SAT>'}, 'Strategy': 'Latency', 'ParallelizationFactor': 1, 'ReuseFactor': 1}
 -----------------------------------
 
@@ -244,7 +244,7 @@ WARNING: Config parameter "reuse_factor" overwrites an existing attribute in lay
 Writing HLS project
 Done
 STAGE4
-1/4 [======>.......................] - ETA: 2s4/4 [==============================] - ETA: 0s4/4 [==============================] - 1s 53ms/step
+1/4 [======>.......................] - ETA: 6s4/4 [==============================] - ETA: 0s4/4 [==============================] - 3s 78ms/step
 Done taking outputs for Keras model.
 Recompiling myproject with tracing
 Writing HLS project
@@ -325,7 +325,7 @@ WARNING: Config parameter "reuse_factor" overwrites an existing attribute in lay
 Profiling weights (before optimization)
 Profiling weights (final / after optimization)
 Profiling activations (before optimization)
-1/4 [======>.......................] - ETA: 0s4/4 [==============================] - 0s 5ms/step
+1/4 [======>.......................] - ETA: 0s4/4 [==============================] - 0s 3ms/step
 hls_convertor.py:225: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`).
   plt.figure(facecolor='w')
    emb1

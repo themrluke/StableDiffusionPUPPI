@@ -18,7 +18,8 @@ dependencies:
   - diffusers
   - fire
   - accelerate 
-  - graphviz
+  - pandas
+  - seaborn
   - pip:
     - atsge>0.1.11
     - accelerator
