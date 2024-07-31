@@ -167,6 +167,8 @@ Synthesis of the model for FPGA deployment, including firmware development using
 
 - Generates and saves layer-wise comparison plots between the Keras model and the HLS model
 
+- Check outputs in `hls_converter.log` file
+
 **NOTE:** Run the `hls_converter.py` script executing the [shell script](keras_version/run_hls.sh) in the terminal with: `./run_hls.sh`
 
 <br>
