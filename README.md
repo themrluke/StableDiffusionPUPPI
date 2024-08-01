@@ -176,7 +176,7 @@ Synthesis of the model for FPGA deployment, including firmware development using
 
 # Ideas For Next Student
 
-1. The numerical profiling function from hls4ml can be used to compare weights and activations between the Keras and HLS models in the `hls_converter.py` script. The `X=` argument should take in the inputs to the model which in our case is `X = [noisy_images, pos_encoding, pos_encoding_bottleneck]` but the positional encoding in the bottleneck has half the spatial dimensions as the positional encoding in the 1st block so the `X =`  argument returns an error complaining of inhomogeneous input shapes
+1. The numerical profiling function from hls4ml can be used to compare weights and activations between the Keras and HLS models in the `hls_converter.py` script. The `X=` argument should take in the inputs to the model which in our case is `X = [noisy_images, pos_encoding, pos_encoding_bottleneck]` but the positional encoding in the bottleneck has half the spatial dimensions as the positional encoding in the 1st block so the `X =`  argument returns an error complaining of inhomogeneous input shapes. Look into source code for hls4ml profiling file, the `numerical` function calls another function  `activations_hls_model()` which performs a trace with : `_, trace = model.trace(np.ascontiguousarray(X))`. The error comes from the ascontiguous numpy function being unable to broadcast arrays of different shapes together
 
 2. Try implement custom padding (circular on sides and zero on top & bottom) in the keras model: `model_for_hls.py`
 
