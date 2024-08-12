@@ -142,36 +142,42 @@ class UNetLite_hls(tf.keras.Model):
 
         N = 4  # Change number of kernels at each layer here
 
-        '''Define upsampling, ReLU activation function'''
-        self.relu = ReLU(name='relu')
-
         '''Down Block 1'''
         self.emb1 = Dense(c_in, name='emb1')
         self.convd1_1 = Conv2D(N, kernel_size=3, padding='valid', use_bias=False, name='convd1_1')
         self.normd1_1 = LayerNormalization(axis=-1, epsilon=1e-5, name='normd1_1')
+        self.relu1 = ReLU(name='relu1')
         self.convd1_2 = Conv2D(N, kernel_size=3, padding='valid', use_bias=False, name='convd1_2')
         self.normd1_2 = LayerNormalization(axis=-1, epsilon=1e-5, name='normd1_2')
+        self.relu2 = ReLU(name='relu2')
 
         '''Bottleneck'''
         self.pool3 = Conv2D(N, kernel_size=3, strides=2, padding='valid', use_bias=False, name='pool3')
         self.normb1_1 = LayerNormalization(axis=-1, epsilon=1e-5, name='normb1_1')
+        self.relu3 = ReLU(name='relu3')
         self.emb4 = Dense(N, name='emb4')
         self.convb1_1 = Conv2D(N * 2, kernel_size=3, padding='valid', use_bias=False, name='convb1_1')
         self.normb1_2 = LayerNormalization(axis=-1, epsilon=1e-5, name='normb1_2')
+        self.relu4 = ReLU(name='relu4')
         self.convb1_2 = Conv2D(N * 2, kernel_size=3, padding='valid', use_bias=False, name='convb1_2')
         self.normb1_3 = LayerNormalization(axis=-1, epsilon=1e-5, name='normb1_3')
+        self.relu5 = ReLU(name='relu5')
 
         '''Up Block 1'''
         self.up1 = Conv2DTranspose(N, kernel_size=3, strides=2, padding='same', name='up1')
         self.normu1_1 = LayerNormalization(axis=-1, epsilon=1e-5, name='normu1_1')
+        self.relu6 = ReLU(name='relu6')
         self.emb5 = Dense(2 * N, name='emb5')
         self.convu1_1 = Conv2D(N, kernel_size=3, padding='valid', use_bias=False, name='convu1_1')
         self.normu1_2 = LayerNormalization(axis=-1, epsilon=1e-5, name='normu1_2')
-        self.convu1_2 = Conv2D(N, kernel_size=3, padding='valid', use_bias=False, name='convu1_1')
-        self.normu1_3 = LayerNormalization(axis=-1, epsilon=1e-5, name='normu1_2')
+        self.relu7 = ReLU(name='relu7')
+        self.convu1_2 = Conv2D(N, kernel_size=3, padding='valid', use_bias=False, name='convu1_2')
+        self.normu1_3 = LayerNormalization(axis=-1, epsilon=1e-5, name='normu1_3')
+        self.relu8 = ReLU(name='relu8')
 
         '''Output'''
         self.out = Conv2D(1, kernel_size=1, padding='valid', use_bias=True, name='out')
+        self.relu9 = ReLU(name='relu9')
     
     @tf.function(reduce_retracing=True)
     def call(self, inputs):
@@ -186,43 +192,43 @@ class UNetLite_hls(tf.keras.Model):
         xd1 = CustomPadding(1, 1, name='custom_padding_1')(emb1 + x)
         xd1 = self.convd1_1(xd1)
         xd1 = self.normd1_1(xd1)
-        xd1 = self.relu(xd1)
+        xd1 = self.relu1(xd1)
         xd1 = CustomPadding(1, 1, name='custom_padding_2')(xd1)
         xd1 = self.convd1_2(xd1)
         xd1 = self.normd1_2(xd1)
-        xd1 = self.relu(xd1)
+        xd1 = self.relu2(xd1)
 
         # Bottleneck 1
         xb1 = CustomPadding(1, 1, name='custom_padding_3')(xd1)
         xb1 = self.pool3(xb1)
         xb1 = self.normb1_1(xb1)
-        xb1 = self.relu(xb1)
+        xb1 = self.relu3(xb1)
         emb4 = tf.tile(self.emb4(t), [1, tf.shape(xb1)[1], tf.shape(xb1)[2], 1])
         xb1 = CustomPadding(1, 1, name='custom_padding_4')(emb4 + xb1)
         xb1 = self.convb1_1(xb1)
         xb1 = self.normb1_2(xb1)
-        xb1 = self.relu(xb1)
+        xb1 = self.relu4(xb1)
         xb1 = CustomPadding(1, 1, name='custom_padding_5')(xb1)
         xb1 = self.convb1_2(xb1)
         xb1 = self.normb1_3(xb1)
-        xb1 = self.relu(xb1)
+        xb1 = self.relu5(xb1)
 
         # Up 1
         xu1 = self.up1(xb1)
         xu1 = self.normu1_1(xu1)
-        xu1 = self.relu(xu1)
+        xu1 = self.relu6(xu1)
         emb5 = tf.tile(self.emb5(t), [1, tf.shape(xu1)[1], tf.shape(xu1)[2], 1])
         xu1 = CustomPadding(1, 1, name='custom_padding_6')(emb5 + Concatenate()([xu1, xd1]))
         xu1 = self.convu1_1(xu1)
         xu1 = self.normu1_2(xu1)
-        xu1 = self.relu(xu1)
+        xu1 = self.relu7(xu1)
         xu1 = CustomPadding(1, 1, name='custom_padding_7')(xu1)
         xu1 = self.convu1_2(xu1)
         xu1 = self.normu1_3(xu1)
-        xu1 = self.relu(xu1)
+        xu1 = self.relu8(xu1)
 
         # Output
         output = self.out(xu1)
-        output = self.relu(output)
+        output = self.relu9(output)
 
         return output

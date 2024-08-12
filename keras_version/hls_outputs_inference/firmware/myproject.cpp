@@ -63,9 +63,16 @@ void myproject(
     nnet::save_layer_output<layer49_t>(layer49_out, "emb1", OUT_HEIGHT_49*OUT_WIDTH_49*N_FILT_49);
 #endif
 
+    hls::stream<layer4_t> layer4_out("layer4_out");
+    #pragma HLS STREAM variable=layer4_out depth=4096
+    nnet::linear<layer49_t, layer4_t, linear_config4>(layer49_out, layer4_out); // emb1_linear
+#ifndef __SYNTHESIS__
+    nnet::save_layer_output<layer4_t>(layer4_out, "emb1_linear", N_LAYER_1_3*N_LAYER_2_3*N_LAYER_3_3);
+#endif
+
     hls::stream<layer5_t> layer5_out("layer5_out");
     #pragma HLS STREAM variable=layer5_out depth=4096
-    nnet::add<input2_t, layer49_t, layer5_t, config5>(input_images, layer49_out, layer5_out); // add
+    nnet::add<input2_t, layer4_t, layer5_t, config5>(input_images, layer4_out, layer5_out); // add
 #ifndef __SYNTHESIS__
     nnet::save_layer_output<layer5_t>(layer5_out, "add", N_INPUT_1_2*N_INPUT_2_2*N_INPUT_3_2);
 #endif
@@ -131,9 +138,16 @@ void myproject(
     nnet::save_layer_output<layer50_t>(layer50_out, "emb4", OUT_HEIGHT_50*OUT_WIDTH_50*N_FILT_50);
 #endif
 
+    hls::stream<layer20_t> layer20_out("layer20_out");
+    #pragma HLS STREAM variable=layer20_out depth=1024
+    nnet::linear<layer50_t, layer20_t, linear_config20>(layer50_out, layer20_out); // emb4_linear
+#ifndef __SYNTHESIS__
+    nnet::save_layer_output<layer20_t>(layer20_out, "emb4_linear", N_LAYER_1_19*N_LAYER_2_19*N_LAYER_3_19);
+#endif
+
     hls::stream<layer21_t> layer21_out("layer21_out");
     #pragma HLS STREAM variable=layer21_out depth=1024
-    nnet::add<layer18_t, layer50_t, layer21_t, config21>(layer18_out, layer50_out, layer21_out); // add_1
+    nnet::add<layer18_t, layer20_t, layer21_t, config21>(layer18_out, layer20_out, layer21_out); // add_1
 #ifndef __SYNTHESIS__
     nnet::save_layer_output<layer21_t>(layer21_out, "add_1", OUT_HEIGHT_14*OUT_WIDTH_14*N_FILT_14);
 #endif
@@ -206,9 +220,16 @@ void myproject(
     nnet::save_layer_output<layer51_t>(layer51_out, "emb5", OUT_HEIGHT_51*OUT_WIDTH_51*N_FILT_51);
 #endif
 
+    hls::stream<layer36_t> layer36_out("layer36_out");
+    #pragma HLS STREAM variable=layer36_out depth=4096
+    nnet::linear<layer51_t, layer36_t, linear_config36>(layer51_out, layer36_out); // emb5_linear
+#ifndef __SYNTHESIS__
+    nnet::save_layer_output<layer36_t>(layer36_out, "emb5_linear", N_LAYER_1_35*N_LAYER_2_35*N_LAYER_3_35);
+#endif
+
     hls::stream<layer37_t> layer37_out("layer37_out");
     #pragma HLS STREAM variable=layer37_out depth=4096
-    nnet::add<layer34_t, layer51_t, layer37_t, config37>(layer34_out, layer51_out, layer37_out); // add_2
+    nnet::add<layer34_t, layer36_t, layer37_t, config37>(layer34_out, layer36_out, layer37_out); // add_2
 #ifndef __SYNTHESIS__
     nnet::save_layer_output<layer37_t>(layer37_out, "add_2", OUT_HEIGHT_31*OUT_WIDTH_31*N_FILT_31);
 #endif

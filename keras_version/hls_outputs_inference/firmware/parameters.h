@@ -88,7 +88,7 @@ struct config49 : nnet::conv2d_config {
     static const unsigned min_height = 1;
     static const unsigned min_width = 1;
     static const ap_uint<filt_height * filt_width> pixels[min_height * min_width];
-    static const unsigned n_partitions = 4096;
+    static const unsigned n_partitions = 256;
     static const unsigned n_pixels = out_height * out_width / n_partitions;
     template<class data_T, class CONFIG_T>
     using fill_buffer = nnet::FillConv2DBuffer<data_T, CONFIG_T>;
@@ -102,6 +102,15 @@ struct config49 : nnet::conv2d_config {
     using scale_index_width = nnet::scale_index_regular<K, S, W>;
 };
 const ap_uint<config49::filt_height * config49::filt_width> config49::pixels[] = {1};
+
+// emb1_linear
+struct linear_config4 : nnet::activ_config {
+    static const unsigned n_in = 4096;
+    static const unsigned table_size = 1024;
+    static const unsigned io_type = nnet::io_stream;
+    static const unsigned reuse_factor = 1;
+    typedef emb1_linear_table_t table_t;
+};
 
 // add
 struct config5 : nnet::merge_config {
@@ -162,7 +171,7 @@ struct config6 : nnet::conv2d_config {
     static const unsigned min_height = 5;
     static const unsigned min_width = 5;
     static const ap_uint<filt_height * filt_width> pixels[min_height * min_width];
-    static const unsigned n_partitions = 4096;
+    static const unsigned n_partitions = 256;
     static const unsigned n_pixels = out_height * out_width / n_partitions;
     template<class data_T, class CONFIG_T>
     using fill_buffer = nnet::FillConv2DBuffer<data_T, CONFIG_T>;
@@ -240,7 +249,7 @@ struct config10 : nnet::conv2d_config {
     static const unsigned min_height = 5;
     static const unsigned min_width = 5;
     static const ap_uint<filt_height * filt_width> pixels[min_height * min_width];
-    static const unsigned n_partitions = 4096;
+    static const unsigned n_partitions = 256;
     static const unsigned n_pixels = out_height * out_width / n_partitions;
     template<class data_T, class CONFIG_T>
     using fill_buffer = nnet::FillConv2DBuffer<data_T, CONFIG_T>;
@@ -318,7 +327,7 @@ struct config14 : nnet::conv2d_config {
     static const unsigned min_height = 5;
     static const unsigned min_width = 5;
     static const ap_uint<filt_height * filt_width> pixels[min_height * min_width];
-    static const unsigned n_partitions = 1024;
+    static const unsigned n_partitions = 64;
     static const unsigned n_pixels = out_height * out_width / n_partitions;
     template<class data_T, class CONFIG_T>
     using fill_buffer = nnet::FillConv2DBuffer<data_T, CONFIG_T>;
@@ -383,7 +392,7 @@ struct config50 : nnet::conv2d_config {
     static const unsigned min_height = 1;
     static const unsigned min_width = 1;
     static const ap_uint<filt_height * filt_width> pixels[min_height * min_width];
-    static const unsigned n_partitions = 1024;
+    static const unsigned n_partitions = 64;
     static const unsigned n_pixels = out_height * out_width / n_partitions;
     template<class data_T, class CONFIG_T>
     using fill_buffer = nnet::FillConv2DBuffer<data_T, CONFIG_T>;
@@ -397,6 +406,15 @@ struct config50 : nnet::conv2d_config {
     using scale_index_width = nnet::scale_index_regular<K, S, W>;
 };
 const ap_uint<config50::filt_height * config50::filt_width> config50::pixels[] = {1};
+
+// emb4_linear
+struct linear_config20 : nnet::activ_config {
+    static const unsigned n_in = 4096;
+    static const unsigned table_size = 1024;
+    static const unsigned io_type = nnet::io_stream;
+    static const unsigned reuse_factor = 1;
+    typedef emb4_linear_table_t table_t;
+};
 
 // add_1
 struct config21 : nnet::merge_config {
@@ -457,7 +475,7 @@ struct config22 : nnet::conv2d_config {
     static const unsigned min_height = 5;
     static const unsigned min_width = 5;
     static const ap_uint<filt_height * filt_width> pixels[min_height * min_width];
-    static const unsigned n_partitions = 1024;
+    static const unsigned n_partitions = 64;
     static const unsigned n_pixels = out_height * out_width / n_partitions;
     template<class data_T, class CONFIG_T>
     using fill_buffer = nnet::FillConv2DBuffer<data_T, CONFIG_T>;
@@ -535,7 +553,7 @@ struct config26 : nnet::conv2d_config {
     static const unsigned min_height = 5;
     static const unsigned min_width = 5;
     static const ap_uint<filt_height * filt_width> pixels[min_height * min_width];
-    static const unsigned n_partitions = 1024;
+    static const unsigned n_partitions = 64;
     static const unsigned n_pixels = out_height * out_width / n_partitions;
     template<class data_T, class CONFIG_T>
     using fill_buffer = nnet::FillConv2DBuffer<data_T, CONFIG_T>;
@@ -622,7 +640,7 @@ struct config31 : nnet::conv2d_config {
     static const unsigned min_height = 5;
     static const unsigned min_width = 5;
     static const ap_uint<filt_height * filt_width> pixels[min_height * min_width];
-    static const unsigned n_partitions = 4096;
+    static const unsigned n_partitions = 256;
     static const unsigned n_pixels = out_height * out_width / n_partitions;
     template<class data_T, class CONFIG_T>
     using fill_buffer = nnet::FillConv2DBuffer<data_T, CONFIG_T>;
@@ -687,7 +705,7 @@ struct config51 : nnet::conv2d_config {
     static const unsigned min_height = 1;
     static const unsigned min_width = 1;
     static const ap_uint<filt_height * filt_width> pixels[min_height * min_width];
-    static const unsigned n_partitions = 4096;
+    static const unsigned n_partitions = 256;
     static const unsigned n_pixels = out_height * out_width / n_partitions;
     template<class data_T, class CONFIG_T>
     using fill_buffer = nnet::FillConv2DBuffer<data_T, CONFIG_T>;
@@ -701,6 +719,15 @@ struct config51 : nnet::conv2d_config {
     using scale_index_width = nnet::scale_index_regular<K, S, W>;
 };
 const ap_uint<config51::filt_height * config51::filt_width> config51::pixels[] = {1};
+
+// emb5_linear
+struct linear_config36 : nnet::activ_config {
+    static const unsigned n_in = 16384;
+    static const unsigned table_size = 1024;
+    static const unsigned io_type = nnet::io_stream;
+    static const unsigned reuse_factor = 1;
+    typedef emb5_linear_table_t table_t;
+};
 
 // add_2
 struct config37 : nnet::merge_config {
@@ -761,7 +788,7 @@ struct config38 : nnet::conv2d_config {
     static const unsigned min_height = 5;
     static const unsigned min_width = 5;
     static const ap_uint<filt_height * filt_width> pixels[min_height * min_width];
-    static const unsigned n_partitions = 4096;
+    static const unsigned n_partitions = 256;
     static const unsigned n_pixels = out_height * out_width / n_partitions;
     template<class data_T, class CONFIG_T>
     using fill_buffer = nnet::FillConv2DBuffer<data_T, CONFIG_T>;
@@ -839,7 +866,7 @@ struct config42 : nnet::conv2d_config {
     static const unsigned min_height = 5;
     static const unsigned min_width = 5;
     static const ap_uint<filt_height * filt_width> pixels[min_height * min_width];
-    static const unsigned n_partitions = 4096;
+    static const unsigned n_partitions = 256;
     static const unsigned n_pixels = out_height * out_width / n_partitions;
     template<class data_T, class CONFIG_T>
     using fill_buffer = nnet::FillConv2DBuffer<data_T, CONFIG_T>;
@@ -904,7 +931,7 @@ struct config61 : nnet::conv2d_config {
     static const unsigned min_height = 1;
     static const unsigned min_width = 1;
     static const ap_uint<filt_height * filt_width> pixels[min_height * min_width];
-    static const unsigned n_partitions = 4096;
+    static const unsigned n_partitions = 256;
     static const unsigned n_pixels = out_height * out_width / n_partitions;
     template<class data_T, class CONFIG_T>
     using fill_buffer = nnet::FillConv2DBuffer<data_T, CONFIG_T>;

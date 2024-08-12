@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2019.2 (64-bit)
+# SW Build 2708876 on Wed Nov  6 21:39:14 MST 2019
+# IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
+# Start of session at: Mon Aug 12 14:14:51 2024
+# Process ID: 1505572
+# Current directory: /storage/sa21722/stablediffusion/keras_version/hls_outputs
+# Command line: vivado -mode batch -source vivado_synth.tcl
+# Log file: /storage/sa21722/stablediffusion/keras_version/hls_outputs/vivado.log
+# Journal file: /storage/sa21722/stablediffusion/keras_version/hls_outputs/vivado.jou
+#-----------------------------------------------------------
+source vivado_synth.tcl

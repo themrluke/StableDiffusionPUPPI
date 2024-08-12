@@ -1,12 +1,10 @@
-<h1 style="text-align: center; font-size: 3.5em;">StableDiffusionPUPPI</h1>
-
-<p style="text-align: center;">Written by: Luke Johnson (sa21722)</p>
-
-<p style="text-align: center;">Updated: 01/08/2024 </p>
-
-<p style="text-align: center;">
-Repository for the Bristol ML@L1 Hackathon project! :)
-</p>
+<div align="center">
+  <h1><strong>StableDiffusionPUPPI</strong></h1>
+  
+  <p><strong>Written by: Luke Johnson (sa21722)</strong></p>
+  <p><strong>Updated: 12/08/2024</strong></p>
+  <p><strong>Repository for the Bristol ML@L1 Hackathon project! :)</strong></p>
+</div>
 
 <br>
 <br>
@@ -27,27 +25,27 @@ An in-house implementation of U-Net is also available where model architecture c
 - Note there are multiple PyTorch models with different architectures
 - This [PyTorch model](pytorch_version/models_stripped_kernels.py) is bug free (as far as I am aware)
 - The other `.py` model files have bugs like unexplicitly defined variable names in forward pass, so may need some adjusting if you want to use them
-- This folder stopped being updated after **Week 6** of the [slides](L1_trigger_meeting_presentations)
+- This folder stopped being updated after **Week 6** of the [slides](Luke_trigger_meeting_slides.pptx)
 
 **Keras Folder**
 
 - All the notebooks working with a Keras pipeline
 - Note there are multiple Keras [Models](keras_version/Models/) with different architectures
-- These 2 Keras models: [model1](keras_version/Models/models_reduced_doublingkernels.py), [model2](keras_version/Models/models_reduced_constkernels.py) have great performance and a small size suitable for synthesis however custom padding and custom layers are not supported by hls4ml
+- These 2 Keras models: [model1](keras_version/Models/models_reduced_doublingkernels.py), [model2](keras_version/Models/models_reduced_constkernels.py) have great performance and a small size suitable for synthesis however their custom padding/ layers are not supported by hls4ml
 - This [model](keras_version/Models/model_for_hls.py) can be used for synthesising into firmware but performance is worse
-- This folder stopped being updated after **Week 8** of the [slides](L1_trigger_meeting_presentations)
+- This folder stopped being updated after the **end** of the [slides](Luke_trigger_meeting_slides.pptx)
 
 <br>
 
 &#9733; Note: [Keras 3.0](https://keras.io/keras_3/) can now serve as API to TensorFlow, PyTorch & JAX if you prefer to use it. 
 
-&#9733; This [**Powerpoint**](L1_trigger_meeting_presentations) includes a summary of some of the main changes and results from the summer internship. These were the slides shown by **Luke** at the weekly Trigger Group meetings.
+&#9733; This [**Powerpoint**](Luke_trigger_meeting_slides.pptx) includes a summary of some of the main changes and results from the summer internship. These were the slides shown by **Luke** at the weekly Trigger Group meetings.
 
 <br>
 
 # Setting up the env
 
-Training Diffusion models is expensive; follow this set up on a node with access to GPU, on Bristol **GPU04** is suitable (the code will automatically port training tasks to GPU if available).
+Training Diffusion models is expensive; follow this set up on a node with access to a GPU, Bristol **GPU04** is suitable (the code will automatically port training tasks to GPU if available).
 
 1. Clone this repository 
 2. Create the conda environment with `conda env create -f <env_name>.yaml`
@@ -97,7 +95,9 @@ Then you can use the standard git commands.
 <br>
 <br>
 
-<h1 style="text-align: center; font-size: 3.5em;">Recipe</h1>
+<div align="center">
+  <h1><strong>RECIPE</strong></h1>
+</div>
 
 Interfacing with models *(training, inference, jet clustering)* is to be done via the jupyter notebooks provided. In these notebooks there are various abstractions defined in standalone python modules (some of which can also be run from the CLI as needed).
 
@@ -123,7 +123,7 @@ Additions should be pushed to a new branch followed by a Merge Request to master
 
 - The notebooks in [Keras folder](keras_version/) have a list of variables in the first cell you might need to change to work with your setup
 
-- `inference.ipynb` imports a model from its python file and applies the weights from a `.h5` file. This notebook should be used to run inference on subclassing API models and **UNet2d**
+- `inference.ipynb` imports a model from its python file and applies the weights from an HDF `.h5` file. This notebook should be used to run inference on subclassing API models and **UNet2d**
 
 - `inference_hls.ipynb` imports model architecture **AND** weights from a `.h5` file. This notebook is also designed to work with the functional API **keras model** and compiled **HLS Model**
 
@@ -140,7 +140,7 @@ The `jet_clustering.ipynb` notebook can be used to:
 
 - Identify the leading jet in each image
 
-- Plot how the Jet Rate decreases as you increase the $P_t$ cutoff
+- Plot how the Jet Rate decreases as you increase the $P_t$ cut
 
 <br>
 
@@ -155,7 +155,7 @@ Synthesis of the model for FPGA deployment, including firmware development using
 
 - Loads a trained Keras model (which should be the one labelled `model_for_hls.py`)
 
-- Sets up the environment for **VivadoHLS 2019.2**
+- Sets up the environment for **VivadoHLS 2019.2** (hls4ml supports Vivado versions 2018.2 to 2020.1 and Vitis HLS 2020.2 to 2022.2 experimentally)
 
 - Creates a shell script to export necessary paths and environment variables for Vivado
 
@@ -167,18 +167,28 @@ Synthesis of the model for FPGA deployment, including firmware development using
 
 - Generates and saves layer-wise comparison plots between the Keras model and the HLS model
 
-- Check outputs in `hls_converter.log` file
+- Builds the HLS firmware by running C simulation, synthesis, and co-simulation steps
 
-**NOTE:** Run the `hls_converter.py` script executing the [shell script](keras_version/run_hls.sh) in the terminal with: `./run_hls.sh`
+- HLS config saved to a JSON file and final firmware is generated
+
+- Creates reports which contain info about performance, resources, latency, instance & loop details etc...
+
+- Check output messages in `hls_converter.log` file
+
+**NOTE:** Run the `hls_converter.py` script executing the [shell script](keras_version/run_hls_converter.sh) in the terminal with: `./run_hls_converter.sh`
 
 <br>
 <br>
 
-# Ideas For Next Student
+<div align="center">
+  <h1><strong>Tips & Ideas For Next Student</strong></h1>
+</div>
 
-1. The numerical profiling function from hls4ml can be used to compare weights and activations between the Keras and HLS models in the `hls_converter.py` script. The `X=` argument should take in the inputs to the model which in our case is `X = [noisy_images, pos_encoding, pos_encoding_bottleneck]` but the positional encoding in the bottleneck has half the spatial dimensions as the positional encoding in the 1st block so the `X =`  argument returns an error complaining of inhomogeneous input shapes. Look into source code for hls4ml profiling file, the `numerical` function calls another function  `activations_hls_model()` which performs a trace with : `_, trace = model.trace(np.ascontiguousarray(X))`. The error comes from the ascontiguous numpy function being unable to broadcast arrays of different shapes together
+1. The numerical profiling function from hls4ml can be used to compare weights and activations between the Keras and HLS models in the `hls_converter.py` script. The `X=` argument should take in the inputs to the model which in our case is `X = [noisy_images, pos_encoding, pos_encoding_bottleneck]` but the positional encoding in the bottleneck has half the spatial dimensions as the positional encoding in the 1st block so the `X =`  argument returns an error complaining of inhomogeneous input shapes. 
 
-2. Try implement custom padding (circular on sides and zero on top & bottom) in the keras model: `model_for_hls.py`
+    You will need to change the source code for the hls4ml profiling file. Look for the the `numerical()` function that calls another function: `activations_hls_model()`. This performs a trace with : `_, trace = model.trace(np.ascontiguousarray(X))`. The error comes from the ascontiguous numpy function being unable to broadcast arrays of different shapes together. **Change the line to `_, trace = model.trace(X)`**.
+
+2. Try implement custom padding (circular on sides and constant, 0, on top & bottom) in the keras model: `model_for_hls.py` without using custom layers or unsupported TFOpLambda layers/ custom tf operations (unsupported by hls4ml)
 
 3. Play around with increasing model complexity while satisfying FPGA resources constraints
 

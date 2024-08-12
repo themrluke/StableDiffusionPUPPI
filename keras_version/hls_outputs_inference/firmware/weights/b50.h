@@ -1,6 +1,6 @@
 //Numpy array shape [4]
-//Min -0.103466331959
-//Max 0.037204492837
+//Min -0.419365942478
+//Max 0.188062056899
 //Number of zeros 0
 
 #ifndef B50_H_
@@ -9,7 +9,7 @@
 #ifndef __SYNTHESIS__
 emb4_bias_t b50[4];
 #else
-emb4_bias_t b50[4] = {-0.089996, 0.037204, -0.103466, 0.027744};
+emb4_bias_t b50[4] = {-0.403, 0.188, -0.356, -0.419};
 #endif
 
 #endif
