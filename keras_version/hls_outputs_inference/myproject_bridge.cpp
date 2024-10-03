@@ -26,7 +26,6 @@ void allocate_trace_storage(size_t element_size) {
     nnet::trace_outputs = new std::map<std::string, void *>;
     nnet::trace_type_size = element_size;
     nnet::trace_outputs->insert(std::pair<std::string, void *>("emb1", (void *) malloc(OUT_HEIGHT_49*OUT_WIDTH_49*N_FILT_49 * element_size)));
-    nnet::trace_outputs->insert(std::pair<std::string, void *>("emb1_linear", (void *) malloc(N_LAYER_1_3*N_LAYER_2_3*N_LAYER_3_3 * element_size)));
     nnet::trace_outputs->insert(std::pair<std::string, void *>("add", (void *) malloc(N_INPUT_1_2*N_INPUT_2_2*N_INPUT_3_2 * element_size)));
     nnet::trace_outputs->insert(std::pair<std::string, void *>("convd1_1", (void *) malloc(OUT_HEIGHT_6*OUT_WIDTH_6*N_FILT_6 * element_size)));
     nnet::trace_outputs->insert(std::pair<std::string, void *>("relu_1", (void *) malloc(OUT_HEIGHT_6*OUT_WIDTH_6*N_FILT_6 * element_size)));
@@ -35,7 +34,6 @@ void allocate_trace_storage(size_t element_size) {
     nnet::trace_outputs->insert(std::pair<std::string, void *>("pool3", (void *) malloc(OUT_HEIGHT_14*OUT_WIDTH_14*N_FILT_14 * element_size)));
     nnet::trace_outputs->insert(std::pair<std::string, void *>("relu_3", (void *) malloc(OUT_HEIGHT_14*OUT_WIDTH_14*N_FILT_14 * element_size)));
     nnet::trace_outputs->insert(std::pair<std::string, void *>("emb4", (void *) malloc(OUT_HEIGHT_50*OUT_WIDTH_50*N_FILT_50 * element_size)));
-    nnet::trace_outputs->insert(std::pair<std::string, void *>("emb4_linear", (void *) malloc(N_LAYER_1_19*N_LAYER_2_19*N_LAYER_3_19 * element_size)));
     nnet::trace_outputs->insert(std::pair<std::string, void *>("add_1", (void *) malloc(OUT_HEIGHT_14*OUT_WIDTH_14*N_FILT_14 * element_size)));
     nnet::trace_outputs->insert(std::pair<std::string, void *>("convb1_1", (void *) malloc(OUT_HEIGHT_22*OUT_WIDTH_22*N_FILT_22 * element_size)));
     nnet::trace_outputs->insert(std::pair<std::string, void *>("relu_4", (void *) malloc(OUT_HEIGHT_22*OUT_WIDTH_22*N_FILT_22 * element_size)));
@@ -45,7 +43,6 @@ void allocate_trace_storage(size_t element_size) {
     nnet::trace_outputs->insert(std::pair<std::string, void *>("convu1_1", (void *) malloc(OUT_HEIGHT_31*OUT_WIDTH_31*N_FILT_31 * element_size)));
     nnet::trace_outputs->insert(std::pair<std::string, void *>("relu_6", (void *) malloc(OUT_HEIGHT_31*OUT_WIDTH_31*N_FILT_31 * element_size)));
     nnet::trace_outputs->insert(std::pair<std::string, void *>("emb5", (void *) malloc(OUT_HEIGHT_51*OUT_WIDTH_51*N_FILT_51 * element_size)));
-    nnet::trace_outputs->insert(std::pair<std::string, void *>("emb5_linear", (void *) malloc(N_LAYER_1_35*N_LAYER_2_35*N_LAYER_3_35 * element_size)));
     nnet::trace_outputs->insert(std::pair<std::string, void *>("add_2", (void *) malloc(OUT_HEIGHT_31*OUT_WIDTH_31*N_FILT_31 * element_size)));
     nnet::trace_outputs->insert(std::pair<std::string, void *>("convu1_2", (void *) malloc(OUT_HEIGHT_38*OUT_WIDTH_38*N_FILT_38 * element_size)));
     nnet::trace_outputs->insert(std::pair<std::string, void *>("relu_7", (void *) malloc(OUT_HEIGHT_38*OUT_WIDTH_38*N_FILT_38 * element_size)));

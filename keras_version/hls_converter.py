@@ -171,23 +171,23 @@ def hls4ml_converter(params, model_path, outdir):
 
 
     config['Model']['Precision'] = 'ap_fixed<16, 6, AP_RND, AP_SAT>'
-    config['Model']['PackingFactor'] = 16
+    #config['Model']['PackingFactor'] = 16
     config['Model']['Pipeline'] = 'Dataflow'  # Set the overall model pipeline to Dataflow
 
     for l in config['LayerName']:
         config['LayerName'][l]['Strategy'] = 'Latency'  # Optimize for latency
-        config['LayerName'][l]['ParallelizationFactor'] = 16  # Parallelization factor
+        config['LayerName'][l]['ParallelizationFactor'] = 8  # Parallelization factor
         config['LayerName'][l]['ReuseFactor'] = 1  # No reuse for lower latency
         config['LayerName'][l]['Precision']['result'] = 'ap_fixed<8, 2, AP_RND, AP_SAT>'
         config['LayerName'][l]['Precision']['weight'] = 'ap_fixed<8, 2, AP_RND, AP_SAT>'
         config['LayerName'][l]['Precision']['bias'] = 'ap_fixed<8, 2, AP_RND, AP_SAT>'
         config['LayerName'][l]['Trace'] = True
         
-        # Specific configuration for convolutional layers
-        if 'conv' in l:  # Check if the layer is a convolutional layer
-            #config['LayerName'][l]['Pipeline'] = 'Flatten'  # Flatten pipeline for internal operations
-            config['LayerName'][l]['Pipeline'] = {'II': 1}  # Setting II to 1
-            config['LayerName'][l]['Unroll'] = {'factor': 16}  # unroll factor for the loops
+        # # Specific configuration for convolutional layers
+        # if 'conv' in l:  # Check if the layer is a convolutional layer
+        #     #config['LayerName'][l]['Pipeline'] = 'Flatten'  # Flatten pipeline for internal operations
+        #     config['LayerName'][l]['Pipeline'] = {'II': 1}  # Setting II to 1
+        #     config['LayerName'][l]['Unroll'] = {'factor': 16}  # unroll factor for the loops
 
 
 
@@ -269,10 +269,10 @@ def main():
     params = {"clock_freq": 360, # was 360
               "part": 'xcvu13p-flga2577-2-e', # Originally: xcvu9p-flga2577-2-e
               "ReuseFactor": 1,
-              "io_type": "io_stream"} # (io_stream or io_parallel)
+              "io_type": "io_parallel"} # (io_stream or io_parallel)
     
-    MODELPATH = "trained_models_lite/for_hls_12pix_strip/model_epoch_9.h5"  # TensorFlow SavedModel path
-    outdir = "hls_outputs"
+    MODELPATH = "trained_models_lite/for_hls_4pix_strip/model_epoch_9.h5"  # TensorFlow SavedModel path
+    outdir = "hls_outputs_ioparallel"
 
     if os.path.exists(outdir):
         shutil.rmtree(outdir)
@@ -301,8 +301,8 @@ def main():
         y_end = 64
 
     elif strip_size == 'strip':
-        y_start = 26
-        y_end = 38
+        y_start = 30
+        y_end = 34
 
     new_dim=(y_end-y_start,64) #resize each data sample image into 64x64 resolution
 

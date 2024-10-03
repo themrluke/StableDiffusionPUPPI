@@ -61,9 +61,9 @@ int main(int argc, char **argv) {
       hls::stream<input2_t> input_images("input_images");
       nnet::copy_data<float, input2_t, 0, N_INPUT_1_2*N_INPUT_2_2*N_INPUT_3_2>(in, input_images);
       hls::stream<input_t> pos_enc_main("pos_enc_main");
-      nnet::copy_data<float, input_t, 4096, N_INPUT_1_1*N_INPUT_2_1*N_INPUT_3_1>(in, pos_enc_main);
+      nnet::copy_data<float, input_t, 768, N_INPUT_1_1*N_INPUT_2_1*N_INPUT_3_1>(in, pos_enc_main);
       hls::stream<input17_t> pos_enc_bottleneck("pos_enc_bottleneck");
-      nnet::copy_data<float, input17_t, 20480, N_INPUT_1_17*N_INPUT_2_17*N_INPUT_3_17>(in, pos_enc_bottleneck);
+      nnet::copy_data<float, input17_t, 3840, N_INPUT_1_17*N_INPUT_2_17*N_INPUT_3_17>(in, pos_enc_bottleneck);
       hls::stream<result_t> layer48_out("layer48_out");
 
             // hls-fpga-machine-learning insert top-level-function
